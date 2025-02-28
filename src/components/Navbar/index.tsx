@@ -52,7 +52,7 @@ const Navbar = () => {
 
     // 🔥 Add Red Glow Effect to the Logo Image
     gsap.to(imgRef.current, {
-      filter: "drop-shadow(0px 0px 30px red)", // Red glow effect 
+      filter: "drop-shadow(0px 0px 30px red)", // Red glow effect
       duration: 0.8,
       repeat: -1,
       yoyo: true,
@@ -124,7 +124,8 @@ const Navbar = () => {
               top: 45,
               left: 120,
               fontSize: "30px",
-              fontWeight: 800,
+              fontWeight: 600,
+              fontFamily: "Gilroy, sans-serif",
               color: "#E73A3C",
             }}
           >
@@ -139,6 +140,7 @@ const Navbar = () => {
               width: "100%",
               fontSize: "15px",
               fontWeight: 600,
+              fontFamily: "Gilroy, sans-serif",
               color: "#5C5C5E",
             }}
           >
@@ -153,25 +155,45 @@ const Navbar = () => {
       >
         <Typography
           className="nav-item"
-          sx={{ fontSize: "18px", fontWeight: 600, color: "#5C5C5E" }}
+          sx={{
+            fontSize: "18px",
+            fontWeight: 600,
+            fontFamily: "Gilroy, sans-serif",
+            color: "#5C5C5E",
+          }}
         >
           About Us
         </Typography>
         <Typography
           className="nav-item"
-          sx={{ fontSize: "18px", fontWeight: 600, color: "#5C5C5E" }}
+          sx={{
+            fontSize: "18px",
+            fontWeight: 600,
+            fontFamily: "Gilroy, sans-serif",
+            color: "#5C5C5E",
+          }}
         >
           Services
         </Typography>
         <Typography
           className="nav-item"
-          sx={{ fontSize: "18px", fontWeight: 600, color: "#5C5C5E" }}
+          sx={{
+            fontSize: "18px",
+            fontWeight: 600,
+            fontFamily: "Gilroy, sans-serif",
+            color: "#5C5C5E",
+          }}
         >
           Contact
         </Typography>
         <Typography
           className="nav-item"
-          sx={{ fontSize: "18px", fontWeight: 600, color: "#5C5C5E" }}
+          sx={{
+            fontSize: "18px",
+            fontWeight: 600,
+            fontFamily: "Gilroy, sans-serif",
+            color: "#5C5C5E",
+          }}
         >
           Careers
         </Typography>
