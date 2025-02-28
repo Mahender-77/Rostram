@@ -1,11 +1,12 @@
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { Box, Typography } from "@mui/material";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import logo from "../../assets/rostram_logo-removebg-preview.png";
 
 const Navbar = () => {
   const [showOverlay, setShowOverlay] = useState(true);
+  const imgRef = useRef(null);
 
   useGSAP(() => {
     gsap.to(".logo-container", {
@@ -49,7 +50,14 @@ const Navbar = () => {
       stagger: 0.3,
     });
 
-   
+    // 🔥 Add Red Glow Effect to the Logo Image
+    gsap.to(imgRef.current, {
+      filter: "drop-shadow(0px 0px 30px red)", // Red glow effect 
+      duration: 0.8,
+      repeat: -1,
+      yoyo: true,
+      ease: "power1.inOut",
+    });
   });
 
   return (
@@ -88,6 +96,7 @@ const Navbar = () => {
             }}
           >
             <img
+              ref={imgRef} // 🔥 Reference added to the image
               style={{ marginRight: 100 }}
               height={350}
               src={logo}
@@ -167,8 +176,6 @@ const Navbar = () => {
           Careers
         </Typography>
       </Box>
-
-    
     </Box>
   );
 };
