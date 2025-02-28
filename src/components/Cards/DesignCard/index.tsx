@@ -7,15 +7,21 @@ const DesignCard = () => {
   const carouselRef = useRef(null);
 
   useEffect(() => {
-    gsap.to(carouselRef.current, {
-      xPercent: -100, // Move left continuously
-      duration: 8, // Control speed
-      ease: "linear", // Smooth infinite motion
-      repeat: -1, // Infinite loop
-      modifiers: {
-        xPercent: gsap.utils.wrap(-100, 0), // Seamless transition
-      },
-    });
+    const tl = gsap.timeline({ repeat: -1 });
+
+    tl.to(carouselRef.current, {
+      x: "-100vw", // Move left to next slide
+     // Smooth slide duration
+     duration:1,
+      ease: "power2.inOut",
+    })
+      .to(carouselRef.current, { x: "-100vw", duration:5 }) // Stay for 5s
+      .to(carouselRef.current, {
+        x: "0vw", // Move back to the first slide
+        duration:1,
+        ease: "power2.inOut",
+      })
+      .to(carouselRef.current, { x: "0vw", duration: 5 }); // Stay for 5s
   }, []);
 
   return (
@@ -63,7 +69,7 @@ const DesignCard = () => {
           </Box>
         </Box>
 
-        {/* Second Slide (Duplicate for Seamless Effect) */}
+        {/* Second Slide */}
         <Box sx={{ minWidth: "100vw", display: "flex", justifyContent: "center" }}>
           <Box
             sx={{
