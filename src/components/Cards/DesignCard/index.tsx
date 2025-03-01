@@ -53,7 +53,7 @@ const DesignCard = () => {
           }}
         >
           {/* SVG Background */}
-          <svg
+          {/* <svg
             width="100%"
             height="100%"
             viewBox="0 0 1440 220"
@@ -71,7 +71,7 @@ const DesignCard = () => {
               stroke="#56C03C"
               strokeWidth="10"
             />
-          </svg>
+          </svg> */}
 
           <Box
             sx={{
@@ -142,7 +142,7 @@ const DesignCard = () => {
             position: "relative",
           }}
         >
-          <svg
+          {/* <svg
             width="100%"
             height="100%"
             viewBox="0 0 1440 220"
@@ -161,7 +161,7 @@ const DesignCard = () => {
               stroke="#3FC0F0"
               strokeWidth="10"
             />
-          </svg>
+          </svg> */}
           <Box
             sx={{
               minWidth: "100vw",
@@ -241,7 +241,7 @@ const DesignCard = () => {
             position: "relative",
           }}
         >
-          <svg
+          {/* <svg
             width="100%"
             height="100%"
             viewBox="0 0 1440 220"
@@ -260,7 +260,7 @@ const DesignCard = () => {
               stroke="#FFC400"
               strokeWidth="10"
             />
-          </svg>
+          </svg> */}
           <Box
             sx={{
               minWidth: "100vw",

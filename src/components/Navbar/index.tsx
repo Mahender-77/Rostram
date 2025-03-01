@@ -24,14 +24,14 @@ const Navbar = () => {
       onComplete: () => setShowOverlay(false),
     });
 
-    gsap.to(".dot", {
-      y: -8,
-      repeat: -1,
-      yoyo: true,
-      stagger: 0.2,
-      ease: "power1.inOut",
-      duration: 0.5,
-    });
+    // gsap.to(".dot", {
+    //   y: -8,
+    //   repeat: -1,
+    //   yoyo: true,
+    //   stagger: 0.2,
+    //   ease: "power1.inOut",
+    //   duration: 0.5,
+    // });
 
     gsap.from(".rostram-text", {
       delay: 2.5,
@@ -68,6 +68,8 @@ const Navbar = () => {
         width: "100%",
         height: "10VH",
         alignItems: "center",
+        // padding:"10px"
+        // border:"1px solid red"
       }}
     >
       {showOverlay && (
@@ -102,14 +104,14 @@ const Navbar = () => {
               src={logo}
               alt="Logo"
             />
-            <Typography
+            {/* <Typography
               style={{ color: "#fff", fontSize: "40px", display: "flex" }}
             >
               Loading<span className="dot">.</span>
               <span className="dot">.</span>
               <span className="dot">.</span>
               <span className="dot">!</span>
-            </Typography>
+            </Typography> */}
           </Box>
         </Box>
       )}
@@ -125,11 +127,11 @@ const Navbar = () => {
               left: 120,
               fontSize: "30px",
               fontWeight: 600,
-              fontFamily: "Gilroy, sans-serif",
+              fontFamily: "Nunito, sans-serif",
               color: "#E73A3C",
             }}
           >
-            Rotstram
+            ROSTRAM
           </Typography>
           <Typography
             className="rostram-text"
@@ -144,7 +146,7 @@ const Navbar = () => {
               color: "#5C5C5E",
             }}
           >
-            techno labs
+            Tekno Labs
           </Typography>
         </Box>
       </Box>
