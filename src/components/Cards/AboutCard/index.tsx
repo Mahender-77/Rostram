@@ -10,31 +10,31 @@ const AboutCard = () => {
   useGSAP(() => {
     gsap.from(".data", {
       textContent: 0,
-      duration: 0.4, // Faster animation
+      duration: 0.7, // Faster animation
       ease: "power2.out", // Smooth but quick animation
       snap: { textContent: 1 },
       //   stagger: 0.3, // Reduced stagger delay
       scrollTrigger: {
         trigger: ".data",
-        start: "top 70%", // Trigger animation earlier
+        start: "top 50%", // Trigger animation earlier
         // end: "bottom center",
         scrub: false, // Disable scrub for instant effect
         // markers: true,
       },
     });
-    gsap.from(".about", {
-      opacity: 0,
-      x: -100,
-      scrollTrigger: {
-        trigger: ".about",
-        start: "top 80%",
-        markers: true,
-        end: "top 30%",
-        scrub: 1,
-      },
-      duration: 1,
-      delay: 3,
-    });
+    // gsap.from(".about", {
+    //   opacity: 0,
+    //   x: -100,
+    //   scrollTrigger: {
+    //     trigger: ".about",
+    //     start: "top 80%",
+    //     markers: true,
+    //     end: "top 30%",
+    //     scrub: 1,
+    //   },
+    //   duration: 1,
+    //   delay: 3,
+    // });
   });
 
   return (
@@ -52,7 +52,7 @@ const AboutCard = () => {
         overflow: "clip",
       }}
     >
-      <svg
+      {/* <svg
         width="100%"
         height="100%"
         viewBox="0 0 2040 900"
@@ -72,7 +72,7 @@ const AboutCard = () => {
           strokeWidth="10"
           fill="#434549"
         />
-      </svg>
+      </svg> */}
       <Box
         sx={{
           paddingX: "10rem",
@@ -97,7 +97,7 @@ const AboutCard = () => {
               fontSize: "40px",
               fontWeight: 600,
               fontFamily: "Gilroy, sans-serif",
-              color: "var(--whiteText)",
+             
             }}
           >
             About Us
@@ -136,7 +136,7 @@ const AboutCard = () => {
                     fontSize: "50px",
                     fontWeight: 600,
                     fontFamily: "Gilroy, sans-serif",
-                    color: "var(--whiteText)",
+                   
                   }}
                 >
                   20
@@ -146,7 +146,7 @@ const AboutCard = () => {
                     fontSize: "50px",
                     fontWeight: 600,
                     fontFamily: "Gilroy, sans-serif",
-                    color: "var(--whiteText)",
+                   
                   }}
                 >
                   +
@@ -157,7 +157,7 @@ const AboutCard = () => {
                   fontSize: "20px",
                   fontWeight: 600,
                   fontFamily: "Gilroy, sans-serif",
-                  color: "var(--whiteText)",
+                 
                 }}
               >
                 Years of experience
@@ -186,7 +186,7 @@ const AboutCard = () => {
                     fontSize: "50px",
                     fontWeight: 600,
                     fontFamily: "Gilroy, sans-serif",
-                    color: "var(--whiteText)",
+                   
                   }}
                 >
                   6
@@ -196,7 +196,7 @@ const AboutCard = () => {
                     fontSize: "50px",
                     fontWeight: 600,
                     fontFamily: "Gilroy, sans-serif",
-                    color: "var(--whiteText)",
+                   
                   }}
                 >
                   +
@@ -207,7 +207,7 @@ const AboutCard = () => {
                   fontSize: "20px",
                   fontWeight: 600,
                   fontFamily: "Gilroy, sans-serif",
-                  color: "var(--whiteText)",
+                 
                 }}
               >
                 Delivered Products
@@ -236,7 +236,7 @@ const AboutCard = () => {
                     fontSize: "50px",
                     fontWeight: 600,
                     fontFamily: "Gilroy, sans-serif",
-                    color: "var(--whiteText)",
+                   
                   }}
                 >
                   5
@@ -246,7 +246,7 @@ const AboutCard = () => {
                     fontSize: "50px",
                     fontWeight: 600,
                     fontFamily: "Gilroy, sans-serif",
-                    color: "var(--whiteText)",
+                   
                   }}
                 >
                   +
@@ -257,7 +257,7 @@ const AboutCard = () => {
                   fontSize: "20px",
                   fontWeight: 600,
                   fontFamily: "Gilroy, sans-serif",
-                  color: "var(--whiteText)",
+                 
                 }}
               >
                 Certified Developers
@@ -286,7 +286,7 @@ const AboutCard = () => {
                     fontSize: "50px",
                     fontWeight: 600,
                     fontFamily: "Gilroy, sans-serif",
-                    color: "var(--whiteText)",
+                   
                   }}
                 >
                   500
@@ -296,7 +296,7 @@ const AboutCard = () => {
                     fontSize: "50px",
                     fontWeight: 600,
                     fontFamily: "Gilroy, sans-serif",
-                    color: "var(--whiteText)",
+                   
                   }}
                 >
                   +
@@ -307,7 +307,7 @@ const AboutCard = () => {
                   fontSize: "20px",
                   fontWeight: 600,
                   fontFamily: "Gilroy, sans-serif",
-                  color: "var(--whiteText)",
+                 
                 }}
               >
                 Satisfied Clints

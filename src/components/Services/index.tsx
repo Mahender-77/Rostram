@@ -1,13 +1,13 @@
 import { Box, Button, Typography } from "@mui/material";
-import React from "react";
+
 // import itserviceimg from "../../assets/Computer troubleshooting-amico.png";
-import itserviceimg from "../../assets/IT.gif";
-import cyberSecurityImg from "../../assets/Secure Server-amico.png";
-import VFXImg from "../../assets/VFX.gif";
-import ITSupportImg from "../../assets/Service.gif";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import itserviceimg from "../../assets/IT.gif";
+import cyberSecurityImg from "../../assets/Secure Server-amico.png";
+import ITSupportImg from "../../assets/Service.gif";
+import VFXImg from "../../assets/VFX.gif";
 
 // Register ScrollTrigger plugin
 gsap.registerPlugin(ScrollTrigger);
