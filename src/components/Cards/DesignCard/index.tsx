@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import  { useEffect, useRef } from "react";
 import { Box, Button, Typography } from "@mui/material";
 import designimg from "../../../assets/Circles-cuate.png";
 import developimg from "../../../assets/Mobile development-bro.png";
