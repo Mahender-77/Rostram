@@ -1,3 +1,4 @@
+import AboutCard from "./components/Cards/AboutCard";
 import DesignCard from "./components/Cards/DesignCard";
 import { Center_Container } from "./components/Center_Container";
 import Navbar from "./components/Navbar";
@@ -11,6 +12,7 @@ function App() {
    <Navbar/>
    <DesignCard/>
    <Services/>
+   <AboutCard/>
    <Center_Container/>
    </>
   );
