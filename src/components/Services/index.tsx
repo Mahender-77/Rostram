@@ -1,9 +1,10 @@
 import { Box, Button, Typography } from "@mui/material";
 import React from "react";
-import itserviceimg from "../../assets/Computer troubleshooting-amico.png";
+// import itserviceimg from "../../assets/Computer troubleshooting-amico.png";
+import itserviceimg from "../../assets/IT.gif";
 import cyberSecurityImg from "../../assets/Secure Server-amico.png";
-import VFXImg from "../../assets/Animation-bro.png";
-import ITSupportImg from "../../assets/Admin-bro.png";
+import VFXImg from "../../assets/VFX.gif";
+import ITSupportImg from "../../assets/Service.gif";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 
@@ -141,6 +142,9 @@ const Services = () => {
               src={item.image}
               alt=""
             />
+    
+       
+
           </Box>
         </Box>
       ))}
