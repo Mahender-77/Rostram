@@ -127,7 +127,7 @@ const DesignCard = () => {
                   fontSize: "1rem",
                   fontWeight: 500,
                   fontFamily: "Gilroy, sans-serif",
-                  color: "var(--blackText)",
+                  color: "var(--whiteText)",
                 }}
               >
                 {slide.description}
@@ -139,7 +139,7 @@ const DesignCard = () => {
                   border: `1px solid ${slide.color}`,
                   borderBottom: `10px solid ${slide.color}`,
                   borderRadius: 5,
-                  backgroundColor: "var(--whiteText)",
+                  backgroundColor: "var(--blackButton)",
                   color: slide.color,
                   textTransform: "capitalize",
                   padding: 1,

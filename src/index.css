@@ -2,15 +2,20 @@
 body {
   margin: 0;
   padding: 0;
+  /* background-color: #212529; */
+  background-color: #161a1d;
 }
 :root {
+  --blackbackGround:#000000;
   --whiteText: #fefffe;
   --grayFooter: #f1f0f4;
   --grayButton: #d9dadb;
   --blackText: #5c5d5f;
   --darkGray: #434549;
   --lightGray: #8e8e92;
-  --blackButton: #010100;
+  --blackButton: #161a1d;
+  /* --blackButton: #212529; */
+  /* --blackButton: #010100; */
 }
 
 @font-face {
