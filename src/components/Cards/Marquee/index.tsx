@@ -96,7 +96,7 @@ const Marquee: React.FC = () => {
   // const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
   return (
     <Box
-      sx={{ overflow: "hidden", whiteSpace: "nowrap", width: "100%", py: 7, }}
+      sx={{ overflow: "hidden", whiteSpace: "nowrap", width: "100%" }}
     >
       <Box
         sx={{
