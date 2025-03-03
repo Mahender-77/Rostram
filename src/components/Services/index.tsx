@@ -91,106 +91,106 @@ const Services = forwardRef((_, ref) => {
   }, []);
 
   return (
-    <Box  ref={ref} sx={{width:"100%",height:"100vh",placeContent:"center"}}>
-        <Box
-     
-      sx={{
-        display: "flex",
-        flexWrap: "wrap",
-        width: "100%",
-        minHeight: "70vh",
-        gap: "30px",
-        justifyContent: "center",
-        alignItems:'center',
-      
-      }}
+    <Box
+      ref={ref}
+      sx={{ width: "100%", height: "110vh", placeContent: "center" }}
     >
-      {array.map((item) => (
-        <Box
-          key={item.title}
-          className={item.title.split(" ")[0]}
-          sx={{
-            width: "40%",
-            // height: "320px",
-            border: "1px solid var(--whiteText)",
-            borderRadius: "30px",
-            borderBottom: "10px solid var(--whiteText)",
-            display: "flex",
-          }}
-        >
+      <Box
+        sx={{
+          display: "flex",
+          flexWrap: "wrap",
+          width: "100%",
+          minHeight: "70vh",
+          gap: "30px",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
+        {array.map((item) => (
           <Box
+            key={item.title}
+            className={item.title.split(" ")[0]}
             sx={{
-              padding: "25px",
+              width: "45%",
+              // height: "320px",
+              border: "1px solid var(--whiteText)",
+              borderRadius: "30px",
+              borderBottom: "10px solid var(--whiteText)",
               display: "flex",
-              flexDirection: "column",
-              justifyContent: "flex-start",
-              alignItems: "flex-start",
-              width: "50%",
-              gap: 3,
             }}
           >
-            <Typography
+            <Box
               sx={{
-                fontSize: "40px",
-                fontWeight: "600",
-                color: `${item.color}`,
-                fontFamily: "Gilroy, sans-serif",
+                padding: "25px",
+                display: "flex",
+                flexDirection: "column",
+                justifyContent: "flex-start",
+                alignItems: "flex-start",
+                width: "50%",
+                gap: 3,
               }}
             >
-              {item.title}
-            </Typography>
-            <Typography
+              <Typography
+                sx={{
+                  fontSize: "40px",
+                  fontWeight: "600",
+                  color: `${item.color}`,
+                  fontFamily: "Gilroy, sans-serif",
+                }}
+              >
+                {item.title}
+              </Typography>
+              <Typography
+                sx={{
+                  fontSize: "15px",
+                  fontWeight: "500",
+                  width: "100%",
+                  height: "92px",
+                  fontFamily: "Gilroy, sans-serif",
+                  color: "var(--whiteText)",
+                }}
+              >
+                {item.description}
+              </Typography>
+              <Button
+                sx={{
+                  marginTop: "10px",
+                  width: "10rem",
+                  border: `1px solid ${item.color}`,
+                  borderBottom: `10px solid ${item.color}`,
+                  borderRadius: 5,
+                  backgroundColor: "var(--blackButton)",
+                  color: `${item.color}`,
+                  textTransform: "capitalize",
+                  padding: 1,
+                  fontSize: "1rem",
+                  fontWeight: 600,
+                  fontFamily: "Gilroy, sans-serif",
+                }}
+                variant="outlined"
+              >
+                MORE
+              </Button>
+            </Box>
+            <Box
               sx={{
-                fontSize: "15px",
-                fontWeight: "500",
-                width: "100%",
-                height: "92px",
-                fontFamily: "Gilroy, sans-serif",
-                color: "var(--whiteText)",
+                width: "50%",
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
               }}
             >
-              {item.description}
-            </Typography>
-            <Button
-              sx={{
-                marginTop: "10px",
-                width: "10rem",
-                border: `1px solid ${item.color}`,
-                // borderBottom: `10px solid ${item.color}`,
-                borderRadius: 5,
-                backgroundColor: "var(--blackButton)",
-                color: `${item.color}`,
-                textTransform: "capitalize",
-                padding: 1,
-                fontSize: "1rem",
-                fontWeight: 600,
-                fontFamily: "Gilroy, sans-serif",
-              }}
-              variant="outlined"
-            >
-              MORE
-            </Button>
+              <img
+                height="240px"
+                style={{ objectFit: "cover" }}
+                src={item.image}
+                alt={item.title}
+              />
+            </Box>
           </Box>
-          <Box
-            sx={{
-              width: "50%",
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
-            }}
-          >
-            <img
-              height="240px"
-              style={{ objectFit: "cover" }}
-              src={item.image}
-              alt={item.title}
-            />
-          </Box>
-        </Box>
-      ))}
+        ))}
+      </Box>
     </Box>
-    </Box>
-  
   );
 });
 
