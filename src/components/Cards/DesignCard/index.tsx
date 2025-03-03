@@ -137,7 +137,7 @@ const DesignCard = () => {
                 sx={{
                   width: "10rem",
                   border: `1px solid ${slide.color}`,
-                  borderBottom: `10px solid ${slide.color}`,
+                  // borderBottom: `10px solid ${slide.color}`,
                   borderRadius: 5,
                   backgroundColor: "var(--blackButton)",
                   color: slide.color,

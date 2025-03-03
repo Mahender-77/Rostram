@@ -28,13 +28,14 @@ const AboutCard = forwardRef((_, ref) => {
       sx={{
         width: "100%",
         margin: "auto",
-        height: "90vh",
+        height: "70vh",
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
-        marginTop: "40px",
+        // marginTop: "20px",
         position: "relative",
         overflow: "clip",
+        // border:"1px solid red"
       }}
     >
       <Box
