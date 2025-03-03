@@ -9,6 +9,36 @@ gsap.registerPlugin(ScrollTrigger);
 
 const AboutCard = forwardRef((_, ref) => {
   useGSAP(() => {
+    // Split the text into individual characters and add each one to a span
+    const textElement = document.querySelector(".char");
+    if (!textElement) return;
+    const text = (textElement as HTMLElement).innerText;
+    const splitText = text.split("").map((char) => {
+      // Check if the character is a space and wrap it with a <span>
+      if (char === " ") {
+        return `<span class="char space" style="display:inline-block">&nbsp;</span>`;
+      }
+      return `<span class="char" style="display:inline-block">${char}</span>`;
+    });
+    textElement.innerHTML = splitText.join("");
+
+    // GSAP animation for typewriter effect
+    gsap.from(".char", {
+      opacity: 0,
+      x: 100,
+      scrollTrigger: {
+        trigger: ".char",
+        start: "top 80%",
+        end: "top 60%",
+        scrub: 1,
+        markers: true,
+      },
+      ease: "power2.inOut",
+      duration: 1,
+      delay: 3,
+    });
+
+    // Scroll-triggered number animation
     gsap.from(".data", {
       textContent: 0,
       duration: 0.7,
@@ -27,12 +57,13 @@ const AboutCard = forwardRef((_, ref) => {
       ref={ref}
       sx={{
         width: "100%",
+        minHeight: "110vh",
         margin: "auto",
         height: "90vh",
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
-        marginTop: "40px",
+        marginTop: "1rem",
         position: "relative",
         overflow: "clip",
       }}
@@ -61,7 +92,7 @@ const AboutCard = forwardRef((_, ref) => {
               fontWeight: 600,
               fontFamily: "Gilroy, sans-serif",
               color: "var(--blackButton)",
-              backgroundColor:"#FFC400"
+              backgroundColor: "#FFC400",
             }}
           >
             About Us .
@@ -90,7 +121,6 @@ const AboutCard = forwardRef((_, ref) => {
                   justifyContent: "center",
                 }}
               >
-                {" "}
                 <Typography
                   className="data"
                   sx={{
@@ -101,7 +131,7 @@ const AboutCard = forwardRef((_, ref) => {
                   }}
                 >
                   20
-                </Typography>{" "}
+                </Typography>
                 <span
                   style={{
                     fontSize: "50px",
@@ -139,7 +169,6 @@ const AboutCard = forwardRef((_, ref) => {
                   justifyContent: "center",
                 }}
               >
-                {" "}
                 <Typography
                   className="data"
                   sx={{
@@ -150,7 +179,7 @@ const AboutCard = forwardRef((_, ref) => {
                   }}
                 >
                   6
-                </Typography>{" "}
+                </Typography>
                 <span
                   style={{
                     fontSize: "50px",
@@ -188,7 +217,6 @@ const AboutCard = forwardRef((_, ref) => {
                   justifyContent: "center",
                 }}
               >
-                {" "}
                 <Typography
                   className="data"
                   sx={{
@@ -199,7 +227,7 @@ const AboutCard = forwardRef((_, ref) => {
                   }}
                 >
                   5
-                </Typography>{" "}
+                </Typography>
                 <span
                   style={{
                     fontSize: "50px",
@@ -237,7 +265,6 @@ const AboutCard = forwardRef((_, ref) => {
                   justifyContent: "center",
                 }}
               >
-                {" "}
                 <Typography
                   className="data"
                   sx={{
@@ -248,7 +275,7 @@ const AboutCard = forwardRef((_, ref) => {
                   }}
                 >
                   500
-                </Typography>{" "}
+                </Typography>
                 <span
                   style={{
                     fontSize: "50px",
@@ -282,6 +309,7 @@ const AboutCard = forwardRef((_, ref) => {
           }}
         >
           <Typography
+            className="char"
             sx={{
               fontSize: "16px",
               lineHeight: "30px",
