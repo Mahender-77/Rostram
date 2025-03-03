@@ -57,13 +57,13 @@ const AboutCard = forwardRef((_, ref) => {
       ref={ref}
       sx={{
         width: "100%",
-        minHeight: "110vh",
+        // minHeight: "110vh",
         margin: "auto",
-        height: "70vh",
+        height: "80vh",
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
-        marginTop: "1rem",
+        // marginTop: "1rem",
         position: "relative",
         overflow: "clip",
         // border:"1px solid red"

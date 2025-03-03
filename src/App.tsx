@@ -4,7 +4,7 @@ import DesignCard from "./components/Cards/DesignCard";
 import Marquee from "./components/Cards/Marquee";
 import Navbar from "./components/Navbar";
 import Services from "./components/Services";
-import OurTeam from "./components/Cards/OurTeam";
+// import OurTeam from "./components/Cards/OurTeam";
 
 export type SectionRefs = {
   aboutRef: React.RefObject<HTMLDivElement | null>;
@@ -33,7 +33,7 @@ function App() {
       <Services ref={sectionRefs.servicesRef} />
       <AboutCard ref={sectionRefs.aboutRef} />
       <Marquee  />
-       <OurTeam/>
+       {/* <OurTeam/> */}
       {/* <Center_Container ref={sectionRefs.center}/> */}
     </>
   //   <>

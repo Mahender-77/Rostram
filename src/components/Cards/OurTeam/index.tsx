@@ -1,14 +1,37 @@
 import React, { useState } from "react";
 import { Box, IconButton, Typography } from "@mui/material";
 import { ArrowBack, ArrowForward } from "@mui/icons-material";
-
+import profilePhoto from "../../../assets/profile.png";
 
 const quotes = [
-  "The only way to do great work is to love what you do. - Steve Jobs",
-  "Success is not final, failure is not fatal: it is the courage to continue that counts. - Winston Churchill",
-  "Believe you can and you're halfway there. - Theodore Roosevelt",
-  "Your time is limited, so don’t waste it living someone else’s life. - Steve Jobs",
-  "Do what you can, with what you have, where you are. - Theodore Roosevelt"
+  {
+    image: profilePhoto,
+    name: "Satish",
+    role: "IT",
+    description:
+      "Highly skilled professional! Their attention to detail and efficiency made all the diffrence. I couldn't be happier with their work!.",
+  },
+  {
+    image: profilePhoto,
+    name: "Vijay",
+    role: "Product Manager",
+    description:
+      "OutStanding customer support! The team was responsive, professional, and deliverd results beyond my expectations. I would gladly work with them again!",
+  },
+  {
+    image: profilePhoto,
+    name: "Sumit patel",
+    role: "Manager",
+    description:
+      "A fantastic experience! The team truly knows their craft, delivering top-notch results with remarkable speed and professionalism. I appreciate their dedication and expertise.",
+  },
+  {
+    image: profilePhoto,
+    name: "Raju",
+    role: "CEO",
+    description:
+      "Exceptional service! The team is professional, efficient, and incredibly friendly. They completed the work swiftly and exceeded my expectations. Highly recommended!",
+  },
 ];
 
 const OurTeam: React.FC = () => {
@@ -32,24 +55,102 @@ const OurTeam: React.FC = () => {
   };
 
   return (
-    <Box sx={{ textAlign: "center", maxWidth: 600, mx: "auto", mt: 5 }}>
+    <Box
+      sx={{
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        maxWidth: "100%",
+        mx: "auto",
+        mt: 20,
+        // border: "0.5px solid rgb(89, 223, 221)",
+        paddingX: 5,
+        borderRadius: 4,
+        mb: 5,
+        position: "relative",
+      }}
+    >
       <Typography
-        variant="h6"
         sx={{
-          mb: 2,
-          fontStyle: "italic",
-          opacity: fade ? 0 : 1,
-          transition: "opacity 0.3s ease-in-out",
-          colors: "var(--whiteText)",
+          position: "absolute",
+          color: "black",
+          top: -50,
+          paddingX:2,
+          fontSize: "30px",
+          fontWeight:600,
+          fontFamily: "Gilroy, sans-serif",
+          backgroundColor: "#429E9D",
         }}
       >
-        {quotes[index]}
+        MEET OUR TEAM
       </Typography>
-      <Box>
-        <IconButton onClick={handlePrev} sx={{ mx: 1 }}>
+      <Box
+        sx={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          placeItems: "center",
+          height: "100%",
+          width: "50%",
+          gap: 4,
+          position: "relative",
+        }}
+      >
+        <Box sx={{ padding: 4, borderRadius: "50%" }}>
+          <img height="120px" width="110px" src={quotes[index].image} alt="" />
+        </Box>
+
+        <Typography
+          variant="h6"
+          sx={{
+            mb: 2,
+            fontStyle: "italic",
+            opacity: fade ? 0 : 1,
+            transition: "opacity 0.3s ease-in-out",
+            color: "var(--whiteText)",
+            fontFamily: "Gilroy, sans-serif",
+            fontSize: "18px",
+            fontWeight: 300,
+          }}
+        >
+          {quotes[index].description}
+        </Typography>
+        <Box
+          sx={{
+            display: "flex",
+            flexDirection: "column",
+            position: "absolute",
+            right: -30,
+            bottom: 25,
+          }}
+        >
+          <Typography
+            sx={{ color: "red ", fontSize: "20px", fontStyle: "italic" }}
+          >
+            - {quotes[index].name} ({quotes[index].role})
+          </Typography>
+        </Box>
+      </Box>
+
+      <Box
+        sx={{
+          display: "flex",
+          width: "80%",
+          justifyContent: "space-between",
+          position: "absolute",
+          top: 50,
+        }}
+      >
+        <IconButton
+          sx={{ color: "var(--whiteText)", m: 1, border: "0.5px solid white" }}
+          onClick={handlePrev}
+        >
           <ArrowBack />
         </IconButton>
-        <IconButton onClick={handleNext} sx={{ mx: 1 }}>
+        <IconButton
+          sx={{ color: "var(--whiteText)", m: 1, border: "0.5px solid white" }}
+          onClick={handleNext}
+        >
           <ArrowForward />
         </IconButton>
       </Box>
