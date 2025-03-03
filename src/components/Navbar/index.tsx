@@ -161,8 +161,8 @@ const Navbar = ({ sectionRefs }: { sectionRefs: SectionRefs }) => {
         {[
           { text: "About Us", onClick: () => scrollToSection("aboutRef") },
           { text: "Services", onClick: () => scrollToSection("servicesRef") },
-          // { text: "Portfolio", onClick: () => scrollToSection("portfolioRef") },
           { text: "Contact", onClick: () => scrollToSection("aboutRef") },
+          // { text: "Portfolio", onClick: () => scrollToSection("portfolioRef") },
         ].map((item) => (
           <Typography
             key={item.text}
@@ -173,6 +173,7 @@ const Navbar = ({ sectionRefs }: { sectionRefs: SectionRefs }) => {
               fontFamily: "Gilroy, sans-serif",
               color: "var(--whiteText)",
               cursor: "pointer",
+              ":hover": { textDecoration: "underline", fontWeight: 500 },
             }}
             onClick={item.onClick}
           >

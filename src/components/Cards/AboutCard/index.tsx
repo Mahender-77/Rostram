@@ -31,7 +31,7 @@ const AboutCard = forwardRef((_, ref) => {
         start: "top 80%",
         end: "top 60%",
         scrub: 1,
-        markers: true,
+        // markers: true,
       },
       ease: "power2.inOut",
       duration: 1,

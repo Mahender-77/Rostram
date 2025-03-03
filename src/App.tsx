@@ -4,6 +4,9 @@ import DesignCard from "./components/Cards/DesignCard";
 import Marquee from "./components/Cards/Marquee";
 import Navbar from "./components/Navbar";
 import Services from "./components/Services";
+import Squad from "./components/Cards/Squad";
+import OurTeam from "./components/Cards/OurTeam";
+import Footer from "./components/Footer";
 // import OurTeam from "./components/Cards/OurTeam";
 
 export type SectionRefs = {
@@ -29,20 +32,23 @@ function App() {
   return (
     <>
       <Navbar sectionRefs={sectionRefs} />
-      <DesignCard  />
+      <DesignCard />
       <Services ref={sectionRefs.servicesRef} />
       <AboutCard ref={sectionRefs.aboutRef} />
-      <Marquee  />
-       {/* <OurTeam/> */}
+      <Marquee />
+      {/* <OurTeam /> */}
+      <Squad />
+      <Footer />
       {/* <Center_Container ref={sectionRefs.center}/> */}
     </>
-  //   <>
-  //   <Navbar aboutRef={aboutRef} /> {/* Pass ref to Navbar */}
-  //   <DesignCard />
-  //   <Services />
-  //   <AboutCard ref={aboutRef} /> {/* Attach ref to AboutCard */}
-  //   <Marquee />
-  //   {/* <Center_Container /> */}
-  // </>
+    //   <>
+    //   <Navbar aboutRef={aboutRef} /> {/* Pass ref to Navbar */}
+    //   <DesignCard />
+    //   <Services />
+    //   <AboutCard ref={aboutRef} /> {/* Attach ref to AboutCard */}
+    //   <Marquee />
+    //   {/* <Center_Container /> */}
+    // </>
   );
-}export default App;
+}
+export default App;
