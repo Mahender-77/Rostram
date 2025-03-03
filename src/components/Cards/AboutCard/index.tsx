@@ -59,13 +59,14 @@ const AboutCard = forwardRef((_, ref) => {
         width: "100%",
         minHeight: "110vh",
         margin: "auto",
-        height: "90vh",
+        height: "70vh",
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
         marginTop: "1rem",
         position: "relative",
         overflow: "clip",
+        // border:"1px solid red"
       }}
     >
       <Box
