@@ -3,205 +3,174 @@ import gsap from "gsap";
 import { Box, Typography } from "@mui/material";
 import { useRef, useState } from "react";
 import logo from "../../assets/rostram_logo-removebg-preview.png";
+import { SectionRefs } from "../../App";
+// type sectionRefs = {
+//   aboutRef: React.RefObject<HTMLDivElement>;
+//   servicesRef: React.RefObject<HTMLDivElement>;
+//   // portfolioRef: React.RefObject<HTMLDivElement>;
+//   // contactRef: React.RefObject<HTMLDivElement>;
+// };
+const Navbar = ({ sectionRefs }: { sectionRefs: SectionRefs }) => {
 
-const Navbar = () => {
   const [showOverlay, setShowOverlay] = useState(true);
   const imgRef = useRef(null);
+    useGSAP(() => {
+      const tl = gsap.timeline();
+  
+      tl.to(".logo-container", {
+        delay: 2,
+        duration: 2,
+        scale: 0.5,
+        ease: "power2.inOut",
+      })
+        .to(".overlay", {
+          duration: 1.5,
+          opacity: 0,
+          ease: "power2.inOut",
+          onComplete: () => {
+            setTimeout(() => setShowOverlay(false), 500);
+          }
+        }, "-=1.5") 
+        .from(".rostram-text", {
+          duration: 1,
+          x: 100,
+          opacity: 0,
+          ease: "power1.inOut",
+        }, "-=1.0") 
+        .from(".nav-container .nav-item", {
+          duration: 0.8,
+          y: -100,
+          opacity: 0,
+          ease: "power1.inOut",
+          stagger: 0.3,
+        });
+  
+      gsap.to(imgRef.current, {
+        filter: "drop-shadow(0px 0px 30px red)", 
+        duration: 0.8,
+        repeat: -1,
+        yoyo: true,
+        ease: "power1.inOut",
+      });
+  
+    }, []); // Empty dependency array to run only once
 
-  useGSAP(() => {
-    gsap.to(".logo-container", {
-      delay: 2,
-      duration: 2,
-      scale: 0.5,
-      ease: "power2.inOut",
-    });
 
-    gsap.to(".overlay", {
-      delay: 2,
-      duration: 1.5,
-      opacity: 0,
-      ease: "power2.inOut",
-      onComplete: () => setShowOverlay(false),
-    });
+    const scrollToSection = (section: keyof SectionRefs) => {
+      if (sectionRefs[section]?.current) {
+        sectionRefs[section].current?.scrollIntoView({ behavior: "smooth" });
+      }
+    }
 
-    // gsap.to(".dot", {
-    //   y: -8,
-    //   repeat: -1,
-    //   yoyo: true,
-    //   stagger: 0.2,
-    //   ease: "power1.inOut",
-    //   duration: 0.5,
-    // });
-
-    gsap.from(".rostram-text", {
-      delay: 2.5,
-      duration: 1,
-      x: 100,
-      opacity: 0,
-      ease: "power1.inOut",
-    });
-
-    gsap.from(".nav-container .nav-item", {
-      delay: 2.5,
-      duration: 0.8,
-      y: -100,
-      opacity: 0,
-      ease: "power1.inOut",
-      stagger: 0.3,
-    });
-
-    // 🔥 Add Red Glow Effect to the Logo Image
-    gsap.to(imgRef.current, {
-      filter: "drop-shadow(0px 0px 30px red)", // Red glow effect
-      duration: 0.8,
-      repeat: -1,
-      yoyo: true,
-      ease: "power1.inOut",
-    });
-  });
-
-  return (
-    <Box
-      sx={{
-        display: "flex",
-        justifyContent: "space-between",
-        width: "100%",
-        height: "10VH",
-        alignItems: "center",
-        // padding:"10px"
-        // border:"1px solid red"
-      }}
-    >
-      {showOverlay && (
-        <Box
-          className="overlay"
-          sx={{
-            position: "fixed",
-            top: 0,
-            left: 0,
-            width: "100%",
-            height: "100%",
-            background: "black",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            zIndex: 1000,
-          }}
-        >
+    return (
+      <Box
+        sx={{
+          display: "flex",
+          justifyContent: "space-between",
+          width: "100%",
+          height: "10VH",
+          alignItems: "center",
+        }}
+      >
+        {showOverlay && (
           <Box
-            className="logo-container"
+            className="overlay"
             sx={{
+              position: "fixed",
+              top: 0,
+              left: 0,
+              width: "100%",
+              height: "100%",
+              background: "black",
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
-              flexDirection: "column",
+              zIndex: 1000,
             }}
           >
-            <img
-              ref={imgRef} // 🔥 Reference added to the image
-              style={{ marginRight: 100 }}
-              height={350}
-              src={logo}
-              alt="Logo"
-            />
-            {/* <Typography
-              style={{ color: "#fff", fontSize: "40px", display: "flex" }}
+            <Box
+              className="logo-container"
+              sx={{
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                flexDirection: "column",
+              }}
             >
-              Loading<span className="dot">.</span>
-              <span className="dot">.</span>
-              <span className="dot">.</span>
-              <span className="dot">!</span>
-            </Typography> */}
+              <img
+                ref={imgRef}
+                style={{ marginRight: 100 }}
+                height={350}
+                src={logo}
+                alt="Logo"
+              />
+            </Box>
+          </Box>
+        )}
+
+        <Box className="navbar">
+          <Box sx={{ position: "relative" }}>
+            <img className="logo-container" height={150} src={logo} alt="Logo" />
+            <Typography
+              className="rostram-text"
+              sx={{
+                position: "absolute",
+                top: 45,
+                left: 120,
+                fontSize: "30px",
+                fontWeight: 600,
+                fontFamily: "Nunito, sans-serif",
+                color: "#E73A3C",
+              }}
+            >
+              ROSTRAM
+            </Typography>
+            <Typography
+              className="rostram-text"
+              sx={{
+                position: "absolute",
+                top: 80,
+                left: 188,
+                width: "100%",
+                fontSize: "15px",
+                fontWeight: 600,
+                fontFamily: "Gilroy, sans-serif",
+                color: "#5C5C5E",
+              }}
+            >
+              Tekno Labs
+            </Typography>
           </Box>
         </Box>
-      )}
 
-      <Box className="navbar">
-        <Box sx={{ position: "relative" }}>
-          <img className="logo-container" height={150} src={logo} alt="Logo" />
-          <Typography
-            className="rostram-text"
-            sx={{
-              position: "absolute",
-              top: 45,
-              left: 120,
-              fontSize: "30px",
-              fontWeight: 600,
-              fontFamily: "Nunito, sans-serif",
-              color: "#E73A3C",
-            }}
-          >
-            ROSTRAM
-          </Typography>
-          <Typography
-            className="rostram-text"
-            sx={{
-              position: "absolute",
-              top: 80,
-              left: 188,
-              width: "100%",
-              fontSize: "15px",
-              fontWeight: 600,
-              fontFamily: "Gilroy, sans-serif",
-              color: "#5C5C5E",
-            }}
-          >
-            Tekno Labs
-          </Typography>
+        <Box
+          className="nav-container"
+          sx={{ display: "flex", gap: 10, paddingRight: 15 }}
+        >
+          {[
+            { text: "About Us", onClick: () => scrollToSection("aboutRef") },
+            { text: "Services", onClick: () => scrollToSection("servicesRef") },
+            // { text: "Portfolio", onClick: () => scrollToSection("portfolioRef") },
+            { text: "Contact", onClick: () => scrollToSection("aboutRef") }
+          ].map((item) => (
+            <Typography
+              key={item.text}
+              className="nav-item"
+              sx={{
+                fontSize: "18px",
+                fontWeight: 600,
+                fontFamily: "Gilroy, sans-serif",
+                color: "var(--whiteText)",
+                cursor: "pointer",
+              }}
+              onClick={item.onClick}
+            >
+              {item.text}
+            </Typography>
+          ))}
         </Box>
       </Box>
-
-      <Box
-        className="nav-container"
-        sx={{ display: "flex", gap: 10, paddingRight: 15 }}
-      >
-        <Typography
-          className="nav-item"
-          sx={{
-            fontSize: "18px",
-            fontWeight: 600,
-            fontFamily: "Gilroy, sans-serif",
-            color: "#5C5C5E",
-          }}
-        >
-          About Us
-        </Typography>
-        <Typography
-          className="nav-item"
-          sx={{
-            fontSize: "18px",
-            fontWeight: 600,
-            fontFamily: "Gilroy, sans-serif",
-            color: "#5C5C5E",
-          }}
-        >
-          Services
-        </Typography>
-        <Typography
-          className="nav-item"
-          sx={{
-            fontSize: "18px",
-            fontWeight: 600,
-            fontFamily: "Gilroy, sans-serif",
-            color: "#5C5C5E",
-          }}
-        >
-          Contact
-        </Typography>
-        <Typography
-          className="nav-item"
-          sx={{
-            fontSize: "18px",
-            fontWeight: 600,
-            fontFamily: "Gilroy, sans-serif",
-            color: "#5C5C5E",
-          }}
-        >
-          Careers
-        </Typography>
-      </Box>
-    </Box>
-  );
+    );
 };
 
 export default Navbar;
