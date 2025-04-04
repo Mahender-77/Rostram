@@ -3,11 +3,11 @@ import AboutCard from "./components/Cards/AboutCard";
 import DesignCard from "./components/Cards/DesignCard";
 import Marquee from "./components/Cards/Marquee";
 import Navbar from "./components/Navbar";
-import Services from "./components/Services";
+// import Services from "./components/Services";
 import Squad from "./components/Cards/Squad";
-import OurTeam from "./components/Cards/OurTeam";
+// import OurTeam from "./components/Cards/OurTeam";
 import Footer from "./components/Footer";
-import OurServices from "./components/Cards/OurSevices";
+// import OurServices from "./components/Cards/OurSevices";
 import { ServiceCards } from "./components/Cards/ServicesCard";
 // import OurTeam from "./components/Cards/OurTeam";
 
