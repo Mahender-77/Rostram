@@ -5,7 +5,6 @@ import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import itserviceimg from "../../assets/IT.gif";
-import cyberSecurityImg from "../../assets/Secure Server-amico.png";
 import ITSupportImg from "../../assets/Service.gif";
 import VFXImg from "../../assets/VFX.gif";
 import { forwardRef } from "react";
@@ -20,12 +19,6 @@ const array = [
       "Custom Application Development, Product Development, Analytic Product Re-engineering, Moblie Application Development & Testing.",
     image: itserviceimg,
     color: "#F75E08",
-  },
-  {
-    title: "Cyber Security",
-    description: "Appliction Security Review & Architecture Security Review.",
-    image: cyberSecurityImg,
-    color: "#6B9AB1",
   },
   {
     title: "VFX",
@@ -77,14 +70,7 @@ const Services = forwardRef((_, ref) => {
     });
     gsap.from(".VFX", {
       opacity: 0,
-      x: -100,
-      scrollTrigger: {
-        trigger: ".VFX",
-        start: "top 80%",
-        end: "top 60%",
-        scrub: 1,
-        // markers: true,
-      },
+      x: 100,
       duration: 1,
       delay: 3,
     });
