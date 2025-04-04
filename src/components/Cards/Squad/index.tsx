@@ -149,7 +149,7 @@ const Squad = () => {
           >
             {card.position}
           </Typography>
-          <Box
+          {/* <Box
             sx={{
               backgroundColor: `${card.color}`,
               position: "absolute",
@@ -169,13 +169,45 @@ const Squad = () => {
               style={{
                 position: "absolute",
                 bottom: -10,
-                right: "2%",
+                // right: "2%",
                 // bottom: 0,
-                // right: "15%",
+                right: "10%",
                 objectFit: "contain",
               }}
             />
+          </Box> */}
+          <Box
+            sx={{
+              backgroundColor: card.color,
+              position: "absolute",
+              bottom: { xs: 5, sm: 10 },
+              right: { xs: "5%", sm: "10%", md: "15%" }, // Adjust right positioning
+              padding: "0.5rem",
+              width: { xs: "30vw", sm: "20vw", md: "15vw" }, // Responsive width
+              height: { xs: "20vh", sm: "25vh", md: "27vh" }, // Responsive height
+              borderRadius: { xs: "50%", sm: "80%", md: "100%" }, // Adjust border-radius
+              zIndex: -1,
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+            }}
+          >
+            <img
+              src={card.image}
+              alt=""
+              style={{
+                position: "absolute",
+                bottom: -10,
+                right: "10%", // Fixed value for right positioning
+                objectFit: "contain",
+                width: "100%", // Ensure it scales with the Box
+                height: "auto", // Maintain aspect ratio
+                maxWidth: "230px", // Prevent overflow
+                maxHeight: "230px",
+              }}
+            />
           </Box>
+
           <Typography
             sx={{
               width: "100%",
