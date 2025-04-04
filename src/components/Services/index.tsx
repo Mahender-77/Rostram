@@ -157,7 +157,7 @@ const Services = forwardRef((_, ref) => {
                   marginTop: "10px",
                   width: "10rem",
                   border: `1px solid ${item.color}`,
-                  borderBottom: `10px solid ${item.color}`,
+                  // borderBottom: `10px solid ${item.color}`,
                   borderRadius: 5,
                   backgroundColor: "var(--blackButton)",
                   color: `${item.color}`,

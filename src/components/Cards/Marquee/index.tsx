@@ -69,6 +69,8 @@ import cosmosMaya from "../../../assets/cosmosMaya.png";
 import discreetArt from "../../../assets/Discreet_arts-removebg-preview.png";
 import templeTown from "../../../assets/trmpleLogo-removebg-preview.png";
 import globalVisual from "../../../assets/globalvisualfx_logo.jpg";
+import rotomakerLogo from "../../../assets/rmlogo-removebg-preview.png"
+import huesFx from "../../../assets/Hues-logo-animation.gif"
 
 const images = [
 
@@ -76,18 +78,21 @@ const images = [
  { img :discreetArt,id:2},
   {img :templeTown,id:3},
   {img:globalVisual,id:4},
- {img: cosmosMaya,id:5},
- { img :discreetArt,id:6},
-  {img :templeTown,id:7},
-  {img:globalVisual,id:8},
- {img: cosmosMaya,id:9},
- { img :discreetArt,id:10},
-  {img :templeTown,id:11},
-  {img:globalVisual,id:12},
+  {img: rotomakerLogo,id:5},
+  {img: huesFx,id:6},
+ {img: cosmosMaya,id:7},
+ { img :discreetArt,id:8},
+  {img :templeTown,id:9},
+  {img:globalVisual,id:10},
+  {img: rotomakerLogo,id:11},
+  {img: huesFx,id:12},
  {img: cosmosMaya,id:13},
  { img :discreetArt,id:14},
   {img :templeTown,id:15},
   {img:globalVisual,id:16},
+  {img: rotomakerLogo,id:17},
+  {img: huesFx,id:18},
+
  
 ];
 
@@ -102,7 +107,7 @@ const Marquee: React.FC = () => {
         sx={{
           display: "flex",
           width: "max-content",
-          animation: "marquee 20s linear infinite",
+          animation: "marquee 30s linear infinite",
           flexShrink: 0,
           gap:10,
           // animation: isPaused ? "none" : "marquee 30s linear infinite",
