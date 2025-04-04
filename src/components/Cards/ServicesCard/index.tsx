@@ -85,7 +85,7 @@ export const ServiceCards = () => {
                 ease: "power2.out"
               });
               gsap.to(currentLine, {
-                background: services[index - 1].color,
+                background: services[index-1].color,
                 duration: 0.5,
                 ease: "power2.out"
               });
