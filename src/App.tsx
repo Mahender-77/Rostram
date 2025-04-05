@@ -9,6 +9,7 @@ import Squad from "./components/Cards/Squad";
 import Footer from "./components/Footer";
 // import OurServices from "./components/Cards/OurSevices";
 import { ServiceCards } from "./components/Cards/ServicesCard";
+import ContactUs from "./components/ContactUs";
 // import OurTeam from "./components/Cards/OurTeam";
 
 export type SectionRefs = {
@@ -37,11 +38,12 @@ function App() {
       <DesignCard />
       {/* <Services ref={sectionRefs.servicesRef} /> */}
       {/* <OurServices /> */}
-      <ServiceCards/>
+      <ServiceCards />
       <AboutCard ref={sectionRefs.aboutRef} />
       <Marquee />
       {/* <OurTeam /> */}
       <Squad />
+      <ContactUs />
       <Footer />
       {/* <Center_Container ref={sectionRefs.center}/> */}
     </>
