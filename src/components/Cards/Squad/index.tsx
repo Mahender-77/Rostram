@@ -149,33 +149,7 @@ const Squad = () => {
           >
             {card.position}
           </Typography>
-          {/* <Box
-            sx={{
-              backgroundColor: `${card.color}`,
-              position: "absolute",
-              bottom: 10,
-              right: "15%",
-              padding: "0.5rem",
-              width: "15vw",
-              height: "27vh",
-              borderRadius: "100%",
-              zIndex: -1,
-            }}
-          >
-            <img
-              height="230vh"
-              src={card.image}
-              alt=""
-              style={{
-                position: "absolute",
-                bottom: -10,
-                // right: "2%",
-                // bottom: 0,
-                right: "10%",
-                objectFit: "contain",
-              }}
-            />
-          </Box> */}
+
           <Box
             sx={{
               backgroundColor: card.color,
@@ -198,7 +172,7 @@ const Squad = () => {
               style={{
                 position: "absolute",
                 bottom: -10,
-                right: "10%", // Fixed value for right positioning
+                // right: 10, // Use a single value for the right positioning
                 objectFit: "contain",
                 width: "100%", // Ensure it scales with the Box
                 height: "auto", // Maintain aspect ratio
