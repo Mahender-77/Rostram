@@ -65,7 +65,7 @@ const ContactUs = forwardRef((_, ref) => {
             fontFamily: "Gilroy, sans-serif",
             fontWeight: 600,
             color: "#e7393c",
-            backgroundColor: "#161a1d",
+            backgroundColor: "var(--blackbackGround)",
             zIndex: 1,
             position: "absolute",
             left: "-1%",
@@ -165,8 +165,8 @@ const ContactUs = forwardRef((_, ref) => {
             variant="contained"
             size="large"
             sx={{
-              backgroundColor: "#e7393c",
-              color: "#fff",
+              backgroundColor: "var(--logoRed)",
+              color: "var(--blackbackGround)",
               fontWeight: 600,
               fontFamily: "Gilroy, sans-serif",
               textTransform: "none",
@@ -174,7 +174,8 @@ const ContactUs = forwardRef((_, ref) => {
               width: { xs: "100%", sm: "fit-content" },
               alignSelf: { xs: "center", sm: "flex-start" },
               ":hover": {
-                backgroundColor: "var(--primaryDark)",
+                backgroundColor: "var(--blackbackGround)",
+                color: "var(--logoRed)",
               },
             }}
           >
@@ -188,13 +189,13 @@ const ContactUs = forwardRef((_, ref) => {
 
 const textFieldStyles = {
   "& label": { color: "var(--lightGray)" },
-  "& label.Mui-focused": { color: "var(--blackbackGround)" },
+  "& label.Mui-focused": { color: "var(--whiteText)" },
   "& .MuiOutlinedInput-root": {
     "& fieldset": { borderColor: "var(--lightGray)" },
     "&:hover fieldset": { borderColor: "var(--grayButton)" },
     "&.Mui-focused fieldset": { borderColor: "var(--lightGray)" },
   },
-  "& input": { color: "var(--blackbackGround)" },
+  "& input": { color: "var(--whiteText)" },
 };
 
 export default ContactUs;

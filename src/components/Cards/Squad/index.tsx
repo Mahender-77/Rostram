@@ -11,8 +11,8 @@ const cards = [
     id: 1,
     name: "Raju",
     position: "CEO",
-    description:
-      "Exceptional service! The team is professional, efficient, and incredibly friendly.They completed the work swiftly and exceeded my expectations. Highly recommended!",
+    // description:
+    // "Exceptional service! The team is professional, efficient, and incredibly friendly.They completed the work swiftly and exceeded my expectations. Highly recommended!",
     color: "#56C03C",
     image: men,
   },
@@ -94,107 +94,151 @@ const Squad = () => {
   return (
     <Box
       sx={{
+        gap: 5,
         width: "80%",
         margin: "auto",
         display: "flex",
-        flexDirection: "row",
-        overflow: "scroll",
-        scrollbarWidth: "none",
-        justifyContent: "space-between",
-        alignItems: "center",
-        // backgroundColor: "var(--blackbackGround)",
-        gap: 5,
-        marginTop: "5rem",
-        marginBottom: "5rem",
+        flexDirection: "column",
+        paddingY: "10rem",
+        // alignItems: "center",
+        // justifyContent: "center",
       }}
     >
-      {cards.map((card) => (
-        <Box
-          key={card.id}
+      <Box>
+        <Typography
           sx={{
-            minWidth: "27%",
-            maxWidth: "27%",
-            height: "50vh",
+            fontSize: "3rem",
+            fontWeight: 600,
+            fontFamily: "Gilroy, sans-serif",
+            backgroundImage: "linear-gradient(90deg, #bf181e,rgb(255, 0, 8))",
+            backgroundClip: "text",
+            WebkitBackgroundClip: "text",
+            WebkitTextFillColor: "transparent",
+            textAlign: "center",
+            width: "70%",
             display: "flex",
-            flexDirection: "column",
-            justifyContent: "flex-start",
-            alignItems: "flex-start",
-            padding: "0.5rem",
-            paddingX: "1rem",
-            // gap: 3,
-            // backgroundColor: "var(--blackText)",
-            borderRadius: "1rem",
-            border: `1px solid ${card.color}`,
-            borderBottom: `10px solid ${card.color}`,
-            position: "relative",
+            justifySelf: "center",
+            justifyContent: "center",
+            padding: "0.5rem 1rem",
           }}
         >
-          <Typography
-            sx={{
-              fontSize: "2.75rem",
-              fontWeight: 600,
-              fontFamily: "Gilroy, sans-serif",
-              color: "var(--blackbackGround)",
-            }}
-          >
-            {card.name}
-          </Typography>
-          <Typography
-            sx={{
-              fontSize: "1rem",
-              fontWeight: 500,
-              fontFamily: "Gilroy, sans-serif",
-              color: `${card.color}`,
-            }}
-          >
-            {card.position}
-          </Typography>
-
+          ----- MEET OUR TEAM -----
+        </Typography>
+      </Box>
+      <Box
+        sx={{
+          display: "flex",
+          flexDirection: "row",
+          overflow: "scroll",
+          scrollbarWidth: "none",
+          justifyContent: "space-between",
+          alignItems: "center",
+          // backgroundColor: "var(--blackbackGround)",
+          gap: 5,
+          height: "60vh",
+          paddingX: "2rem",
+        }}
+      >
+        {cards.map((card) => (
           <Box
+            key={card.id}
             sx={{
-              backgroundColor: card.color,
-              position: "absolute",
-              bottom: { xs: 5, sm: 10 },
-              right: { xs: "5%", sm: "10%", md: "15%" }, // Adjust right positioning
-              padding: "0.5rem",
-              width: { xs: "30vw", sm: "20vw", md: "15vw" }, // Responsive width
-              height: { xs: "20vh", sm: "25vh", md: "27vh" }, // Responsive height
-              borderRadius: { xs: "50%", sm: "80%", md: "100%" }, // Adjust border-radius
-              zIndex: -1,
+              minWidth: "27%",
+              maxWidth: "27%",
+              height: "50vh",
               display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
+              flexDirection: "column",
+              justifyContent: "flex-start",
+              alignItems: "flex-start",
+              padding: "0.5rem",
+              paddingX: "1rem",
+              // gap: 3,
+              // backgroundColor: "var(--blackText)",
+              borderRadius: "1rem",
+              border: `1px solid ${card.color}`,
+              borderBottom: `10px solid ${card.color}`,
+              position: "relative",
+              ":hover": {
+                color: "var(--logoRed)",
+                scale: 1.05,
+                transition: "all 0.3s ease-in-out",
+              },
             }}
           >
-            <img
-              src={card.image}
-              alt=""
-              style={{
-                position: "absolute",
-                bottom: -10,
-                // right: 10, // Use a single value for the right positioning
-                objectFit: "contain",
-                width: "100%", // Ensure it scales with the Box
-                height: "auto", // Maintain aspect ratio
-                maxWidth: "230px", // Prevent overflow
-                maxHeight: "230px",
+            <Typography
+              sx={{
+                fontSize: "2.75rem",
+                fontWeight: 600,
+                fontFamily: "Gilroy, sans-serif",
+                color: "var(--blackbackGround)",
               }}
-            />
-          </Box>
+            >
+              {card.name}
+            </Typography>
+            <Typography
+              sx={{
+                fontSize: "1rem",
+                fontWeight: 500,
+                fontFamily: "Gilroy, sans-serif",
+                color: `${card.color}`,
+                // backgroundColor: "var(--blackbackGround)",
+                // paddingX: "0.5rem ",
+              }}
+            >
+              {card.position}
+            </Typography>
 
-          <Typography
-            sx={{
-              width: "100%",
-              fontSize: "1rem",
-              fontWeight: 500,
-              fontFamily: "Gilroy, sans-serif",
-              color: "var(--blackbackGround)",
-            }}
-          >
-            {card.description}
-          </Typography>
-        </Box>
-      ))}
+            <Box
+              sx={{
+                backgroundColor: card.color,
+                position: "absolute",
+                bottom: { xs: 5, sm: 10 },
+                right: { xs: "5%", sm: "10%", md: "15%" }, // Adjust right positioning
+                padding: "0.5rem",
+                width: { xs: "30vw", sm: "20vw", md: "15vw" }, // Responsive width
+                height: { xs: "20vh", sm: "25vh", md: "27vh" }, // Responsive height
+                borderRadius: { xs: "50%", sm: "80%", md: "100%" }, // Adjust border-radius
+                zIndex: -1,
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+                ":hover": {
+                  color: "var(--logoRed)",
+                  scale: 0.95,
+                  transition: "all 0.3s ease-in-out",
+                },
+              }}
+            >
+              <img
+                src={card.image}
+                alt=""
+                style={{
+                  position: "absolute",
+                  bottom: -10,
+                  // right: 10, // Use a single value for the right positioning
+                  objectFit: "contain",
+                  width: "100%", // Ensure it scales with the Box
+                  height: "auto", // Maintain aspect ratio
+                  maxWidth: "230px", // Prevent overflow
+                  maxHeight: "230px",
+                }}
+              />
+            </Box>
+
+            <Typography
+              sx={{
+                width: "100%",
+                fontSize: "1rem",
+                fontWeight: 500,
+                fontFamily: "Gilroy, sans-serif",
+                color: "var(--blackbackGround)",
+              }}
+            >
+              {card.description}
+            </Typography>
+          </Box>
+        ))}
+      </Box>
     </Box>
   );
 };
