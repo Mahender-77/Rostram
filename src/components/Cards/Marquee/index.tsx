@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Box } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 import "./index.css"; // make sure your animation is defined here
 
 import cosmosMaya from "../../../assets/cosmosMaya.png";
@@ -28,7 +28,35 @@ const Marquee: React.FC = () => {
   const [isPaused, setIsPaused] = useState(false);
 
   return (
-    <Box sx={{ overflow: "hidden", whiteSpace: "nowrap", width: "100%" }}>
+    <Box
+      sx={{
+        overflow: "hidden",
+        whiteSpace: "nowrap",
+        width: "100%",
+        backgroundColor: "var(--grayFooter)",
+        paddingY: "2rem",
+      }}
+    >
+      <Typography
+        sx={{
+          fontSize: "3rem",
+          fontWeight: 600,
+          fontFamily: "Gilroy, sans-serif",
+          backgroundImage: "linear-gradient(90deg, #bf181e,rgb(255, 0, 8))",
+          backgroundClip: "text",
+          WebkitBackgroundClip: "text",
+          WebkitTextFillColor: "transparent",
+          textAlign: "center",
+          width: "70%",
+          display: "flex",
+          justifySelf: "center",
+          justifyContent: "center",
+          // padding: "1.5rem rem",
+          mb: 5,
+        }}
+      >
+        ----- Our Partners -----
+      </Typography>
       <Box
         onMouseEnter={() => setIsPaused(true)}
         onMouseLeave={() => setIsPaused(false)}

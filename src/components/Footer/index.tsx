@@ -33,7 +33,7 @@ const Footer = () => {
             />
             <Typography
               sx={{
-                color: "#777",
+                color: "var(--lightGray)",
                 fontSize: "1rem",
                 fontWeight: 400,
                 fontFamily: "Gilroy, sans-serif",
@@ -65,7 +65,7 @@ const Footer = () => {
                   fontWeight: 600,
                   fontFamily: "Gilroy, sans-serif",
                   mb: 1,
-                  color: "var(--blackbackGround)",
+                  color: "var(--whiteText)",
                 }}
               >
                 {section.title}
@@ -82,7 +82,7 @@ const Footer = () => {
                     cursor: "pointer",
                     ":hover": {
                       textDecoration: "underline",
-                      color: "var(--blackbackGround)",
+                      color: "var(--whiteText)",
                     },
                   }}
                 >
@@ -102,7 +102,7 @@ const Footer = () => {
                 sx={{
                   color: "var(--darkGray)",
                   ":hover": {
-                    color: "var(--blackbackGround)",
+                    color: "var(--logoRed)",
                     scale: 1.2,
                     transition: "all 0.3s ease-in-out",
                   },
@@ -117,7 +117,7 @@ const Footer = () => {
                 sx={{
                   color: "var(--darkGray)",
                   ":hover": {
-                    color: "var(--blackbackGround)",
+                    color: "var(--logoRed)",
                     scale: 1.2,
                     transition: "all 0.3s ease-in-out",
                   },
@@ -132,7 +132,7 @@ const Footer = () => {
                 sx={{
                   color: "var(--darkGray)",
                   ":hover": {
-                    color: "var(--blackbackGround)",
+                    color: "var(--logoRed)",
                     scale: 1.2,
                     transition: "all 0.3s ease-in-out",
                   },
@@ -147,7 +147,7 @@ const Footer = () => {
                 sx={{
                   color: "var(--darkGray)",
                   ":hover": {
-                    color: "var(--blackbackGround)",
+                    color: "var(--logoRed)",
                     scale: 1.2,
                     transition: "all 0.3s ease-in-out",
                   },
@@ -162,7 +162,7 @@ const Footer = () => {
                 sx={{
                   color: "var(--darkGray)",
                   ":hover": {
-                    color: "var(--blackbackGround)",
+                    color: "var(--logoRed)",
                     scale: 1.2,
                     transition: "all 0.3s ease-in-out",
                   },
