@@ -3,6 +3,7 @@ import { Box, Card, CardContent, Typography, Button } from "@mui/material";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
+
 // Register ScrollTrigger
 gsap.registerPlugin(ScrollTrigger);
 
@@ -44,6 +45,10 @@ export const ServiceCards = () => {
   const containerRef = useRef<HTMLDivElement | null>(null);
   const lineRef = useRef<HTMLDivElement | null>(null);
   const horizontalLinesRef = useRef<(HTMLDivElement | null)[]>([]);
+
+
+
+
 
   useEffect(() => {
     const cards = services.map((service) => `#card-${service.id}`);
@@ -147,7 +152,7 @@ export const ServiceCards = () => {
           top: "5px",
           left: "50%",
           width: "5px",
-          height: "1350px",
+          height:{xl: "1450px",},
           backgroundColor: "#ffffff",
           transform: "translateX(-50%)",
           transition: "background 0.5s ease",
@@ -162,7 +167,7 @@ export const ServiceCards = () => {
             }}
             sx={{
               position: "absolute",
-              width: service.position.left ? "150px" : "148px",
+              width: service.position.left ? {xl:"150px"} : "148px",
               height: "5px",
               backgroundColor: "#ffffff",
               top: `${service.position.top + 225}px`,
