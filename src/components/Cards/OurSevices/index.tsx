@@ -1,3 +1,8 @@
+
+import { Box, Typography } from "@mui/material";
+import itserviceimg from "../../../assets/IT.gif";
+import ITSupportImg from "../../../assets/Service.gif";
+import VFXImg from "../../../assets/VFX.gif";
   import { Box, Button, Typography } from "@mui/material";
   import itserviceimg from "../../../assets/IT.gif";
   import ITSupportImg from "../../../assets/Service.gif";

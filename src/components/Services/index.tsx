@@ -99,9 +99,9 @@ const Services = forwardRef((_, ref) => {
             sx={{
               width: "45%",
               // height: "320px",
-              border: "1px solid var(--whiteText)",
+              border: "1px solid var(--blackbackGround)",
               borderRadius: "30px",
-              borderBottom: "10px solid var(--whiteText)",
+              borderBottom: "10px solid var(--blackbackGround)",
               display: "flex",
             }}
           >
@@ -133,7 +133,7 @@ const Services = forwardRef((_, ref) => {
                   width: "100%",
                   height: "92px",
                   fontFamily: "Gilroy, sans-serif",
-                  color: "var(--whiteText)",
+                  color: "var(--blackbackGround)",
                 }}
               >
                 {item.description}

@@ -1,5 +1,5 @@
 import { Box, Button, TextField, Typography } from "@mui/material";
-import { useRef } from "react";
+import { forwardRef, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { MotionPathPlugin } from "gsap/MotionPathPlugin";
@@ -7,7 +7,7 @@ import { useGSAP } from "@gsap/react";
 
 gsap.registerPlugin(ScrollTrigger, MotionPathPlugin);
 
-const ContactUs: React.FC = () => {
+const ContactUs = forwardRef((_, ref) => {
   const pathRef = useRef<SVGPathElement | null>(null);
 
   useGSAP(() => {
@@ -37,6 +37,7 @@ const ContactUs: React.FC = () => {
 
   return (
     <Box
+      ref={ref}
       sx={{
         backgroundColor: "var(--darkGray)",
         flex: 1,
@@ -156,7 +157,7 @@ const ContactUs: React.FC = () => {
             rows={5}
             sx={{
               ...textFieldStyles,
-              "& textarea": { color: "var(--whiteText)" },
+              "& textarea": { color: "var(--blackbackGround)" },
             }}
           />
 
@@ -183,17 +184,17 @@ const ContactUs: React.FC = () => {
       </Box>
     </Box>
   );
-};
+});
 
 const textFieldStyles = {
   "& label": { color: "var(--lightGray)" },
-  "& label.Mui-focused": { color: "var(--whiteText)" },
+  "& label.Mui-focused": { color: "var(--blackbackGround)" },
   "& .MuiOutlinedInput-root": {
     "& fieldset": { borderColor: "var(--lightGray)" },
     "&:hover fieldset": { borderColor: "var(--grayButton)" },
     "&.Mui-focused fieldset": { borderColor: "var(--lightGray)" },
   },
-  "& input": { color: "var(--whiteText)" },
+  "& input": { color: "var(--blackbackGround)" },
 };
 
 export default ContactUs;
