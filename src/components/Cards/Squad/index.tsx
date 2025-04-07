@@ -102,7 +102,7 @@ const Squad = () => {
         scrollbarWidth: "none",
         justifyContent: "space-between",
         alignItems: "center",
-        // backgroundColor: "var(--whiteText)",
+        // backgroundColor: "var(--blackbackGround)",
         gap: 5,
         marginTop: "5rem",
         marginBottom: "5rem",
@@ -134,7 +134,7 @@ const Squad = () => {
               fontSize: "2.75rem",
               fontWeight: 600,
               fontFamily: "Gilroy, sans-serif",
-              color: "var(--whiteText)",
+              color: "var(--blackbackGround)",
             }}
           >
             {card.name}
@@ -188,7 +188,7 @@ const Squad = () => {
               fontSize: "1rem",
               fontWeight: 500,
               fontFamily: "Gilroy, sans-serif",
-              color: "var(--whiteText)",
+              color: "var(--blackbackGround)",
             }}
           >
             {card.description}

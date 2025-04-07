@@ -10,12 +10,14 @@ import Footer from "./components/Footer";
 // import OurServices from "./components/Cards/OurSevices";
 import { ServiceCards } from "./components/Cards/ServicesCard";
 import ContactUs from "./components/ContactUs";
+import OurTeam from "./components/Cards/OurTeam";
+import OurServices from "./components/Cards/OurSevices";
 // import OurTeam from "./components/Cards/OurTeam";
 
 export type SectionRefs = {
   aboutRef: React.RefObject<HTMLDivElement | null>;
   servicesRef: React.RefObject<HTMLDivElement | null>;
-  // contactRef: React.RefObject<HTMLDivElement | null>;
+  contactRef: React.RefObject<HTMLDivElement | null>;
   // design: React.RefObject<HTMLDivElement | null>;
   // marquee: React.RefObject<HTMLDivElement | null>;
   // center: React.RefObject<HTMLDivElement | null>;
@@ -25,7 +27,7 @@ function App() {
   const sectionRefs: SectionRefs = {
     aboutRef: useRef<HTMLDivElement | null>(null),
     servicesRef: useRef<HTMLDivElement | null>(null),
-    // contactRef: useRef<HTMLDivElement | null>(null),
+    contactRef: useRef<HTMLDivElement | null>(null),
     // design: useRef<HTMLDivElement | null>(null),
     // marquee: useRef<HTMLDivElement | null>(null),
     // center: useRef<HTMLDivElement | null>(null),
@@ -37,13 +39,13 @@ function App() {
       <Navbar sectionRefs={sectionRefs} />
       <DesignCard />
       {/* <Services ref={sectionRefs.servicesRef} /> */}
-      {/* <OurServices /> */}
+      <OurServices />
       <ServiceCards />
       <AboutCard ref={sectionRefs.aboutRef} />
       <Marquee />
       {/* <OurTeam /> */}
       <Squad />
-      <ContactUs />
+      <ContactUs ref={sectionRefs.contactRef} />
       <Footer />
       {/* <Center_Container ref={sectionRefs.center}/> */}
     </>

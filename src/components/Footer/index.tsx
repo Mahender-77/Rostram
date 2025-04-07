@@ -65,7 +65,7 @@ const Footer = () => {
                   fontWeight: 600,
                   fontFamily: "Gilroy, sans-serif",
                   mb: 1,
-                  color: "var(--whiteText)",
+                  color: "var(--blackbackGround)",
                 }}
               >
                 {section.title}
@@ -82,7 +82,7 @@ const Footer = () => {
                     cursor: "pointer",
                     ":hover": {
                       textDecoration: "underline",
-                      color: "var(--whiteText)",
+                      color: "var(--blackbackGround)",
                     },
                   }}
                 >
@@ -102,7 +102,7 @@ const Footer = () => {
                 sx={{
                   color: "var(--darkGray)",
                   ":hover": {
-                    color: "var(--whiteText)",
+                    color: "var(--blackbackGround)",
                     scale: 1.2,
                     transition: "all 0.3s ease-in-out",
                   },
@@ -117,7 +117,7 @@ const Footer = () => {
                 sx={{
                   color: "var(--darkGray)",
                   ":hover": {
-                    color: "var(--whiteText)",
+                    color: "var(--blackbackGround)",
                     scale: 1.2,
                     transition: "all 0.3s ease-in-out",
                   },
@@ -132,7 +132,7 @@ const Footer = () => {
                 sx={{
                   color: "var(--darkGray)",
                   ":hover": {
-                    color: "var(--whiteText)",
+                    color: "var(--blackbackGround)",
                     scale: 1.2,
                     transition: "all 0.3s ease-in-out",
                   },
@@ -147,7 +147,7 @@ const Footer = () => {
                 sx={{
                   color: "var(--darkGray)",
                   ":hover": {
-                    color: "var(--whiteText)",
+                    color: "var(--blackbackGround)",
                     scale: 1.2,
                     transition: "all 0.3s ease-in-out",
                   },
@@ -162,7 +162,7 @@ const Footer = () => {
                 sx={{
                   color: "var(--darkGray)",
                   ":hover": {
-                    color: "var(--whiteText)",
+                    color: "var(--blackbackGround)",
                     scale: 1.2,
                     transition: "all 0.3s ease-in-out",
                   },

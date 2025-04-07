@@ -75,9 +75,9 @@ const OurTeam: React.FC = () => {
           position: "absolute",
           color: "black",
           top: -50,
-          paddingX:2,
+          paddingX: 2,
           fontSize: "30px",
-          fontWeight:600,
+          fontWeight: 600,
           fontFamily: "Gilroy, sans-serif",
           backgroundColor: "#429E9D",
         }}
@@ -107,7 +107,7 @@ const OurTeam: React.FC = () => {
             fontStyle: "italic",
             opacity: fade ? 0 : 1,
             transition: "opacity 0.3s ease-in-out",
-            color: "var(--whiteText)",
+            color: "var(--blackbackGround)",
             fontFamily: "Gilroy, sans-serif",
             fontSize: "18px",
             fontWeight: 300,
@@ -142,13 +142,21 @@ const OurTeam: React.FC = () => {
         }}
       >
         <IconButton
-          sx={{ color: "var(--whiteText)", m: 1, border: "0.5px solid white" }}
+          sx={{
+            color: "var(--blackbackGround)",
+            m: 1,
+            border: "0.5px solid white",
+          }}
           onClick={handlePrev}
         >
           <ArrowBack />
         </IconButton>
         <IconButton
-          sx={{ color: "var(--whiteText)", m: 1, border: "0.5px solid white" }}
+          sx={{
+            color: "var(--blackbackGround)",
+            m: 1,
+            border: "0.5px solid white",
+          }}
           onClick={handleNext}
         >
           <ArrowForward />

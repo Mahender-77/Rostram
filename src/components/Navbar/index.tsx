@@ -130,8 +130,8 @@ const Navbar = ({ sectionRefs }: { sectionRefs: SectionRefs }) => {
               left: 120,
               fontSize: "30px",
               fontWeight: 600,
-              fontFamily: "Nunito, sans-serif",
-              color: "#E73A3C",
+              fontFamily: "Gilroy, sans-serif",
+              color: "var(--logoRed)",
             }}
           >
             ROSTRAM
@@ -161,7 +161,7 @@ const Navbar = ({ sectionRefs }: { sectionRefs: SectionRefs }) => {
         {[
           { text: "About Us", onClick: () => scrollToSection("aboutRef") },
           { text: "Services", onClick: () => scrollToSection("servicesRef") },
-          { text: "Contact", onClick: () => scrollToSection("aboutRef") },
+          { text: "Contact", onClick: () => scrollToSection("contactRef") },
           // { text: "Portfolio", onClick: () => scrollToSection("portfolioRef") },
         ].map((item) => (
           <Typography
@@ -171,9 +171,13 @@ const Navbar = ({ sectionRefs }: { sectionRefs: SectionRefs }) => {
               fontSize: "18px",
               fontWeight: 600,
               fontFamily: "Gilroy, sans-serif",
-              color: "var(--whiteText)",
+              color: "var(--blackbackGround)",
               cursor: "pointer",
-              ":hover": { textDecoration: "underline", fontWeight: 500 },
+              ":hover": {
+                textDecoration: "underline",
+                fontWeight: 600,
+                color: "var(--logoRed)",
+              },
             }}
             onClick={item.onClick}
           >

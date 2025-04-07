@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Permanent+Marker&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Permanent+Marker&display=swap");
 body {
   margin: 0;
   padding: 0;
@@ -6,16 +6,17 @@ body {
   /* background-color: #161a1d; */
 }
 :root {
-  /* --blackbackGround:#000000; */
-  --blackbackGround:#fffefe;
-  /* --whiteText: #fefffe; */
-  --whiteText:  #161a1d;
+  --blackbackGround: #000000;
+  /* --blackbackGround: #fffefe; */
+  --whiteText: #fefffe;
+  /* --whiteText:  #161a1d; */
   --grayFooter: #f1f0f4;
   --grayButton: #d9dadb;
   --blackText: #5c5d5f;
   --darkGray: #434549;
   --lightGray: #8e8e92;
   --blackButton: #161a1d;
+  --logoRed: #e73a3c;
   /* --blackButton: #212529; */
   /* --blackButton: #010100; */
 }

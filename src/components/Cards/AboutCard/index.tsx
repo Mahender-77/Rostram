@@ -128,7 +128,7 @@ const AboutCard = forwardRef((_, ref) => {
                     fontSize: "50px",
                     fontWeight: 600,
                     fontFamily: "Gilroy, sans-serif",
-                    color: "var(--whiteText)",
+                    color: "var(--blackbackGround)",
                   }}
                 >
                   20
@@ -138,7 +138,7 @@ const AboutCard = forwardRef((_, ref) => {
                     fontSize: "50px",
                     fontWeight: 600,
                     fontFamily: "Gilroy, sans-serif",
-                    color: "var(--whiteText)",
+                    color: "var(--blackbackGround)",
                   }}
                 >
                   +
@@ -149,7 +149,7 @@ const AboutCard = forwardRef((_, ref) => {
                   fontSize: "20px",
                   fontWeight: 600,
                   fontFamily: "Gilroy, sans-serif",
-                  color: "var(--whiteText)",
+                  color: "var(--blackbackGround)",
                 }}
               >
                 Years of experience
@@ -176,7 +176,7 @@ const AboutCard = forwardRef((_, ref) => {
                     fontSize: "50px",
                     fontWeight: 600,
                     fontFamily: "Gilroy, sans-serif",
-                    color: "var(--whiteText)",
+                    color: "var(--blackbackGround)",
                   }}
                 >
                   6
@@ -186,7 +186,7 @@ const AboutCard = forwardRef((_, ref) => {
                     fontSize: "50px",
                     fontWeight: 600,
                     fontFamily: "Gilroy, sans-serif",
-                    color: "var(--whiteText)",
+                    color: "var(--blackbackGround)",
                   }}
                 >
                   +
@@ -197,7 +197,7 @@ const AboutCard = forwardRef((_, ref) => {
                   fontSize: "20px",
                   fontWeight: 600,
                   fontFamily: "Gilroy, sans-serif",
-                  color: "var(--whiteText)",
+                  color: "var(--blackbackGround)",
                 }}
               >
                 Delivered Products
@@ -224,7 +224,7 @@ const AboutCard = forwardRef((_, ref) => {
                     fontSize: "50px",
                     fontWeight: 600,
                     fontFamily: "Gilroy, sans-serif",
-                    color: "var(--whiteText)",
+                    color: "var(--blackbackGround)",
                   }}
                 >
                   5
@@ -234,7 +234,7 @@ const AboutCard = forwardRef((_, ref) => {
                     fontSize: "50px",
                     fontWeight: 600,
                     fontFamily: "Gilroy, sans-serif",
-                    color: "var(--whiteText)",
+                    color: "var(--blackbackGround)",
                   }}
                 >
                   +
@@ -245,7 +245,7 @@ const AboutCard = forwardRef((_, ref) => {
                   fontSize: "20px",
                   fontWeight: 600,
                   fontFamily: "Gilroy, sans-serif",
-                  color: "var(--whiteText)",
+                  color: "var(--blackbackGround)",
                 }}
               >
                 Certified Developers
@@ -272,7 +272,7 @@ const AboutCard = forwardRef((_, ref) => {
                     fontSize: "50px",
                     fontWeight: 600,
                     fontFamily: "Gilroy, sans-serif",
-                    color: "var(--whiteText)",
+                    color: "var(--blackbackGround)",
                   }}
                 >
                   500
@@ -282,7 +282,7 @@ const AboutCard = forwardRef((_, ref) => {
                     fontSize: "50px",
                     fontWeight: 600,
                     fontFamily: "Gilroy, sans-serif",
-                    color: "var(--whiteText)",
+                    color: "var(--blackbackGround)",
                   }}
                 >
                   +
@@ -293,7 +293,7 @@ const AboutCard = forwardRef((_, ref) => {
                   fontSize: "20px",
                   fontWeight: 600,
                   fontFamily: "Gilroy, sans-serif",
-                  color: "var(--whiteText)",
+                  color: "var(--blackbackGround)",
                 }}
               >
                 Satisfied Clients
@@ -316,7 +316,7 @@ const AboutCard = forwardRef((_, ref) => {
               lineHeight: "30px",
               fontWeight: 500,
               fontFamily: "Gilroy, sans-serif",
-              color: "var(--whiteText)",
+              color: "var(--blackbackGround)",
             }}
           >
             At Rostram, we have over 20 years of experience in building and
