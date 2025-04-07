@@ -13,7 +13,7 @@ const cards = [
     position: "CEO",
     description:
       "Exceptional service! The team is professional, efficient, and incredibly friendly.They completed the work swiftly and exceeded my expectations. Highly recommended!",
-    color: "#56C03C",
+    color: "var(--darkGray)",
     image: men,
   },
   {
@@ -22,7 +22,7 @@ const cards = [
     position: "Project Manager",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-    color: "#3FC0F0",
+    color: "var(--darkGray)",
     image: Boy1,
   },
   {
@@ -31,7 +31,7 @@ const cards = [
     position: "Front-end Developer",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-    color: "#FFC400",
+    color: "var(--darkGray)",
     image: Men1,
   },
   {
@@ -40,7 +40,7 @@ const cards = [
     position: "Front-end Developer",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-    color: "#56C03C",
+    color: "var(--darkGray)",
     image: Boy1,
   },
   {
@@ -49,7 +49,7 @@ const cards = [
     position: "Front-end Developer",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-    color: "#3FC0F0",
+    color: "var(--darkGray)",
     image: TeenBoy,
   },
   {
@@ -125,6 +125,7 @@ const Squad = () => {
             // backgroundColor: "var(--blackText)",
             borderRadius: "1rem",
             border: `1px solid ${card.color}`,
+            // borderBottom: `10px solid #E82C2D`,
             borderBottom: `10px solid ${card.color}`,
             position: "relative",
           }}
@@ -145,6 +146,7 @@ const Squad = () => {
               fontWeight: 500,
               fontFamily: "Gilroy, sans-serif",
               color: `${card.color}`,
+              // color:"#E82C2D"
             }}
           >
             {card.position}
@@ -152,7 +154,8 @@ const Squad = () => {
 
           <Box
             sx={{
-              backgroundColor: card.color,
+              backgroundColor: "var(--lightGray)",
+              // backgroundColor: card.color,
               position: "absolute",
               bottom: { xs: 5, sm: 10 },
               right: { xs: "5%", sm: "10%", md: "15%" }, // Adjust right positioning
