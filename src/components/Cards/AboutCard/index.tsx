@@ -30,12 +30,12 @@ const AboutCard = forwardRef((_, ref) => {
         trigger: ".char",
         start: "top 80%",
         end: "top 60%",
-        scrub: 1,
+        // scrub: 1,
         // markers: true,
       },
-      ease: "power2.inOut",
+      ease: "power2.in",
       duration: 1,
-      delay: 3,
+      delay: 0.5,
     });
 
     // Scroll-triggered number animation
