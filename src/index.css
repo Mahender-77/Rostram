@@ -2,12 +2,14 @@
 body {
   margin: 0;
   padding: 0;
-  /* background-color: #212529; */
-  background-color: #161a1d;
+  background-color: #fefefe;
+  /* background-color: #161a1d; */
 }
 :root {
-  --blackbackGround:#000000;
-  --whiteText: #fefffe;
+  /* --blackbackGround:#000000; */
+  --blackbackGround:#fffefe;
+  /* --whiteText: #fefffe; */
+  --whiteText:  #161a1d;
   --grayFooter: #f1f0f4;
   --grayButton: #d9dadb;
   --blackText: #5c5d5f;

@@ -80,7 +80,7 @@ const Navbar = ({ sectionRefs }: { sectionRefs: SectionRefs }) => {
         left: 0,
         zIndex: 1000,
         padding: "5px 30px",
-        backgroundColor: "var(--blackButton)",
+        backgroundColor: "var(--backgroundColor)",
       }}
     >
       {showOverlay && (
