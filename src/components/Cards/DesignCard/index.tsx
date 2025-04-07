@@ -148,6 +148,7 @@ const DesignCard = () => {
                   borderRadius: 2,
                   backgroundColor: slide.color,
                   color: "var(--blackButton)",
+
                   textTransform: "capitalize",
                   padding: 1,
                   fontSize: "1rem",
