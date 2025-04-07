@@ -2,6 +2,7 @@ import { Box, Button, Typography } from "@mui/material";
 import itserviceimg from "../../../assets/IT.gif";
 import ITSupportImg from "../../../assets/Service.gif";
 import VFXImg from "../../../assets/VFX.gif";
+import { forwardRef } from "react";
 
 const services = [
   {
@@ -33,9 +34,10 @@ const services = [
   },
 ];
 
-const OurServices = () => {
+const OurServices = forwardRef((_, ref) => {
   return (
     <Box
+      ref={ref}
       sx={{
         flex: 1,
         width: "100%",
@@ -45,6 +47,9 @@ const OurServices = () => {
         alignItems: "center",
         justifyContent: "center",
         whiteSpace: "nowrap",
+        // border:"1px solid red",
+        paddingTop:"80px"
+
       }}
     >
       <Box
@@ -184,6 +189,6 @@ const OurServices = () => {
       </Box>
     </Box>
   );
-};
+});
 
 export default OurServices;

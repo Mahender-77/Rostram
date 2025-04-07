@@ -30,7 +30,7 @@ const ContactUs = forwardRef((_, ref) => {
         start: "top 65%",
         end: "top 25%",
         scrub: true,
-        markers: true,
+        // markers: true,
       },
     });
   }, []);

@@ -81,6 +81,7 @@ const Marquee: React.FC = () => {
               height: 150,
               objectFit: "cover",
               borderRadius: 2,
+              cursor:'pointer'
             }}
           />
         ))}

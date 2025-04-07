@@ -30,24 +30,25 @@ const AboutCard = forwardRef((_, ref) => {
         trigger: ".char",
         start: "top 80%",
         end: "top 60%",
-        scrub: 1,
-        // markers: true,
+        // scrub: 1,
+      
       },
-      ease: "power2.inOut",
+      ease: "power2.in",
       duration: 1,
-      delay: 3,
+      // delay: 0.3,
     });
 
     // Scroll-triggered number animation
     gsap.from(".data", {
       textContent: 0,
-      duration: 0.7,
+      duration: 0.8,
       ease: "power2.out",
       snap: { textContent: 1 },
       scrollTrigger: {
         trigger: ".data",
-        start: "top 50%",
+        start: "top 80%",
         scrub: false,
+        // markers: true,
       },
     });
   });
