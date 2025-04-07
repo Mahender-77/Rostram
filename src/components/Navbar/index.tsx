@@ -14,6 +14,10 @@ const Navbar = ({ sectionRefs }: { sectionRefs: SectionRefs }) => {
   const [showOverlay, setShowOverlay] = useState(true);
   const imgRef = useRef(null);
   useEffect(() => {
+    // Prevent browser from restoring scroll position on refresh
+    window.history.scrollRestoration = "manual";
+  }, []);
+  useEffect(() => {
     if (showOverlay) {
       document.body.style.overflow = "hidden";
     } else {
