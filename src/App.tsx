@@ -39,7 +39,7 @@ function App() {
       <Navbar sectionRefs={sectionRefs} />
       <DesignCard />
       {/* <Services ref={sectionRefs.servicesRef} /> */}
-      <OurServices />
+      <OurServices ref={sectionRefs.servicesRef}/>
       <AboutCard ref={sectionRefs.aboutRef} />
       <Marquee />
       {/* <OurTeam /> */}

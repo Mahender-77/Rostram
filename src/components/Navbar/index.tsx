@@ -1,7 +1,7 @@
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { Box, Typography } from "@mui/material";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import logo from "../../assets/rostram_logo-removebg-preview.png";
 import { SectionRefs } from "../../App";
 // type sectionRefs = {
@@ -13,6 +13,18 @@ import { SectionRefs } from "../../App";
 const Navbar = ({ sectionRefs }: { sectionRefs: SectionRefs }) => {
   const [showOverlay, setShowOverlay] = useState(true);
   const imgRef = useRef(null);
+  useEffect(() => {
+    if (showOverlay) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "auto";
+    }
+  
+    return () => {
+      document.body.style.overflow = "auto";
+    };
+  }, [showOverlay]);
+  
   useGSAP(() => {
     const tl = gsap.timeline();
 
@@ -98,6 +110,7 @@ const Navbar = ({ sectionRefs }: { sectionRefs: SectionRefs }) => {
             alignItems: "center",
             justifyContent: "center",
             zIndex: 1000,
+            overflowY: "hidden", 
         
           }}
         >
