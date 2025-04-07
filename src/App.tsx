@@ -7,8 +7,8 @@ import Navbar from "./components/Navbar";
 import Squad from "./components/Cards/Squad";
 // import OurTeam from "./components/Cards/OurTeam";
 import Footer from "./components/Footer";
-// import OurServices from "./components/Cards/OurSevices";
-import { ServiceCards } from "./components/Cards/ServicesCard";
+import OurServices from "./components/Cards/OurSevices";
+// import { ServiceCards } from "./components/Cards/ServicesCard";
 import ContactUs from "./components/ContactUs";
 // import OurTeam from "./components/Cards/OurTeam";
 
@@ -37,8 +37,8 @@ function App() {
       <Navbar sectionRefs={sectionRefs} />
       <DesignCard />
       {/* <Services ref={sectionRefs.servicesRef} /> */}
-      {/* <OurServices /> */}
-      <ServiceCards />
+      <OurServices />
+      {/* <ServiceCards /> */}
       <AboutCard ref={sectionRefs.aboutRef} />
       <Marquee />
       {/* <OurTeam /> */}

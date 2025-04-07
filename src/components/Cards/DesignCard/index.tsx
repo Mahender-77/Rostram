@@ -117,12 +117,12 @@ const DesignCard = () => {
             >
               <Typography
                 sx={{
-                  backgroundColor: slide.color,
+                  // backgroundColor: slide.color,
                   // width: "28%",
                   fontSize: "50px",
                   fontWeight: 600,
                   fontFamily: "Gilroy, sans-serif",
-                  padding: "0 10px",
+                  // padding: "0 10px",
                   color: "var(--blackButton)",
                 }}
               >
@@ -146,7 +146,7 @@ const DesignCard = () => {
                   border: `1px solid ${slide.color}`,
                   // borderBottom: `10px solid ${slide.color}`,
                   borderRadius: 5,
-                  backgroundColor: "var(--blackButton)",
+                  // backgroundColor: "var(--blackButton)",
                   color: slide.color,
                   textTransform: "capitalize",
                   padding: 1,
