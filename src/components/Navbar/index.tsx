@@ -80,7 +80,8 @@ const Navbar = ({ sectionRefs }: { sectionRefs: SectionRefs }) => {
         left: 0,
         zIndex: 1000,
         padding: "5px 30px",
-        backgroundColor: "var(--backgroundColor)",
+        backgroundColor: "white",
+       
       }}
     >
       {showOverlay && (
@@ -97,6 +98,7 @@ const Navbar = ({ sectionRefs }: { sectionRefs: SectionRefs }) => {
             alignItems: "center",
             justifyContent: "center",
             zIndex: 1000,
+        
           }}
         >
           <Box
