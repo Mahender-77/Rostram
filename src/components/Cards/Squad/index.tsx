@@ -9,10 +9,10 @@ import Men1 from "../../../assets/Men1.png";
 const cards = [
   {
     id: 1,
-    name: "Raju",
+    name: "Raju Raju Raju Raju ",
     position: "CEO",
-    description:
-      "Exceptional service! The team is professional, efficient, and incredibly friendly.They completed the work swiftly and exceeded my expectations. Highly recommended!",
+    // description:
+    //   "Exceptional service! The team is professional, efficient, and incredibly friendly.They completed the work swiftly and exceeded my expectations. Highly recommended!",
     color: "var(--darkGray)",
     image: men,
   },
@@ -94,39 +94,38 @@ const Squad = () => {
   return (
     <Box
       sx={{
-        gap: 5,
-        width: "80%",
-        margin: "auto",
+        marginY: "6rem",
         display: "flex",
         flexDirection: "column",
-        paddingY: "10rem",
-        // alignItems: "center",
-        // justifyContent: "center",
+        alignItems: "center",
+        justifyContent: "center",
+        gap: 4,
       }}
     >
-      <Box>
-        <Typography
-          sx={{
-            fontSize: "3rem",
-            fontWeight: 600,
-            fontFamily: "Gilroy, sans-serif",
-            backgroundImage: "linear-gradient(90deg, #bf181e,rgb(255, 0, 8))",
-            backgroundClip: "text",
-            WebkitBackgroundClip: "text",
-            WebkitTextFillColor: "transparent",
-            textAlign: "center",
-            width: "70%",
-            display: "flex",
-            justifySelf: "center",
-            justifyContent: "center",
-            padding: "0.5rem 1rem",
-          }}
-        >
-          ----- MEET OUR TEAM -----
-        </Typography>
-      </Box>
+      <Typography
+        sx={{
+          fontSize: "3rem",
+          fontWeight: 600,
+          fontFamily: "Gilroy, sans-serif",
+          backgroundImage: "linear-gradient(90deg, #bf181e,rgb(255, 0, 8))",
+          backgroundClip: "text",
+          WebkitBackgroundClip: "text",
+          WebkitTextFillColor: "transparent",
+          textAlign: "center",
+          width: "70%",
+          display: "flex",
+          justifySelf: "center",
+          justifyContent: "center",
+          // padding: "1.5rem rem",
+        }}
+      >
+        ----- Our Team -----
+      </Typography>
       <Box
         sx={{
+          width: "80%",
+          height: "60vh",
+          margin: "auto",
           display: "flex",
           flexDirection: "row",
           overflow: "scroll",
@@ -135,61 +134,16 @@ const Squad = () => {
           alignItems: "center",
           // backgroundColor: "var(--blackbackGround)",
           gap: 5,
-          height: "60vh",
           paddingX: "2rem",
         }}
       >
         {cards.map((card) => (
-            flexDirection: "column",
-            justifyContent: "flex-start",
-            alignItems: "flex-start",
-            padding: "0.5rem",
-            paddingX: "1rem",
-            // gap: 3,
-            // backgroundColor: "var(--blackText)",
-            borderRadius: "1rem",
-            border: `1px solid ${card.color}`,
-            // borderBottom: `10px solid #E82C2D`,
-            borderBottom: `10px solid ${card.color}`,
-            position: "relative",
-          }}
-        >
-          <Typography
-            sx={{
-              fontSize: "2.75rem",
-              fontWeight: 600,
-              fontFamily: "Gilroy, sans-serif",
-              color: "var(--blackbackGround)",
-            }}
-          >
-            {card.name}
-          </Typography>
-          <Typography
-            sx={{
-              fontSize: "1rem",
-              fontWeight: 500,
-              fontFamily: "Gilroy, sans-serif",
-              color: `${card.color}`,
-              // color:"#E82C2D"
-            }}
-          >
-            {card.position}
-          </Typography>
-
           <Box
             key={card.id}
             sx={{
-
-              backgroundColor: "var(--lightGray)",
-              // backgroundColor: card.color,
-              position: "absolute",
-              bottom: { xs: 5, sm: 10 },
-              right: { xs: "5%", sm: "10%", md: "15%" }, // Adjust right positioning
-              padding: "0.5rem",
-              width: { xs: "30vw", sm: "20vw", md: "15vw" }, // Responsive width
-              height: { xs: "20vh", sm: "25vh", md: "27vh" }, // Responsive height
-              borderRadius: { xs: "50%", sm: "80%", md: "100%" }, // Adjust border-radius
-              zIndex: -1,
+              minWidth: "27%",
+              maxWidth: "27%",
+              height: "55vh",
               display: "flex",
               flexDirection: "column",
               justifyContent: "flex-start",
@@ -200,11 +154,13 @@ const Squad = () => {
               // backgroundColor: "var(--blackText)",
               borderRadius: "1rem",
               border: `1px solid ${card.color}`,
+              // borderBottom: `10px solid #E82C2D`,
               borderBottom: `10px solid ${card.color}`,
               position: "relative",
+              // gap: 1,
               ":hover": {
                 color: "var(--logoRed)",
-                scale: 1.05,
+                scale: 1.02,
                 transition: "all 0.3s ease-in-out",
               },
             }}
@@ -215,18 +171,25 @@ const Squad = () => {
                 fontWeight: 600,
                 fontFamily: "Gilroy, sans-serif",
                 color: "var(--blackbackGround)",
+                width: "18vw",
+                // backgroundColor: "var(--blackbackGround)",
+                whiteSpace: "nowrap", // Prevent line breaks
+                overflow: "hidden", // Hide overflow text
+                textOverflow: "ellipsis", // Add "..." if text overflows
               }}
             >
               {card.name}
             </Typography>
+
             <Typography
               sx={{
-                fontSize: "1rem",
-                fontWeight: 500,
+                fontSize: "0.75rem",
+                fontWeight: 600,
                 fontFamily: "Gilroy, sans-serif",
-                color: `${card.color}`,
-                // backgroundColor: "var(--blackbackGround)",
-                // paddingX: "0.5rem ",
+                // color: `${card.color}`,
+                color: "var(--whiteText)",
+                backgroundColor: "var(--logoRed)",
+                padding: "0.25rem 0.5rem",
               }}
             >
               {card.position}
@@ -234,7 +197,8 @@ const Squad = () => {
 
             <Box
               sx={{
-                backgroundColor: card.color,
+                backgroundColor: "var(--lightGray)",
+                // backgroundColor: card.color,
                 position: "absolute",
                 bottom: { xs: 5, sm: 10 },
                 right: { xs: "5%", sm: "10%", md: "15%" }, // Adjust right positioning
@@ -248,8 +212,8 @@ const Squad = () => {
                 alignItems: "center",
                 ":hover": {
                   color: "var(--logoRed)",
-                  scale: 0.95,
-                  transition: "all 0.3s ease-in-out",
+                  transform: "scale(1)", // Use transform for scaling
+                  boxShadow: "0px 20px 60px rgba(255, 0, 0, 0.25)", // Shadow on hover
                 },
               }}
             >
@@ -276,6 +240,12 @@ const Squad = () => {
                 fontWeight: 500,
                 fontFamily: "Gilroy, sans-serif",
                 color: "var(--blackbackGround)",
+                mt: 1,
+                display: "-webkit-box",
+                WebkitLineClamp: 3, // 👈 limits to 4 lines
+                WebkitBoxOrient: "vertical",
+                overflow: "hidden",
+                textOverflow: "ellipsis",
               }}
             >
               {card.description}
