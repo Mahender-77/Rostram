@@ -1,11 +1,6 @@
 import { Box, Typography, IconButton } from "@mui/material";
-import {
-  Facebook,
-  Instagram,
-  Pinterest,
-  Twitter,
-  LinkedIn,
-} from "@mui/icons-material";
+import { Facebook, Instagram, Pinterest, LinkedIn } from "@mui/icons-material";
+import XIcon from "@mui/icons-material/X";
 import logo from "../../assets/rostram_logo-removebg-preview.png";
 
 const Footer = () => {
@@ -169,7 +164,7 @@ const Footer = () => {
                 }}
                 onClick={() => window.open("https://x.com/", "_blank")}
               >
-                <Twitter />
+                <XIcon />
               </IconButton>
             </Box>
           </Box>

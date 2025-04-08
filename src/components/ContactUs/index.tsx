@@ -64,7 +64,7 @@ const ContactUs = forwardRef((_, ref) => {
             fontSize: { xs: "1.5rem", sm: "2rem" },
             fontFamily: "Gilroy, sans-serif",
             fontWeight: 600,
-            color: "#e7393c",
+            color: "var(--logoRed)",
             backgroundColor: "var(--blackbackGround)",
             zIndex: 1,
             position: "absolute",
@@ -73,7 +73,7 @@ const ContactUs = forwardRef((_, ref) => {
             padding: "0.5rem 1rem",
           }}
         >
-          {"   "}Connect With Us .{"  "}
+          Connect With Us .
         </Typography>
 
         <svg
@@ -91,7 +91,7 @@ const ContactUs = forwardRef((_, ref) => {
           <path
             ref={pathRef}
             d="M0.5 595C156.5 525.5 131 210.5 251.5 149.5C372 88.5 533 242 379.5 357C226 472 -102.5 134 95 62.5C292.5 -9 742.5 34.5 742.5 34.5M742.5 34.5L643 1M742.5 34.5L643 49.5"
-            stroke="#e7393c"
+            stroke="var(--logoRed)"
             strokeWidth="8"
             fill="none"
           />
@@ -157,7 +157,7 @@ const ContactUs = forwardRef((_, ref) => {
             rows={5}
             sx={{
               ...textFieldStyles,
-              "& textarea": { color: "var(--blackbackGround)" },
+              "& textarea": { color: "var(--whiteText)" },
             }}
           />
 
