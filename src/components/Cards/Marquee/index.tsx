@@ -42,7 +42,8 @@ const Marquee: React.FC = () => {
           fontSize: "3rem",
           fontWeight: 600,
           fontFamily: "Gilroy, sans-serif",
-          backgroundImage: "linear-gradient(90deg, #bf181e,rgb(255, 0, 8))",
+          backgroundImage:
+            "linear-gradient(120deg,rgb(142, 14, 14),rgb(255, 0, 8),rgb(142, 14, 14))",
           backgroundClip: "text",
           WebkitBackgroundClip: "text",
           WebkitTextFillColor: "transparent",
@@ -55,7 +56,7 @@ const Marquee: React.FC = () => {
           mb: 5,
         }}
       >
-        ----- Our Partners -----
+        Our Partners
       </Typography>
       <Box
         onMouseEnter={() => setIsPaused(true)}
@@ -81,7 +82,7 @@ const Marquee: React.FC = () => {
               height: 150,
               objectFit: "cover",
               borderRadius: 2,
-              cursor:'pointer'
+              cursor: "pointer",
             }}
           />
         ))}

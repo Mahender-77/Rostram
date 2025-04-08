@@ -107,7 +107,8 @@ const Squad = () => {
           fontSize: "3rem",
           fontWeight: 600,
           fontFamily: "Gilroy, sans-serif",
-          backgroundImage: "linear-gradient(90deg, #bf181e,rgb(255, 0, 8))",
+          backgroundImage:
+            "linear-gradient(120deg,rgb(142, 14, 14),rgb(255, 0, 8),rgb(142, 14, 14))",
           backgroundClip: "text",
           WebkitBackgroundClip: "text",
           WebkitTextFillColor: "transparent",
@@ -119,7 +120,7 @@ const Squad = () => {
           // padding: "1.5rem rem",
         }}
       >
-        ----- Our Team -----
+        Our Team
       </Typography>
       <Box
         sx={{
