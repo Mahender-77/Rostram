@@ -14,21 +14,21 @@ const Navbar = ({ sectionRefs }: { sectionRefs: SectionRefs }) => {
   const [showOverlay, setShowOverlay] = useState(true);
   const imgRef = useRef(null);
   useEffect(() => {
-    // Prevent browser from restoring scroll position on refresh
-    window.history.scrollRestoration = "manual";
-  }, []);
-  useEffect(() => {
     if (showOverlay) {
       document.body.style.overflow = "hidden";
     } else {
       document.body.style.overflow = "auto";
     }
-
+    
     return () => {
       document.body.style.overflow = "auto";
     };
   }, [showOverlay]);
-
+  
+  useEffect(() => {
+    // Prevent browser from restoring scroll position on refresh
+    window.history.scrollRestoration = "manual";
+  }, []);
   useGSAP(() => {
     const tl = gsap.timeline();
 
@@ -96,7 +96,8 @@ const Navbar = ({ sectionRefs }: { sectionRefs: SectionRefs }) => {
         left: 0,
         zIndex: 1000,
         padding: "5px 30px",
-        backgroundColor: "var(--grayFooter)",
+        // backgroundColor: "var(--grayFooter)",
+        backgroundColor: "#01050E",
       }}
     >
       {showOverlay && (
@@ -188,12 +189,14 @@ const Navbar = ({ sectionRefs }: { sectionRefs: SectionRefs }) => {
               fontSize: "18px",
               fontWeight: 600,
               fontFamily: "Gilroy, sans-serif",
-              color: "var(--blackbackGround)",
+              // color: "var(--blackbackGround)",
+              color: "white",
               cursor: "pointer",
               ":hover": {
                 textDecoration: "underline",
                 fontWeight: 600,
                 color: "var(--logoRed)",
+             
               },
             }}
             onClick={item.onClick}
