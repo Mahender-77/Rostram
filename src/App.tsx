@@ -10,8 +10,9 @@ import Footer from "./components/Footer";
 import OurServices from "./components/Cards/OurSevices";
 // import { ServiceCards } from "./components/Cards/ServicesCard";
 import ContactUs from "./components/ContactUs";
-import OurTeam from "./components/Cards/OurTeam";
-import { ServiceCards } from "./components/Cards/ServicesCard";
+// import OurTeam from "./components/Cards/OurTeam";
+// import { ServiceCards } from "./components/Cards/ServicesCard";
+import { Home } from "./components/Home";
 // import OurTeam from "./components/Cards/OurTeam";
 
 export type SectionRefs = {
@@ -36,6 +37,7 @@ function App() {
 
   return (
     <>
+    <Home/>
       <Navbar sectionRefs={sectionRefs} />
       <DesignCard />
       {/* <Services ref={sectionRefs.servicesRef} /> */}
