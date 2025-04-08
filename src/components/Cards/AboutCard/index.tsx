@@ -63,7 +63,8 @@ const AboutCard = forwardRef((_, ref) => {
           fontSize: "3rem",
           fontWeight: 600,
           fontFamily: "Gilroy, sans-serif",
-          backgroundImage: "linear-gradient(90deg, #bf181e,rgb(255, 0, 8))",
+          backgroundImage:
+            "linear-gradient(120deg,rgb(142, 14, 14),rgb(255, 0, 8),rgb(142, 14, 14))",
           backgroundClip: "text",
           WebkitBackgroundClip: "text",
           WebkitTextFillColor: "transparent",
@@ -75,7 +76,7 @@ const AboutCard = forwardRef((_, ref) => {
           // padding: "1.5rem rem",
         }}
       >
-        ----- About Us -----
+        About Us
       </Typography>
       <Box
         ref={ref}

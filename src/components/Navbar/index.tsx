@@ -23,12 +23,12 @@ const Navbar = ({ sectionRefs }: { sectionRefs: SectionRefs }) => {
     } else {
       document.body.style.overflow = "auto";
     }
-  
+
     return () => {
       document.body.style.overflow = "auto";
     };
   }, [showOverlay]);
-  
+
   useGSAP(() => {
     const tl = gsap.timeline();
 
@@ -96,8 +96,7 @@ const Navbar = ({ sectionRefs }: { sectionRefs: SectionRefs }) => {
         left: 0,
         zIndex: 1000,
         padding: "5px 30px",
-        backgroundColor: "white",
-       
+        backgroundColor: "var(--grayFooter)",
       }}
     >
       {showOverlay && (
@@ -114,8 +113,7 @@ const Navbar = ({ sectionRefs }: { sectionRefs: SectionRefs }) => {
             alignItems: "center",
             justifyContent: "center",
             zIndex: 1000,
-            overflowY: "hidden", 
-        
+            overflowY: "hidden",
           }}
         >
           <Box

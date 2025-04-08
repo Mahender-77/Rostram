@@ -39,19 +39,41 @@ const OurServices = forwardRef((_, ref) => {
     <Box
       ref={ref}
       sx={{
-        flex: 1,
-        width: "100%",
-        height: "47vh",
-        margin: "auto",
+        // flex: 1,
+        // width: "100%",
+        height: "65vh",
+        // margin: "auto",
         display: "flex",
+        flexDirection: "column",
         alignItems: "center",
-        justifyContent: "center",
-        whiteSpace: "nowrap",
+        justifyContent: "space-between",
+        // whiteSpace: "nowrap",
         // border:"1px solid red",
-        paddingTop:"80px"
-
+        // paddingTop: "80px",
+        backgroundColor: "var(--grayFooter)",
+        paddingY: "1rem",
+        gap: "2rem",
       }}
     >
+      <Typography
+        sx={{
+          fontSize: "3rem",
+          fontWeight: 600,
+          fontFamily: "Gilroy, sans-serif",
+          backgroundImage:
+            "linear-gradient(120deg,rgb(142, 14, 14),rgb(255, 0, 8),rgb(142, 14, 14))",
+          backgroundClip: "text",
+          WebkitBackgroundClip: "text",
+          WebkitTextFillColor: "transparent",
+          textAlign: "center",
+          width: "70%",
+          display: "flex",
+          justifySelf: "center",
+          justifyContent: "center",
+        }}
+      >
+        Our Services
+      </Typography>
       <Box
         sx={{
           display: "flex",
@@ -66,14 +88,14 @@ const OurServices = forwardRef((_, ref) => {
             sx={{
               perspective: "1000px",
               width: "18rem",
-              height: "20rem",
+              height: "26rem",
             }}
           >
             <Box
               sx={{
                 position: "relative",
                 width: "100%",
-                height: "100%",
+                height: "80%",
                 transformStyle: "preserve-3d",
                 transition: "transform 0.8s",
                 ":hover": {
