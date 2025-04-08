@@ -1,38 +1,47 @@
 import { Box, Button, TextField, Typography } from "@mui/material";
 import { forwardRef, useRef } from "react";
 import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { MotionPathPlugin } from "gsap/MotionPathPlugin";
 import { useGSAP } from "@gsap/react";
 
-gsap.registerPlugin(ScrollTrigger, MotionPathPlugin);
+gsap.registerPlugin(MotionPathPlugin);
 
 const ContactUs = forwardRef((_, ref) => {
   const pathRef = useRef<SVGPathElement | null>(null);
 
   useGSAP(() => {
     if (!pathRef.current) return;
-
     const path = pathRef.current;
     const pathLength = path.getTotalLength();
 
-    gsap.set(path, {
-      strokeDasharray: pathLength,
-      strokeDashoffset: pathLength,
-    });
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          // Reset the dash before playing
+          gsap.set(path, {
+            strokeDasharray: pathLength,
+            strokeDashoffset: pathLength,
+          });
 
-    gsap.to(path, {
-      strokeDashoffset: 0,
-      duration: 2,
-      ease: "power2.inOut",
-      scrollTrigger: {
-        trigger: path,
-        start: "top 65%",
-        end: "top 25%",
-        scrub: true,
-        // markers: true,
+          gsap.to(path, {
+            strokeDashoffset: 0,
+            duration: 2,
+            ease: "power2.inOut",
+            delay: 0.5,
+          });
+        } else {
+          // Reset if user leaves the section
+          gsap.set(path, {
+            strokeDashoffset: pathLength,
+          });
+        }
       },
-    });
+      { threshold: 0.3 }
+    );
+
+    observer.observe(path);
+
+    return () => observer.disconnect();
   }, []);
 
   return (
