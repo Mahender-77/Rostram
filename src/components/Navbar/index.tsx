@@ -8,7 +8,41 @@ import { SectionRefs } from "../../App";
 const Navbar = ({ sectionRefs }: { sectionRefs: SectionRefs }) => {
   const [showOverlay, setShowOverlay] = useState(true);
   const [scrolled, setScrolled] = useState(false);
+  const [hoveredItem, setHoveredItem] = useState<string | null>(null);
+  const [hoveredSubItem, setHoveredSubItem] = useState<string | null>(null);
   const imgRef = useRef(null);
+
+  const servicesMenu = [
+    {
+      label: "VFX",
+      subOptions: [
+        "3D & GAME Production",
+        "VFX Production",
+        "CGI Tools Development",
+        "VFX Pipeline Development",
+      ],
+    },
+    {
+      label: "IT Services",
+      subOptions: [
+        "Custom Application Development",
+        "Product Development",
+        "Analytics",
+        "Product Re-engineering",
+        "Mobile Application Development",
+        "Testing",
+      ],
+    },
+    {
+      label: "Support",
+      subOptions: [
+        "App Support & Maintenance",
+        "Quality Assurance",
+        "Data Insights",
+        "DevOps",
+      ],
+    },
+  ];
 
   useEffect(() => {
     document.body.style.overflow = showOverlay ? "hidden" : "auto";
@@ -21,34 +55,14 @@ const Navbar = ({ sectionRefs }: { sectionRefs: SectionRefs }) => {
     window.history.scrollRestoration = "manual";
 
     const handleScroll = () => {
-      console.log(window.scrollY)
-      if (window.scrollY > 750) {
-        setScrolled(true);
-      } else {
-        setScrolled(false);
-      }
+      setScrolled(window.scrollY > 750);
     };
 
     window.addEventListener("scroll", handleScroll);
-    handleScroll(); // <-- trigger once
+    handleScroll();
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
-  // useEffect(() => {
-  //   if (showOverlay) {
-  //     document.body.style.overflow = "hidden";
-  //   } else {
-  //     document.body.style.overflow = "auto";
-  //   }
-    
-  //   return () => {
-  //     document.body.style.overflow = "auto";
-  //   };
-  // }, [showOverlay]);
-  
-  useEffect(() => {
-    // Prevent browser from restoring scroll position on refresh
-    window.history.scrollRestoration = "manual";
-  }, []);
+
   useGSAP(() => {
     const tl = gsap.timeline();
 
@@ -98,9 +112,7 @@ const Navbar = ({ sectionRefs }: { sectionRefs: SectionRefs }) => {
   }, []);
 
   const scrollToSection = (section: keyof SectionRefs) => {
-    if (sectionRefs[section]?.current) {
-      sectionRefs[section].current?.scrollIntoView({ behavior: "smooth" });
-    }
+    sectionRefs[section]?.current?.scrollIntoView({ behavior: "smooth" });
   };
 
   return (
@@ -182,10 +194,9 @@ const Navbar = ({ sectionRefs }: { sectionRefs: SectionRefs }) => {
               left: 179,
               fontSize: "15px",
               fontWeight: 600,
-              width:"100%",
+              width: "100%",
               fontFamily: "Gilroy, sans-serif",
               color: "#5C5C5E",
-            
             }}
           >
             Tekno Labs
@@ -194,37 +205,141 @@ const Navbar = ({ sectionRefs }: { sectionRefs: SectionRefs }) => {
 
         <Box
           className="nav-container"
-          sx={{
-            display: "flex",
-            gap: 10,
-            paddingRight: 15,
-          }}
+          sx={{ display: "flex", gap: 10, paddingRight: 15 }}
         >
           {[
             { text: "About Us", onClick: () => scrollToSection("aboutRef") },
-            { text: "Services", onClick: () => scrollToSection("servicesRef") },
+            { text: "Services" },
             { text: "Contact", onClick: () => scrollToSection("contactRef") },
-          ].map((item) => (
-            <Typography
-              key={item.text}
-              className="nav-item"
-              onClick={item.onClick}
-              sx={{
-                fontSize: "18px",
-                fontWeight: 600,
-                fontFamily: "Gilroy, sans-serif",
-                color: scrolled ? "#000" : "#fff",
-                cursor: "pointer",
-                transition: "color 0.3s ease",
-                ":hover": {
-                  textDecoration: "underline",
-                  color: "var(--logoRed)",
-                },
-              }}
-            >
-              {item.text}
-            </Typography>
-          ))}
+          ].map((item) =>
+            item.text === "Services" ? (
+              <Box
+                key="Services"
+                onMouseEnter={() => setHoveredItem("Services")}
+                onMouseLeave={() => {
+                  setHoveredItem(null);
+                  setHoveredSubItem(null);
+                }}
+                sx={{ position: "relative" }}
+              >
+                <Typography
+                  className="nav-item"
+                  sx={{
+                    fontSize: "18px",
+                    fontWeight: 600,
+                    fontFamily: "Gilroy, sans-serif",
+                    color: scrolled ? "#000" : "#fff",
+                    cursor: "pointer",
+                    transition: "color 0.3s ease",
+                    ":hover": {
+                      textDecoration: "underline",
+                      color: "var(--logoRed)",
+                    },
+                  }}
+                >
+                  Services
+                </Typography>
+
+                {hoveredItem === "Services" && (
+                  <Box
+                    sx={{
+                      position: "absolute",
+                      width: "30vw",
+                      top: "100%",
+                      right: 0,
+                      background: "#ffeff0",
+                      boxShadow: "0px 4px 8px rgba(255, 218, 218, 0.1)",
+                      zIndex: 1200,
+                      display: "flex",
+                      padding: 1,
+                      gap: 2,
+                      borderBottomRightRadius: "1rem",
+                      borderBottomLeftRadius: "1rem",
+                    }}
+                  >
+                    {/* Left column (options) */}
+                    <Box sx={{ display: "flex", flexDirection: "column" }}>
+                      {servicesMenu.map((service) => (
+                        <Box
+                          key={service.label}
+                          onMouseEnter={() => setHoveredSubItem(service.label)}
+                          sx={{
+                            width: "100%",
+                            padding: "8px 12px",
+                            cursor: "pointer",
+                            borderRadius: "0.5rem",
+                            color: "var(--logoRed)",
+                            background:
+                              hoveredSubItem === service.label
+                                ? "#fbc0c3"
+                                : "transparent",
+                            ":hover": {
+                              background: "#e73a3c",
+                              color: "var(--whiteText)",
+                            },
+                          }}
+                        >
+                          {service.label}
+                        </Box>
+                      ))}
+                    </Box>
+
+                    {/* Right column (subOptions) */}
+                    <Box
+                      sx={{
+                        display: "flex",
+                        flexDirection: "column",
+                        // minWidth: "150px",
+                        width: "20vw",
+                      }}
+                    >
+                      {servicesMenu
+                        .find((service) => service.label === hoveredSubItem)
+                        ?.subOptions.map((sub) => (
+                          <Box
+                            key={sub}
+                            sx={{
+                              padding: "8px 12px",
+                              cursor: "pointer",
+                              color: "var(--blackButton)",
+
+                              ":hover": {
+                                background: "var(--logoRed)",
+                                color: "var(--whiteText)",
+                                borderTopRightRadius: "2rem",
+                                borderBottomRightRadius: "2rem",
+                              },
+                            }}
+                          >
+                            {sub}
+                          </Box>
+                        ))}
+                    </Box>
+                  </Box>
+                )}
+              </Box>
+            ) : (
+              <Typography
+                key={item.text}
+                className="nav-item"
+                onClick={item.onClick}
+                sx={{
+                  fontSize: "18px",
+                  fontWeight: 600,
+                  fontFamily: "Gilroy, sans-serif",
+                  color: scrolled ? "#000" : "#fff",
+                  cursor: "pointer",
+                  transition: "color 0.3s ease",
+                  ":hover": {
+                    textDecoration: "underline",
+                    color: "var(--logoRed)",
+                  },
+                }}
+              >
+                {item.text}
+              </Typography>
+            )
+          )}
         </Box>
       </Box>
     </>
