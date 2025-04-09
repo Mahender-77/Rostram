@@ -3,7 +3,9 @@ import gsap from "gsap";
 import { Box, Typography } from "@mui/material";
 import { useEffect, useRef, useState } from "react";
 import logo from "../../assets/rostram_logo-removebg-preview.png";
-import { SectionRefs } from "../../App";
+import { SectionRefs } from "../../pages/Home";
+
+
 // type sectionRefs = {
 //   aboutRef: React.RefObject<HTMLDivElement>;
 //   servicesRef: React.RefObject<HTMLDivElement>;
@@ -19,12 +21,12 @@ const Navbar = ({ sectionRefs }: { sectionRefs: SectionRefs }) => {
     } else {
       document.body.style.overflow = "auto";
     }
-    
+
     return () => {
       document.body.style.overflow = "auto";
     };
   }, [showOverlay]);
-  
+
   useEffect(() => {
     // Prevent browser from restoring scroll position on refresh
     window.history.scrollRestoration = "manual";
