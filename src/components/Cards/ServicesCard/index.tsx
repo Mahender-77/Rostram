@@ -3,7 +3,6 @@ import { Box, Card, CardContent, Typography, Button } from "@mui/material";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-
 // Register ScrollTrigger
 gsap.registerPlugin(ScrollTrigger);
 
@@ -45,10 +44,6 @@ export const ServiceCards = () => {
   const containerRef = useRef<HTMLDivElement | null>(null);
   const lineRef = useRef<HTMLDivElement | null>(null);
   const horizontalLinesRef = useRef<(HTMLDivElement | null)[]>([]);
-
-
-
-
 
   useEffect(() => {
     const cards = services.map((service) => `#card-${service.id}`);
@@ -127,19 +122,19 @@ export const ServiceCards = () => {
         height: "1450px",
         margin: "auto",
         mt: 5,
-        paddingTop:"5%"
+        paddingTop: "5%",
       }}
     >
       <Typography
         sx={{
-          position:"absolute", 
-          px:2, 
+          position: "absolute",
+          px: 2,
           color: "white",
           fontSize: "2rem",
           fontWeight: 600,
           marginLeft: "10%",
-          top:0,
-          backgroundColor:"#E82C2D"
+          top: 0,
+          backgroundColor: "#E82C2D",
         }}
       >
         WHAT WE DO?
@@ -152,7 +147,7 @@ export const ServiceCards = () => {
           top: "5px",
           left: "50%",
           width: "5px",
-          height:{xl: "1450px",},
+          height: { xl: "1450px" },
           backgroundColor: "#ffffff",
           transform: "translateX(-50%)",
           transition: "background 0.5s ease",
@@ -167,7 +162,7 @@ export const ServiceCards = () => {
             }}
             sx={{
               position: "absolute",
-              width: service.position.left ? {xl:"150px"} : "148px",
+              width: service.position.left ? { xl: "150px" } : "148px",
               height: "5px",
               backgroundColor: "#ffffff",
               top: `${service.position.top + 225}px`,
