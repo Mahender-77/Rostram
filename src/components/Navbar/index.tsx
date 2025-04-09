@@ -3,8 +3,15 @@ import gsap from "gsap";
 import { Box, Typography } from "@mui/material";
 import { useEffect, useRef, useState } from "react";
 import logo from "../../assets/rostram_logo-removebg-preview.png";
-import { SectionRefs } from "../../App";
+import { SectionRefs } from "../../pages/Home";
 
+
+// type sectionRefs = {
+//   aboutRef: React.RefObject<HTMLDivElement>;
+//   servicesRef: React.RefObject<HTMLDivElement>;
+//   // portfolioRef: React.RefObject<HTMLDivElement>;
+//   // contactRef: React.RefObject<HTMLDivElement>;
+// };
 const Navbar = ({ sectionRefs }: { sectionRefs: SectionRefs }) => {
   const [showOverlay, setShowOverlay] = useState(true);
   const [scrolled, setScrolled] = useState(false);
@@ -44,8 +51,14 @@ const Navbar = ({ sectionRefs }: { sectionRefs: SectionRefs }) => {
     },
   ];
 
+  const imgRef = useRef(null);
   useEffect(() => {
-    document.body.style.overflow = showOverlay ? "hidden" : "auto";
+    if (showOverlay) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "auto";
+    }
+
     return () => {
       document.body.style.overflow = "auto";
     };
@@ -62,7 +75,9 @@ const Navbar = ({ sectionRefs }: { sectionRefs: SectionRefs }) => {
     handleScroll();
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
-
+    // Prevent browser from restoring scroll position on refresh
+<!--     window.history.scrollRestoration = "manual"; -->
+  }, []);
   useGSAP(() => {
     const tl = gsap.timeline();
 
@@ -109,14 +124,28 @@ const Navbar = ({ sectionRefs }: { sectionRefs: SectionRefs }) => {
       yoyo: true,
       ease: "power1.inOut",
     });
-  }, []);
+  }, []); // Empty dependency array to run only once
 
   const scrollToSection = (section: keyof SectionRefs) => {
     sectionRefs[section]?.current?.scrollIntoView({ behavior: "smooth" });
   };
 
   return (
-    <>
+    <Box
+      sx={{
+        display: "flex",
+        justifyContent: "space-between",
+        width: "100%",
+        height: "10VH",
+        alignItems: "center",
+        position: "fixed",
+        top: 0,
+        left: 0,
+        zIndex: 1000,
+        padding: "5px 30px",
+        backgroundColor: "var(--grayFooter)",
+      }}
+    >
       {showOverlay && (
         <Box
           className="overlay"
@@ -130,7 +159,8 @@ const Navbar = ({ sectionRefs }: { sectionRefs: SectionRefs }) => {
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
-            zIndex: 2000,
+            zIndex: 1000,
+            overflowY: "hidden",
           }}
         >
           <Box
@@ -153,24 +183,8 @@ const Navbar = ({ sectionRefs }: { sectionRefs: SectionRefs }) => {
         </Box>
       )}
 
-      <Box
-        sx={{
-          display: "flex",
-          justifyContent: "space-between",
-          width: "100%",
-          height: "10vh",
-          alignItems: "center",
-          position: "fixed",
-          top: 0,
-          left: 0,
-          zIndex: 1000,
-          padding: "5px 30px",
-          backgroundColor: scrolled ? "#fff" : "#01050E",
-          transition: "background-color 0.3s ease-in-out",
-          boxShadow: scrolled ? "0 2px 10px rgba(0,0,0,0.3)" : "none",
-        }}
-      >
-        <Box className="navbar" sx={{ position: "relative" }}>
+      <Box className="navbar">
+        <Box sx={{ position: "relative" }}>
           <img className="logo-container" height={150} src={logo} alt="Logo" />
           <Typography
             className="rostram-text"
@@ -191,7 +205,8 @@ const Navbar = ({ sectionRefs }: { sectionRefs: SectionRefs }) => {
             sx={{
               position: "absolute",
               top: 80,
-              left: 179,
+              left: 188,
+              width: "100%",
               fontSize: "15px",
               fontWeight: 600,
               width: "100%",
@@ -202,7 +217,7 @@ const Navbar = ({ sectionRefs }: { sectionRefs: SectionRefs }) => {
             Tekno Labs
           </Typography>
         </Box>
-
+      </Box>
         <Box
           className="nav-container"
           sx={{ display: "flex", gap: 10, paddingRight: 15 }}
@@ -341,8 +356,9 @@ const Navbar = ({ sectionRefs }: { sectionRefs: SectionRefs }) => {
             )
           )}
         </Box>
+
       </Box>
-    </>
+    </Box>
   );
 };
 
