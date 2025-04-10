@@ -2,18 +2,22 @@ import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { Box } from "@mui/material";
 import { useEffect, useRef, useState } from "react";
-import { SectionRefs } from "../../pages/Home";
+import { useNavigate } from "react-router-dom";
+import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
+import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 
-const Navbar = ({ sectionRefs }: { sectionRefs: SectionRefs }) => {
+const Navbar = () => {
   const [showOverlay, setShowOverlay] = useState(true);
   const [scrolled, setScrolled] = useState(false);
-  const [hoveredItem, setHoveredItem] = useState<string | null>(null);
-  const [hoveredSubItem, setHoveredSubItem] = useState<string | null>(null);
+  const [hoveredItem, setHoveredItem] = useState<boolean>(false);
+ 
   const imgRef = useRef(null);
+  const navigate = useNavigate();
 
   const servicesMenu = [
     {
       label: "VFX",
+      path: "/VFX",
       subOptions: [
         "3D & GAME Production",
         "VFX Production",
@@ -23,6 +27,7 @@ const Navbar = ({ sectionRefs }: { sectionRefs: SectionRefs }) => {
     },
     {
       label: "IT Services",
+      path:"/ITServices",
       subOptions: [
         "Custom Application Development",
         "Product Development",
@@ -34,6 +39,7 @@ const Navbar = ({ sectionRefs }: { sectionRefs: SectionRefs }) => {
     },
     {
       label: "Support",
+      path:"/Support",
       subOptions: [
         "App Support & Maintenance",
         "Quality Assurance",
@@ -115,8 +121,23 @@ const Navbar = ({ sectionRefs }: { sectionRefs: SectionRefs }) => {
     });
   }, []);
 
-  const scrollToSection = (section: keyof SectionRefs) => {
-    sectionRefs[section]?.current?.scrollIntoView({ behavior: "smooth" });
+
+
+  const scrollToSection = (id: string) => {
+    const element = document.getElementById(id);
+  
+    
+    if (element) {
+      const headerOffset = document.querySelector("header")?.getBoundingClientRect().height || 0;
+      
+      const elementPosition = element.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: "smooth",
+      });
+    }
   };
 
   return (
@@ -174,11 +195,11 @@ const Navbar = ({ sectionRefs }: { sectionRefs: SectionRefs }) => {
 
       <Box className="navbar">
         <Box sx={{ position: "relative" }}>
-          <img 
-            className="logo-container" 
-            height={150} 
-            src="/src/assets/rostram_logo-removebg-preview.png" 
-            alt="Logo" 
+          <img
+            className="logo-container"
+            height={150}
+            src="/src/assets/rostram_logo-removebg-preview.png"
+            alt="Logo"
           />
           <Box
             className="rostram-text"
@@ -199,11 +220,13 @@ const Navbar = ({ sectionRefs }: { sectionRefs: SectionRefs }) => {
             sx={{
               position: "absolute",
               top: 80,
-              left: 188,
+              width: "100%",
+              left: 176,
               fontSize: "15px",
               fontWeight: 600,
               fontFamily: "Gilroy, sans-serif",
               color: "#5C5C5E",
+              // border:"1px solid #5C5C5E",
             }}
           >
             Tekno Labs
@@ -215,28 +238,30 @@ const Navbar = ({ sectionRefs }: { sectionRefs: SectionRefs }) => {
         sx={{ display: "flex", gap: 10, paddingRight: 15 }}
       >
         {[
-          { text: "About Us", onClick: () => scrollToSection("aboutRef") },
+          { text: "Home", onClick: () => navigate('/') },
+          { text: "About Us", onClick: () => scrollToSection('about') },
           { text: "Services" },
-          { text: "Contact", onClick: () => scrollToSection("contactRef") },
+          { text: "Contact", onClick: () => scrollToSection('contact') },
         ].map((item) =>
           item.text === "Services" ? (
             <Box
               key="Services"
-              onMouseEnter={() => setHoveredItem("Services")}
-              onMouseLeave={() => {
-                setHoveredItem(null);
-                setHoveredSubItem(null);
-              }}
+            onClick={() => setHoveredItem(!hoveredItem)}
               sx={{ position: "relative" }}
             >
               <Box
                 className="nav-item"
+               
                 sx={{
                   fontSize: "18px",
                   fontWeight: 600,
+                  display: "flex",
+                  alignItems: "center",
+                  // border:"1px solid red",
+                  justifyContent: "center",
                   fontFamily: "Gilroy, sans-serif",
-                  // color: scrolled ? "#000" : "#fff",   
-                  color: "var(--blackButtton)",   
+                  // color: scrolled ? "#000" : "#fff",
+                  color: "var(--blackButtton)",
                   cursor: "pointer",
                   transition: "color 0.3s ease",
                   ":hover": {
@@ -246,79 +271,53 @@ const Navbar = ({ sectionRefs }: { sectionRefs: SectionRefs }) => {
                 }}
               >
                 Services
+              { hoveredItem === true ?<KeyboardArrowUpIcon  sx={{marginTop:"3px"}}/>: <KeyboardArrowDownIcon sx={{marginTop:"3px"}}/>}
               </Box>
 
-              {hoveredItem === "Services" && (
+              {hoveredItem  && (
                 <Box
                   sx={{
                     position: "absolute",
-                    width: "30vw",
+                    width: "180%",
                     top: "100%",
                     right: 0,
-                    background: "#ffeff0",
+                    paddingX:1,
+                    background: "var(--grayFooter)",
                     boxShadow: "0px 4px 8px rgba(255, 218, 218, 0.1)",
                     zIndex: 1200,
                     display: "flex",
-                    padding: 1,
-                    gap: 2,
-                    borderBottomRightRadius: "1rem",
-                    borderBottomLeftRadius: "1rem",
+                    border:"0.5px solid var(--blackText)",
+                    borderRadius: "0.5rem",
+                    // borderBottomRightRadius: "1rem",
+                    // borderBottomLeftRadius: "1rem",
                   }}
                 >
-                  <Box sx={{ display: "flex", flexDirection: "column" }}>
+                  <Box sx={{ display: "flex", flexDirection: "column"}}>
                     {servicesMenu.map((service) => (
                       <Box
                         key={service.label}
-                        onMouseEnter={() => setHoveredSubItem(service.label)}
+                        onClick={() => navigate(service.path)}
                         sx={{
-                          width: "100%",
-                          padding: "8px 12px",
+                          width:"100%",
                           cursor: "pointer",
-                          borderRadius: "0.5rem",
-                          color: "var(--logoRed)",
-                          background:
-                            hoveredSubItem === service.label
-                              ? "#fbc0c3"
-                              : "transparent",
-                          ":hover": {
-                            background: "#e73a3c",
-                            color: "var(--whiteText)",
-                          },
-                        }}
+                          paddingY:1,
+                          fontSize: "18px",
+                          fontWeight: 600,
+                          borderBottom:"0.5px solid var(--blackText)",
+                          fontFamily: "Gilroy, sans-serif",
+                          "&:hover": {
+                           borderBottom: "0.5px solid var(--logoRed)",
+                            color: "var(--logoRed)",
+                           
+                          },                    
+                            }}
                       >
                         {service.label}
                       </Box>
                     ))}
                   </Box>
 
-                  <Box
-                    sx={{
-                      display: "flex",
-                      flexDirection: "column",
-                      width: "20vw",
-                    }}
-                  >
-                    {servicesMenu
-                      .find((service) => service.label === hoveredSubItem)
-                      ?.subOptions.map((sub) => (
-                        <Box
-                          key={sub}
-                          sx={{
-                            padding: "8px 12px",
-                            cursor: "pointer",
-                            color: "var(--blackButton)",
-                            ":hover": {
-                              background: "var(--logoRed)",
-                              color: "var(--whiteText)",
-                              borderTopRightRadius: "2rem",
-                              borderBottomRightRadius: "2rem",
-                            },
-                          }}
-                        >
-                          {sub}
-                        </Box>
-                      ))}
-                  </Box>
+             
                 </Box>
               )}
             </Box>
@@ -332,7 +331,7 @@ const Navbar = ({ sectionRefs }: { sectionRefs: SectionRefs }) => {
                 fontWeight: 600,
                 fontFamily: "Gilroy, sans-serif",
                 // color: scrolled ? "#000" : "#fff",
-                color:"var(--blackButton)",
+                color: "var(--blackButton)",
                 cursor: "pointer",
                 transition: "color 0.3s ease",
                 ":hover": {

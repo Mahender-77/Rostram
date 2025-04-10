@@ -1,117 +1,325 @@
-import React from 'react';
-import SwipeableViews from 'react-swipeable-views';
-//@ts-expect-error Missing type definitions for react-swipeable-views-utils
-import { autoPlay } from 'react-swipeable-views-utils';
-import {
-  Box,
-  MobileStepper,
-  Paper,
-  Typography,
-  useTheme,
-  IconButton,
-} from '@mui/material';
-import KeyboardArrowLeft from '@mui/icons-material/KeyboardArrowLeft';
-import KeyboardArrowRight from '@mui/icons-material/KeyboardArrowRight';
+import Carousel from "react-material-ui-carousel";
+import IT_Service from "../../assets/IT_Service_.jpg";
+import VFX from "../../assets/VFX_Artist.jpg";
+// import Support_Team from "../../assets/Support_Team_.jpg";
+import { Box, Typography } from "@mui/material";
 
-const AutoPlaySwipeableViews = autoPlay(SwipeableViews);
-
-const images = [
-  {
-    label: 'Image One',
-    imgPath: 'https://via.placeholder.com/600x300?text=Image+1',
-  },
-  {
-    label: 'Image Two',
-    imgPath: 'https://via.placeholder.com/600x300?text=Image+2',
-  },
-  {
-    label: 'Image Three',
-    imgPath: 'https://via.placeholder.com/600x300?text=Image+3',
-  },
-  {
-    label: 'Image Four',
-    imgPath: 'https://via.placeholder.com/600x300?text=Image+4',
-  },
-];
-
-function ImageCarousel() {
-  const theme = useTheme();
-  const [activeStep, setActiveStep] = React.useState(0);
-  const maxSteps = images.length;
-
-  const handleNext = () => {
-    setActiveStep((prevActiveStep) => (prevActiveStep + 1) % maxSteps);
-  };
-
-  const handleBack = () => {
-    setActiveStep((prevActiveStep) =>
-      prevActiveStep === 0 ? maxSteps - 1 : prevActiveStep - 1
-    );
-  };
-
-  const handleStepChange = (step: React.SetStateAction<number>) => {
-    setActiveStep(step);
-  };
-
+export const ImageCarousel = () => {
+  // const items = [
+  //     {
+  //         img: IT_Service,
+  //         title: "IT Service",
+  //         description: "IT Service"
+  //     },
+  //     {
+  //         img: VFX,
+  //         title: "IT Service",
+  //         description: "IT Service"
+  //     },
+  //     {
+  //         img: Support_Team,
+  //         title: "IT Service",
+  //         description: "IT Service"
+  //     }
+  // ]
   return (
-    <Box sx={{ maxWidth: 600, flexGrow: 1, mx: 'auto' }}>
-      <Paper
-        square
-        elevation={0}
+    <Carousel 
+      indicators={false}
+      navButtonsAlwaysVisible={false}
+      interval={3000}
+      animation="slide"
+      duration={500}
+      navButtonsWrapperProps={{
+        style: {
+         
+          opacity: 1,
+          transition: 'opacity 0.3s',
+        }
+      }}
+    //   indicatorContainerProps={{
+    //     style: {
+    //       backgroundColor: '#535353',
+    //       zIndex: 1,
+    //       marginTop: '20px'
+    //     }
+    //   }}
+    //   activeIndicatorIconButtonProps={{
+    //     style: {
+    //       backgroundColor: '#535353',
+    //     }
+    //   }}
+    //   indicatorIconButtonProps={{
+    //     style: {
+    //       backgroundColor: '#535353',
+    //     }
+    //   }}
+      sx={{
+        '&:hover .MuiIconButton-root': {
+          opacity: 1
+        }
+      }}
+    >
+      <Box
         sx={{
-          display: 'flex',
-          alignItems: 'center',
-          height: 50,
-          pl: 2,
-          bgcolor: 'background.default',
+          width: "100%",
+          height: "100vh",
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
         }}
       >
-        <Typography>{images[activeStep].label}</Typography>
-      </Paper>
-      <AutoPlaySwipeableViews
-        axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'}
-        index={activeStep}
-        onChangeIndex={handleStepChange}
-        enableMouseEvents
+        <Box>
+          <Typography
+            sx={{
+              color: "#535353",
+              fontSize: "40px",
+              fontWeight: 800,
+              fontFamily: "Gilroy",
+            }}
+          >
+            Accelerate Post-Production.
+          </Typography>
+          <Typography
+            sx={{
+              color: "var(--blackText)",
+              fontSize: "15px",
+              fontWeight: 800,
+              fontFamily: "Gilroy",
+            }}
+          >
+            Less manual work, more creative output.
+          </Typography>
+          <Typography
+            sx={{ color: "#E82C2D", fontSize: "45px", fontWeight: 800 }}
+          >
+            End-to-End VFX Pipeline Tools.
+          </Typography>
+          <Typography
+            sx={{
+              color: "var(--blackText)",
+              fontSize: "20px",
+              fontWeight: 800,
+              fontFamily: "Gilroy",
+            }}
+          >
+            Reliable. Scalable. Efficient.
+          </Typography>{" "}
+        </Box>
+
+        <Box
+          sx={{
+            position: "relative",
+            // border: "1px solid red",
+            width: "40%",
+            height: "80%",
+            display: "flex",
+            justifyContent: "space-around",
+            alignItems: "center",
+          }}
+        >
+          <Box
+            sx={{
+              width: "500px",
+              height: "550px",
+              position: "absolute",
+              top: 80,
+              right: 20,
+              border: "5px solid #E82C2D",
+            }}
+          ></Box>
+          <Box sx={{ position: "absolute", top: 40, right: 10 }}>
+            <img
+              style={{ width: "380px", height: "300px" }}
+              src={IT_Service}
+              alt=""
+            />
+          </Box>
+          <Box sx={{ position: "absolute", top: 200, right: 100 }}>
+            <img style={{ width: "500px", height: "400px" }} src={VFX} alt="" />
+          </Box>
+        </Box>
+      </Box>
+      <Box
+        sx={{
+          width: "100%",
+          height: "100vh",
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          gap: "8rem",
+        }}
       >
-        {images.map((step, index) => (
-          <div key={step.label}>
-            {Math.abs(activeStep - index) <= 2 ? (
-              <Box
-                component="img"
-                sx={{
-                  height: 300,
-                  display: 'block',
-                  maxWidth: 600,
-                  overflow: 'hidden',
-                  width: '100%',
-                }}
-                src={step.imgPath}
-                alt={step.label}
-              />
-            ) : null}
-          </div>
-        ))}
-      </AutoPlaySwipeableViews>
-      <MobileStepper
-        steps={maxSteps}
-        position="static"
-        activeStep={activeStep}
-        nextButton={
-          <IconButton size="small" onClick={handleNext}>
-            <KeyboardArrowRight />
-          </IconButton>
-        }
-        backButton={
-          <IconButton size="small" onClick={handleBack}>
-            <KeyboardArrowLeft />
-          </IconButton>
-        }
-        sx={{ justifyContent: 'center' }}
-      />
-    </Box>
+        <Box>
+          <Typography
+            sx={{
+              color: "#535353",
+              fontSize: "40px",
+              fontWeight: 800,
+              fontFamily: "Gilroy",
+            }}
+          >
+            Transform with technology.
+          </Typography>
+          <Typography
+            sx={{
+              color: "var(--blackText)",
+              fontSize: "15px",
+              fontWeight: 800,
+              fontFamily: "Gilroy",
+            }}
+          >
+            Smart solutions for growing businesses.
+          </Typography>
+          <Typography
+            sx={{ color: "#E82C2D", fontSize: "45px", fontWeight: 800 }}
+          >
+            Reliable IT Services.
+          </Typography>
+          <Typography
+            sx={{
+              color: "var(--blackText)",
+              fontSize: "20px",
+              fontWeight: 800,
+              fontFamily: "Gilroy",
+            }}
+          >
+            24/7 Support. Scalable Solutions.
+          </Typography>{" "}
+        </Box>
+
+        <Box
+          sx={{
+            position: "relative",
+            // border: "1px solid red",
+            width: "40%",
+            height: "80%",
+            display: "flex",
+            justifyContent: "space-around",
+            alignItems: "center",
+          }}
+        >
+          <Box
+            sx={{
+              width: "500px",
+              height: "550px",
+              position: "absolute",
+              top: 80,
+              right: 20,
+              border: "5px solid #E82C2D",
+            }}
+          ></Box>
+          <Box sx={{ position: "absolute", top: 40, right: 10 }}>
+            <img
+              style={{ width: "380px", height: "300px" }}
+              src={IT_Service}
+              alt=""
+            />
+          </Box>
+          <Box sx={{ position: "absolute", top: 200, right: 100 }}>
+            <img style={{ width: "500px", height: "400px" }} src={VFX} alt="" />
+          </Box>
+        </Box>
+      </Box>
+      <Box
+        sx={{
+          width: "100%",
+          height: "100vh",
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          gap: "8rem",
+        }}
+      >
+        <Box>
+          <Typography
+            sx={{
+              color: "#535353",
+              fontSize: "40px",
+              fontWeight: 800,
+              fontFamily: "Gilroy",
+            }}
+          >
+           Extend your support.
+          </Typography>
+          <Typography
+            sx={{
+              color: "var(--blackText)",
+              fontSize: "15px",
+              fontWeight: 800,
+              fontFamily: "Gilroy",
+            }}
+          >
+           Delight customers with faster resolutions.
+          </Typography>
+          <Typography
+            sx={{ color: "#E82C2D", fontSize: "45px", fontWeight: 800 }}
+          >
+         Dedicated Support Teams.
+          </Typography>
+          <Typography
+            sx={{
+              color: "var(--blackText)",
+              fontSize: "20px",
+              fontWeight: 800,
+              fontFamily: "Gilroy",
+            }}
+          >
+            Skilled. Scalable. Always Available.
+          </Typography>{" "}
+        </Box>
+
+        <Box
+          sx={{
+            position: "relative",
+            // border: "1px solid red",
+            width: "40%",
+            height: "80%",
+            display: "flex",
+            justifyContent: "space-around",
+            alignItems: "center",
+          }}
+        >
+          <Box
+            sx={{
+              width: "500px",
+              height: "550px",
+              position: "absolute",
+              top: 80,
+              right: 20,
+              border: "5px solid #E82C2D",
+            }}
+          ></Box>
+          <Box sx={{ position: "absolute", top: 40, right: 10 }}>
+            <img
+              style={{ width: "380px", height: "300px" }}
+              src={IT_Service}
+              alt=""
+            />
+          </Box>
+          <Box sx={{ position: "absolute", top: 200, right: 100 }}>
+            <img style={{ width: "500px", height: "400px" }} src={VFX} alt="" />
+          </Box>
+        </Box>
+      </Box>
+    </Carousel>
   );
+};
+
+{
+  /* {
+             items.map((item, i) => (
+                 <div key={i} style={{ position: 'relative' }}>
+                   <img style={{width:"100%" ,height:"100vh"}} src={item.img} alt={item.title} className="carousel-image" />
+                   <div style={{
+                     position: 'absolute',
+                     top: 0,
+                     left: 0,
+                     width: '100%',
+                     height: '100%',
+                     backgroundColor: 'rgba(0, 0, 0, 0.5)',
+
+                   }}></div>
+                 </div>
+             ))
+          } */
 }
-
-
-export default ImageCarousel;

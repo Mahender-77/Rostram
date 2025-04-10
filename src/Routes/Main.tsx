@@ -3,6 +3,10 @@ import { Box } from "@mui/material";
 import { Route, Routes } from "react-router-dom";
 import { MainLayout } from "../layout/MainLayout";
 import { Home } from "../pages/Home";
+import { ServicesPage } from "../pages/ServicesPage";
+import { VFX } from "../components/VFX";
+import { ITService } from "../components/ITService";
+import { Support } from "../components/Support";
 
 export const Main = () => {
  
@@ -11,6 +15,9 @@ export const Main = () => {
       <Routes>
         <Route  element={<MainLayout/>}>
            <Route path="/" element={<Home/>}/>
+           <Route path="/VFX" element={<VFX/>}/>
+           <Route path="/ITServices" element={<ITService/>} />
+           <Route path="/Support" element={<Support/>} />
          </Route>
       </Routes>
       {/* <Navbar sectionRefs={sectionRefs} />

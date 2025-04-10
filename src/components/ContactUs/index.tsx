@@ -1,12 +1,12 @@
 import { Box, Button, TextField, Typography } from "@mui/material";
-import { forwardRef, useRef } from "react";
+import { useRef } from "react";
 import { gsap } from "gsap";
 import { MotionPathPlugin } from "gsap/MotionPathPlugin";
 import { useGSAP } from "@gsap/react";
 
 gsap.registerPlugin(MotionPathPlugin);
 
-const ContactUs = forwardRef((_, ref) => {
+const ContactUs = () => {
   const pathRef = useRef<SVGPathElement | null>(null);
 
   useGSAP(() => {
@@ -46,7 +46,7 @@ const ContactUs = forwardRef((_, ref) => {
 
   return (
     <Box
-      ref={ref}
+      id="contact"
       sx={{
         backgroundColor: "var(--darkGray)",
         flex: 1,
@@ -194,7 +194,7 @@ const ContactUs = forwardRef((_, ref) => {
       </Box>
     </Box>
   );
-});
+};
 
 const textFieldStyles = {
   "& label": { color: "var(--lightGray)" },
