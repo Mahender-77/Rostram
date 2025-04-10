@@ -2,12 +2,12 @@ import { useGSAP } from "@gsap/react";
 import { Box, Typography } from "@mui/material";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { forwardRef } from "react";
+
 
 // Register ScrollTrigger plugin
 gsap.registerPlugin(ScrollTrigger);
 
-const AboutCard = forwardRef((_, ref) => {
+const AboutCard = () => {
   useGSAP(() => {
     // Split the text into individual characters and add each one to a span
     const textElement = document.querySelector(".char");
@@ -54,9 +54,11 @@ const AboutCard = forwardRef((_, ref) => {
 
   return (
     <Box
-      sx={{
-        marginY: "6rem",
-      }}
+     id="about"
+      // sx={{
+      //   marginY: "6rem",
+      // }}
+    sx={{paddingTop:'170px',paddingBottom:'100px'}}
     >
       <Typography
         sx={{
@@ -79,7 +81,7 @@ const AboutCard = forwardRef((_, ref) => {
         About Us
       </Typography>
       <Box
-        ref={ref}
+         
         sx={{
           width: "100%",
           // minHeight: "110vh",
@@ -367,6 +369,6 @@ const AboutCard = forwardRef((_, ref) => {
       </Box>
     </Box>
   );
-});
+};
 
 export default AboutCard;
