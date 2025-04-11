@@ -18,10 +18,10 @@ const Navbar = () => {
       label: "VFX",
       path: "/VFX",
       subOptions: [
-        "3D & GAME Production",
         "VFX Production",
-        "CGI Tools Development",
         "VFX Pipeline Development",
+        "CGI Tools Development",
+        "3D & GAME Production",
       ],
     },
     {
@@ -145,42 +145,47 @@ const Navbar = () => {
         backgroundColor: "var(--grayFooter)",
       }}
     >
-      {showOverlay && (
-        <Box
-          className="overlay"
-          sx={{
-            position: "fixed",
-            top: 0,
-            left: 0,
-            width: "100%",
-            height: "100%",
-            background: "black",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            zIndex: 1000,
-            overflowY: "hidden",
-          }}
-        >
-          <Box
-            className="logo-container"
-            sx={{
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              flexDirection: "column",
-            }}
-          >
-            <img
-              ref={imgRef}
-              style={{ marginRight: 100 }}
-              height={350}
-              src="/src/assets/rostram_logo-removebg-preview.png"
-              alt="Logo"
-            />
-          </Box>
-        </Box>
-      )}
+     {showOverlay && (
+  <Box
+    className="overlay"
+    sx={{
+      position: "fixed",
+      top: 0,
+      left: 0,
+      width: "100%",
+      height: "100%",
+      background: "black",
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "center",
+      zIndex: 1000,
+      overflowY: "hidden",
+      px: 2, // Padding for smaller screens
+    }}
+  >
+    <Box
+      className="logo-container"
+      sx={{
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        flexDirection: "column",
+        width: "100%",
+
+       
+        maxWidth: "500px", // Restrict container width
+      }}
+    >
+      <img
+        ref={imgRef}
+        style={{ width: "100%", maxWidth: "350px", height: "auto" }}
+        src="/src/assets/rostram_logo-removebg-preview.png"
+        alt="Logo"
+      />
+    </Box>
+  </Box>
+)}
+
 
       <Box className="navbar">
         <Box sx={{ position: "relative" }}>
@@ -259,47 +264,60 @@ const Navbar = () => {
               { hoveredItem === true ?<KeyboardArrowUpIcon  sx={{marginTop:"3px"}}/>: <KeyboardArrowDownIcon sx={{marginTop:"3px"}}/>}
               </Box>
 
-              {hoveredItem  && (
-                <Box
-                  sx={{
-                    position: "absolute",
-                    width: "180%",
-                    top: "100%",
-                    right: 0,
-                    paddingX:1,
-                    background: "var(--grayFooter)",
-                    boxShadow: "0px 4px 8px rgba(255, 218, 218, 0.1)",
-                    zIndex: 1200,
-                    display: "flex",
-                    border:"0.5px solid var(--blackText)",
-                    borderRadius: "0.5rem",
-                  }}
-                >
-                  <Box sx={{ display: "flex", flexDirection: "column"}}>
-                    {servicesMenu.map((service) => (
-                      <Box
-                        key={service.label}
-                        onClick={() => navigate(service.path)}
-                        sx={{
-                          width:"100%",
-                          cursor: "pointer",
-                          paddingY:1,
-                          fontSize: "18px",
-                          fontWeight: 800,
-                          borderBottom:"0.5px solid var(--blackText)",
-                          fontFamily: "Nunito Sans, sans-serif",
-                          "&:hover": {
-                           borderBottom: "0.5px solid var(--logoRed)",
-                            color: "var(--logoRed)",
-                          },                    
-                        }}
-                      >
-                        {service.label}
-                      </Box>
-                    ))}
-                  </Box>
-                </Box>
-              )}
+             {hoveredItem && (
+  <Box
+    sx={{
+      position: "absolute",
+      width: "250px",
+      top: "100%",
+      backgroundColor: "white",
+      boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
+      borderRadius: "8px",
+      zIndex: 1000,
+      mt: 1,
+      py: 1,
+    }}
+    onMouseLeave={() => setHoveredItem(false)}
+  >
+    {servicesMenu.map((menuItem) => (
+      <Box key={menuItem.label} sx={{ px: 2, py: 1 }}>
+        <Box
+          onClick={() => {
+            navigate(menuItem.path);
+            setHoveredItem(false);
+          }}
+          sx={{
+            fontWeight: "bold",
+            cursor: "pointer",
+            color: "var(--blackButtton)",
+            ":hover": { color: "var(--logoRed)" },
+          }}
+        >
+          {menuItem.label}
+        </Box>
+        {menuItem.subOptions.map((sub, idx) => (
+          <Box
+            key={idx}
+            onClick={() => navigate(`${menuItem.path}/${idx}`)}
+            sx={{
+              fontSize: "14px",
+              pl: 2,
+              py: 0.5,
+              color: "#5C5C5E",
+              cursor: "pointer",
+              ":hover": {
+                color: "var(--logoRed)",
+              },
+            }}
+          >
+            {sub}
+          </Box>
+        ))}
+      </Box>
+    ))}
+  </Box>
+)}
+
             </Box>
           ) : (
             <Box

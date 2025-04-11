@@ -2,9 +2,11 @@ import { Box, Typography } from "@mui/material";
 import { useState } from "react";
 import ArrowOutwardIcon from "@mui/icons-material/ArrowOutward";
 import { supportData } from "../../constants/data";
+import { useParams } from "react-router-dom";
 
 export const Support = () => {
-  const [selectedIndex, setSelectedIndex] = useState<number>(0);
+  const { idx } = useParams<{ idx: string }>();
+  const [selectedIndex, setSelectedIndex] = useState<number>(idx ? parseInt(idx) : 0);
 
 
 

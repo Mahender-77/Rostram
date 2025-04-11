@@ -1,13 +1,14 @@
 import { Box, Typography } from "@mui/material";
 import { useState } from "react";
 import { VFXData } from "../../constants/data";
-
+import { useParams } from "react-router-dom";
 // Types
 
 
 export const VFX = () => {
-  const [selectedIndex, setSelectedIndex] = useState<number>(0);
-
+  const { idx } = useParams<{ idx: string }>();
+   
+  const [selectedIndex, setSelectedIndex] = useState<number>(idx ? parseInt(idx) : 0);
 
 
   return (

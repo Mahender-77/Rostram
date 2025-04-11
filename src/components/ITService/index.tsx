@@ -2,11 +2,13 @@ import { Box, Typography } from "@mui/material";
 import { useState } from "react";
 import ArrowOutwardIcon from "@mui/icons-material/ArrowOutward";
 import { ITservice } from "../../constants/data";
+import { useParams } from "react-router-dom";
 
 export const ITService = () => {
-  const [selectedIndex, setSelectedIndex] = useState(0);
-
- 
+  const { idx } = useParams<{ idx: string }>();
+  const [selectedIndex, setSelectedIndex] = useState<number>(
+    idx ? parseInt(idx) : 0
+  );
 
   return (
     <Box
@@ -93,13 +95,16 @@ export const ITService = () => {
               fontSize: "2rem",
               color: "var(--logoRed)",
               fontWeight: 900,
-            }}>Reliable IT Services.</Typography>
+            }}
+          >
+            Reliable IT Services.
+          </Typography>
           <Typography
             variant="body1"
             sx={{
               fontFamily: "Nunito Sans, sans-serif",
               fontSize: "1.1rem",
-              
+
               whiteSpace: "pre-line",
               fontWeight: 500,
             }}
@@ -118,32 +123,41 @@ export const ITService = () => {
           </Typography>
           <Box sx={{ display: "flex", flexWrap: "wrap", gap: 4 }}>
             {ITservice[selectedIndex].content &&
-              ITservice[selectedIndex].content.map((item: { icon?: React.ElementType; name?: string; description?: string }, index) => (
-                <Box
-                  key={index}
-                  sx={{
-                    display: "flex",
-                    alignItems: "center",
-                    gap: 2,
-                    minWidth: "250px",
-                  }}
-                >
-                  {item.icon && (
-                    <item.icon
-                      sx={{ color: "var(--logoRed)", fontSize: "2rem" }}
-                    />
-                  )}
-                  <Typography
+              ITservice[selectedIndex].content.map(
+                (
+                  item: {
+                    icon?: React.ElementType;
+                    name?: string;
+                    description?: string;
+                  },
+                  index
+                ) => (
+                  <Box
+                    key={index}
                     sx={{
-                      fontFamily: "Nunito Sans, sans-serif",
-                      fontSize: "1.1rem",
-                      fontWeight: 800,
+                      display: "flex",
+                      alignItems: "center",
+                      gap: 2,
+                      minWidth: "250px",
                     }}
                   >
-                    {item.name || item.description}
-                  </Typography>
-                </Box>
-              ))}
+                    {item.icon && (
+                      <item.icon
+                        sx={{ color: "var(--logoRed)", fontSize: "2rem" }}
+                      />
+                    )}
+                    <Typography
+                      sx={{
+                        fontFamily: "Nunito Sans, sans-serif",
+                        fontSize: "1.1rem",
+                        fontWeight: 800,
+                      }}
+                    >
+                      {item.name || item.description}
+                    </Typography>
+                  </Box>
+                )
+              )}
           </Box>
           {ITservice[selectedIndex].promises && (
             <Box
@@ -208,4 +222,5 @@ export const ITService = () => {
         </Box>
       </Box>
     </Box>
-  );};
+  );
+};
