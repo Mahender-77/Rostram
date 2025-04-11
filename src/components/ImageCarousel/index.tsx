@@ -2,9 +2,11 @@ import Carousel from "react-material-ui-carousel";
 import IT_Service from "../../assets/IT_Service_.jpg";
 import VFX from "../../assets/VFX_Artist.jpg";
 // import Support_Team from "../../assets/Support_Team_.jpg";
-import { Box, Typography } from "@mui/material";
+import { Box, Button, Typography } from "@mui/material";
+import { useNavigate } from "react-router-dom";
 
 export const ImageCarousel = () => {
+  const navigate = useNavigate();
   // const items = [
   //     {
   //         img: IT_Service,
@@ -23,40 +25,39 @@ export const ImageCarousel = () => {
   //     }
   // ]
   return (
-    <Carousel 
+    <Carousel
       indicators={false}
       navButtonsAlwaysVisible={false}
-      interval={3000}
+      interval={4000}
       animation="slide"
       duration={500}
       navButtonsWrapperProps={{
         style: {
-         
           opacity: 1,
-          transition: 'opacity 0.3s',
-        }
+          transition: "opacity 0.3s",
+        },
       }}
-    //   indicatorContainerProps={{
-    //     style: {
-    //       backgroundColor: '#535353',
-    //       zIndex: 1,
-    //       marginTop: '20px'
-    //     }
-    //   }}
-    //   activeIndicatorIconButtonProps={{
-    //     style: {
-    //       backgroundColor: '#535353',
-    //     }
-    //   }}
-    //   indicatorIconButtonProps={{
-    //     style: {
-    //       backgroundColor: '#535353',
-    //     }
-    //   }}
+      //   indicatorContainerProps={{
+      //     style: {
+      //       backgroundColor: '#535353',
+      //       zIndex: 1,
+      //       marginTop: '20px'
+      //     }
+      //   }}
+      //   activeIndicatorIconButtonProps={{
+      //     style: {
+      //       backgroundColor: '#535353',
+      //     }
+      //   }}
+      //   indicatorIconButtonProps={{
+      //     style: {
+      //       backgroundColor: '#535353',
+      //     }
+      //   }}
       sx={{
-        '&:hover .MuiIconButton-root': {
-          opacity: 1
-        }
+        "&:hover .MuiIconButton-root": {
+          opacity: 1,
+        },
       }}
     >
       <Box
@@ -104,12 +105,24 @@ export const ImageCarousel = () => {
           >
             Reliable. Scalable. Efficient.
           </Typography>{" "}
+          <Button
+            onClick={() => navigate("/VFX")}
+            variant="outlined"
+            sx={{
+              marginTop: 5,
+              fontSize: "1.1rem",
+              fontWeight: 900,
+              color: "var(--logoRed)",
+              border: "1px solid var(--logoRed)",
+            }}
+          >
+            EXPLORE MORE
+          </Button>
         </Box>
 
         <Box
           sx={{
             position: "relative",
-            // border: "1px solid red",
             width: "40%",
             height: "80%",
             display: "flex",
@@ -185,12 +198,24 @@ export const ImageCarousel = () => {
           >
             24/7 Support. Scalable Solutions.
           </Typography>{" "}
+          <Button
+            onClick={() => navigate("/ITServices")}
+            variant="outlined"
+            sx={{
+              marginTop: 5,
+              fontSize: "1.1rem",
+              fontWeight: 900,
+              color: "var(--logoRed)",
+              border: "1px solid var(--logoRed)",
+            }}
+          >
+            EXPLORE MORE
+          </Button>
         </Box>
 
         <Box
           sx={{
             position: "relative",
-            // border: "1px solid red",
             width: "40%",
             height: "80%",
             display: "flex",
@@ -239,7 +264,7 @@ export const ImageCarousel = () => {
               fontFamily: "Gilroy",
             }}
           >
-           Extend your support.
+            Extend your support.
           </Typography>
           <Typography
             sx={{
@@ -249,12 +274,12 @@ export const ImageCarousel = () => {
               fontFamily: "Gilroy",
             }}
           >
-           Delight customers with faster resolutions.
+            Delight customers with faster resolutions.
           </Typography>
           <Typography
             sx={{ color: "#E82C2D", fontSize: "45px", fontWeight: 800 }}
           >
-         Dedicated Support Teams.
+            Dedicated Support Teams.
           </Typography>
           <Typography
             sx={{
@@ -266,12 +291,24 @@ export const ImageCarousel = () => {
           >
             Skilled. Scalable. Always Available.
           </Typography>{" "}
+          <Button
+            onClick={() => navigate("/Support")}
+            variant="outlined"
+            sx={{
+              marginTop: 5,
+              fontSize: "1.1rem",
+              fontWeight: 900,
+              color: "var(--logoRed)",
+              border: "1px solid var(--logoRed)",
+            }}
+          >
+            EXPLORE MORE
+          </Button>
         </Box>
 
         <Box
           sx={{
             position: "relative",
-            // border: "1px solid red",
             width: "40%",
             height: "80%",
             display: "flex",
@@ -304,22 +341,3 @@ export const ImageCarousel = () => {
     </Carousel>
   );
 };
-
-{
-  /* {
-             items.map((item, i) => (
-                 <div key={i} style={{ position: 'relative' }}>
-                   <img style={{width:"100%" ,height:"100vh"}} src={item.img} alt={item.title} className="carousel-image" />
-                   <div style={{
-                     position: 'absolute',
-                     top: 0,
-                     left: 0,
-                     width: '100%',
-                     height: '100%',
-                     backgroundColor: 'rgba(0, 0, 0, 0.5)',
-
-                   }}></div>
-                 </div>
-             ))
-          } */
-}

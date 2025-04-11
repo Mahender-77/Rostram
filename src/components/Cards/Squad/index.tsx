@@ -106,7 +106,7 @@ const Squad = () => {
         sx={{
           fontSize: "3rem",
           fontWeight: 600,
-          fontFamily: "Gilroy, sans-serif",
+          fontFamily: "Nunito Sans, sans-serif",
           backgroundImage:
             "linear-gradient(120deg,rgb(142, 14, 14),rgb(255, 0, 8),rgb(142, 14, 14))",
           backgroundClip: "text",
@@ -142,9 +142,9 @@ const Squad = () => {
           <Box
             key={card.id}
             sx={{
-              minWidth: "27%",
-              maxWidth: "27%",
-              height: "55vh",
+              minWidth: "23%",
+              maxWidth: "23%",
+              height: "50vh",
               display: "flex",
               flexDirection: "column",
               justifyContent: "flex-start",
@@ -170,7 +170,7 @@ const Squad = () => {
               sx={{
                 fontSize: "2.75rem",
                 fontWeight: 600,
-                fontFamily: "Gilroy, sans-serif",
+                fontFamily: "Nunito Sans, sans-serif",
                 color: "var(--blackbackGround)",
                 width: "18vw",
                 // backgroundColor: "var(--blackbackGround)",
@@ -186,7 +186,7 @@ const Squad = () => {
               sx={{
                 fontSize: "0.75rem",
                 fontWeight: 600,
-                fontFamily: "Gilroy, sans-serif",
+                fontFamily: "Nunito Sans, sans-serif",
                 // color: `${card.color}`,
                 color: "var(--whiteText)",
                 backgroundColor: "var(--logoRed)",
@@ -239,7 +239,7 @@ const Squad = () => {
                 width: "100%",
                 fontSize: "1rem",
                 fontWeight: 500,
-                fontFamily: "Gilroy, sans-serif",
+                fontFamily: "Nunito Sans, sans-serif",
                 color: "var(--blackbackGround)",
                 mt: 1,
                 display: "-webkit-box",

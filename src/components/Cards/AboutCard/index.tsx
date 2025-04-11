@@ -58,13 +58,13 @@ const AboutCard = () => {
       // sx={{
       //   marginY: "6rem",
       // }}
-    sx={{paddingTop:'170px',paddingBottom:'100px'}}
+    sx={{paddingTop:'100px',paddingBottom:'80px'}}
     >
       <Typography
         sx={{
           fontSize: "3rem",
           fontWeight: 600,
-          fontFamily: "Gilroy, sans-serif",
+          fontFamily: "Nunito Sans, sans-serif",
           backgroundImage:
             "linear-gradient(120deg,rgb(142, 14, 14),rgb(255, 0, 8),rgb(142, 14, 14))",
           backgroundClip: "text",
@@ -118,7 +118,7 @@ const AboutCard = () => {
             sx={{
               fontSize: "40px",
               fontWeight: 600,
-              fontFamily: "Gilroy, sans-serif",
+              fontFamily: "Nunito Sans, sans-serif",
               color: "var(--blackButton)",
               backgroundColor: "#FFC400",
             }}
@@ -155,7 +155,7 @@ const AboutCard = () => {
                     sx={{
                       fontSize: "50px",
                       fontWeight: 600,
-                      fontFamily: "Gilroy, sans-serif",
+                      fontFamily: "Nunito Sans, sans-serif",
                       color: "var(--blackbackGround)",
                     }}
                   >
@@ -165,7 +165,7 @@ const AboutCard = () => {
                     style={{
                       fontSize: "50px",
                       fontWeight: 600,
-                      fontFamily: "Gilroy, sans-serif",
+                      fontFamily: "Nunito Sans, sans-serif",
                       color: "var(--blackbackGround)",
                     }}
                   >
@@ -176,7 +176,7 @@ const AboutCard = () => {
                   sx={{
                     fontSize: "20px",
                     fontWeight: 600,
-                    fontFamily: "Gilroy, sans-serif",
+                    fontFamily: "Nunito Sans, sans-serif",
                     color: "var(--blackbackGround)",
                   }}
                 >
@@ -203,7 +203,7 @@ const AboutCard = () => {
                     sx={{
                       fontSize: "50px",
                       fontWeight: 600,
-                      fontFamily: "Gilroy, sans-serif",
+                      fontFamily: "Nunito Sans, sans-serif",
                       color: "var(--blackbackGround)",
                     }}
                   >
@@ -213,7 +213,7 @@ const AboutCard = () => {
                     style={{
                       fontSize: "50px",
                       fontWeight: 600,
-                      fontFamily: "Gilroy, sans-serif",
+                      fontFamily: "Nunito Sans, sans-serif",
                       color: "var(--blackbackGround)",
                     }}
                   >
@@ -224,7 +224,7 @@ const AboutCard = () => {
                   sx={{
                     fontSize: "20px",
                     fontWeight: 600,
-                    fontFamily: "Gilroy, sans-serif",
+                    fontFamily: "Nunito Sans, sans-serif",
                     color: "var(--blackbackGround)",
                   }}
                 >
@@ -251,7 +251,7 @@ const AboutCard = () => {
                     sx={{
                       fontSize: "50px",
                       fontWeight: 600,
-                      fontFamily: "Gilroy, sans-serif",
+                      fontFamily: "Nunito Sans, sans-serif",
                       color: "var(--blackbackGround)",
                     }}
                   >
@@ -261,7 +261,7 @@ const AboutCard = () => {
                     style={{
                       fontSize: "50px",
                       fontWeight: 600,
-                      fontFamily: "Gilroy, sans-serif",
+                      fontFamily: "Nunito Sans, sans-serif",
                       color: "var(--blackbackGround)",
                     }}
                   >
@@ -272,7 +272,7 @@ const AboutCard = () => {
                   sx={{
                     fontSize: "20px",
                     fontWeight: 600,
-                    fontFamily: "Gilroy, sans-serif",
+                    fontFamily: "Nunito Sans, sans-serif",
                     color: "var(--blackbackGround)",
                   }}
                 >
@@ -299,7 +299,7 @@ const AboutCard = () => {
                     sx={{
                       fontSize: "50px",
                       fontWeight: 600,
-                      fontFamily: "Gilroy, sans-serif",
+                      fontFamily: "Nunito Sans, sans-serif",
                       color: "var(--blackbackGround)",
                     }}
                   >
@@ -309,7 +309,7 @@ const AboutCard = () => {
                     style={{
                       fontSize: "50px",
                       fontWeight: 600,
-                      fontFamily: "Gilroy, sans-serif",
+                      fontFamily: "Nunito Sans, sans-serif",
                       color: "var(--blackbackGround)",
                     }}
                   >
@@ -320,7 +320,7 @@ const AboutCard = () => {
                   sx={{
                     fontSize: "20px",
                     fontWeight: 600,
-                    fontFamily: "Gilroy, sans-serif",
+                    fontFamily: "Nunito Sans, sans-serif",
                     color: "var(--blackbackGround)",
                   }}
                 >
@@ -342,8 +342,8 @@ const AboutCard = () => {
               sx={{
                 fontSize: "16px",
                 lineHeight: "30px",
-                fontWeight: 500,
-                fontFamily: "Gilroy, sans-serif",
+                fontWeight: 700,
+                fontFamily: "Nunito Sans, sans-serif",
                 color: "var(--blackbackGround)",
               }}
             >

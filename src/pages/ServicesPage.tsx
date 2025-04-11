@@ -6,7 +6,7 @@ export const ServicesPage = () => {
 
   const VFX = [
     {
-      title: "VFX Production",
+      title: "App Support & Maintenance",
     },
     {
       title: "VFX Pipeline Development",

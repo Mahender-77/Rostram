@@ -1,67 +1,19 @@
 import { Box, Typography } from "@mui/material";
 import { useState } from "react";
-import AutoFixHighIcon from "@mui/icons-material/AutoFixHigh";
-import IntegrationInstructionsIcon from "@mui/icons-material/IntegrationInstructions";
-import ConstructionIcon from "@mui/icons-material/Construction";
-import AutoAwesomeIcon from "@mui/icons-material/AutoAwesome";
+import ArrowOutwardIcon from "@mui/icons-material/ArrowOutward";
+import { ITservice } from "../../constants/data";
 
 export const ITService = () => {
   const [selectedIndex, setSelectedIndex] = useState(0);
 
-  const ITservice = [
-    {
-      title: "Custom Application development",
-
-      description:
-        "Custom Software Development is a process of designing, building, integrating software solutions as per the business need to address the pressing needs or to achieve your business objectives. Being a Custom App Development company, rostram can help you from the requirement phase to support & on-going enhancement phases where you can focus on core business while we do the tech work as your partner. rostram will add value to your requirement by being an advisory member for your technology requirement. We leverage the experience of our resources who have worked on varied technologies, in different industries across the globe. This strength gives us to be a strong player in delivering work with high quality, on-time and within the stipulated budget. Our technology stack ranges from older to latest technologies like Classic ASP to .NET Core, Java, NodeJS, PHP, Python, Ruby on Rails, HTML5, Angular, React, Vuejs, MySQL, SQL, Oracle DB, AWS, GCP and Azure etc. rostram can create a customized development process for you which fits your need and we also setup an end-to-end activity for DevOps, CD, CT, CI & CD, also does a Security Review of your whole infrastructure & application architecture. As part of Custom Application Development we develop Web, Mobile and Desktop applications along with integration of 3rd party applications.",
-
-      content: [
-        {
-          icon: AutoFixHighIcon,
-          name: "Custom App Design and Development",
-        },
-        {
-          icon: IntegrationInstructionsIcon,
-          name: "App Integration",
-        },
-        {
-          icon: ConstructionIcon,
-          name: "API Development",
-        },
-        {
-          icon: AutoAwesomeIcon,
-          name: "Enhancements",
-        },
-      ],
-    },
-    {
-      title: "Product Development",
-      content: [{ description: "" }],
-    },
-    {
-      title: "Data Analytics Services",
-      content: [{ description: "" }],
-    },
-    {
-      title: "Product Re-Engineering",
-      content: [{ description: "" }],
-    },
-    {
-      title: "Mobile Application development",
-      content: [{ description: "" }],
-    },
-    {
-      title: "Testing",
-      content: [{ description: "" }],
-    },
-  ];
+ 
 
   return (
     <Box
       sx={{
-        marginTop: "100px",
+        marginTop: "50px",
         width: "100%",
-        height: "110vh",
+        height: selectedIndex === 0 ? "125vh" : "90vh",
         display: "flex",
         flexDirection: "column",
         gap: 4,
@@ -102,7 +54,7 @@ export const ITService = () => {
                 paddingY: 3,
                 fontSize: "1.2rem",
                 fontFamily: "Nunito Sans, sans-serif",
-                fontWeight: selectedIndex === index ? 600 : 500,
+                fontWeight: selectedIndex === index ? 800 : 500,
                 borderRight:
                   selectedIndex === index
                     ? "10px solid var(--logoRed)"
@@ -124,6 +76,7 @@ export const ITService = () => {
         {/* Right Side Content */}
         <Box
           sx={{
+            marginTop: 10,
             width: "75%",
             padding: 4,
             backgroundColor: "rgba(255, 255, 255, 0.05)",
@@ -135,11 +88,20 @@ export const ITService = () => {
           }}
         >
           <Typography
+            sx={{
+              fontFamily: "Nunito Sans, sans-serif",
+              fontSize: "2rem",
+              color: "var(--logoRed)",
+              fontWeight: 900,
+            }}>Reliable IT Services.</Typography>
+          <Typography
             variant="body1"
             sx={{
               fontFamily: "Nunito Sans, sans-serif",
               fontSize: "1.1rem",
-              lineHeight: 1.6,
+              
+              whiteSpace: "pre-line",
+              fontWeight: 500,
             }}
           >
             {ITservice[selectedIndex].description}
@@ -156,7 +118,7 @@ export const ITService = () => {
           </Typography>
           <Box sx={{ display: "flex", flexWrap: "wrap", gap: 4 }}>
             {ITservice[selectedIndex].content &&
-              ITservice[selectedIndex].content.map((item, index) => (
+              ITservice[selectedIndex].content.map((item: { icon?: React.ElementType; name?: string; description?: string }, index) => (
                 <Box
                   key={index}
                   sx={{
@@ -166,7 +128,7 @@ export const ITService = () => {
                     minWidth: "250px",
                   }}
                 >
-                  {"icon" in item && item.icon && (
+                  {item.icon && (
                     <item.icon
                       sx={{ color: "var(--logoRed)", fontSize: "2rem" }}
                     />
@@ -178,32 +140,72 @@ export const ITService = () => {
                       fontWeight: 800,
                     }}
                   >
-                    {"name" in item ? item.name : item.description}
+                    {item.name || item.description}
                   </Typography>
                 </Box>
               ))}
           </Box>
-          <Box
-            sx={{ display: "flex", height: "300px", borderRadius:2}}
-          >
+          {ITservice[selectedIndex].promises && (
             <Box
-              sx={{
-                width: "50%",
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
-                backgroundColor: "var(--grayFooter)",
-               
-              }}
+              sx={{ display: "flex", height: "300px", borderRadius: 2, gap: 2 }}
             >
-              <Typography sx={{ fontFamily: "Nunito Sans, sans-serif",
-                fontSize: "2rem",
-                color: "var(--logoRed)",
-                fontWeight: 900,}}>WHY ROSTRAM?</Typography>
+              <Box
+                sx={{
+                  width: "50%",
+                  display: "flex",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  backgroundColor: "var(--grayFooter)",
+                }}
+              >
+                <Typography
+                  sx={{
+                    fontFamily: "Nunito Sans, sans-serif",
+                    fontSize: "2rem",
+                    color: "var(--logoRed)",
+                    fontWeight: 900,
+                  }}
+                >
+                  WHY ROSTRAM?
+                </Typography>
+              </Box>
+              <Box
+                sx={{
+                  display: "flex",
+                  flexDirection: "column",
+                  gap: 2,
+                  width: "50%",
+                  borderRadius: 2,
+                }}
+              >
+                {ITservice[selectedIndex].promises.map((item, index) => (
+                  <Box
+                    key={index}
+                    sx={{
+                      display: "flex",
+                      alignItems: "center",
+                      gap: 2,
+                      minWidth: "250px",
+                    }}
+                  >
+                    <ArrowOutwardIcon
+                      sx={{ color: "var(--logoRed)", width: "2rem" }}
+                    />{" "}
+                    <Typography
+                      sx={{
+                        fontFamily: "Nunito Sans, sans-serif",
+                        fontSize: "1rem",
+                        fontWeight: 800,
+                      }}
+                    >
+                      {item}
+                    </Typography>
+                  </Box>
+                ))}
+              </Box>
             </Box>
-          </Box>
+          )}
         </Box>
       </Box>
     </Box>
-  );
-};
+  );};

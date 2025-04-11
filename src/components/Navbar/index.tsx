@@ -8,7 +8,6 @@ import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 
 const Navbar = () => {
   const [showOverlay, setShowOverlay] = useState(true);
-  const [scrolled, setScrolled] = useState(false);
   const [hoveredItem, setHoveredItem] = useState<boolean>(false);
  
   const imgRef = useRef(null);
@@ -61,18 +60,6 @@ const Navbar = () => {
     };
   }, [showOverlay]);
 
-  useEffect(() => {
-    window.history.scrollRestoration = "manual";
-
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 750);
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    handleScroll();
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
   useGSAP(() => {
     const tl = gsap.timeline();
 
@@ -121,11 +108,8 @@ const Navbar = () => {
     });
   }, []);
 
-
-
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
-  
     
     if (element) {
       const headerOffset = document.querySelector("header")?.getBoundingClientRect().height || 0;
@@ -138,6 +122,11 @@ const Navbar = () => {
         behavior: "smooth",
       });
     }
+  };
+
+  const handleHomeClick = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    navigate('/');
   };
 
   return (
@@ -208,8 +197,8 @@ const Navbar = () => {
               top: 45,
               left: 120,
               fontSize: "30px",
-              fontWeight: 600,
-              fontFamily: "Gilroy, sans-serif",
+              fontWeight: 900,
+              fontFamily: "Nunito Sans, sans-serif",
               color: "var(--logoRed)",
             }}
           >
@@ -221,12 +210,11 @@ const Navbar = () => {
               position: "absolute",
               top: 80,
               width: "100%",
-              left: 176,
+              left: 190,
               fontSize: "15px",
-              fontWeight: 600,
-              fontFamily: "Gilroy, sans-serif",
+              fontWeight: 900,
+              fontFamily: "Nunito Sans, sans-serif",
               color: "#5C5C5E",
-              // border:"1px solid #5C5C5E",
             }}
           >
             Tekno Labs
@@ -238,7 +226,7 @@ const Navbar = () => {
         sx={{ display: "flex", gap: 10, paddingRight: 15 }}
       >
         {[
-          { text: "Home", onClick: () => navigate('/') },
+          { text: "Home", onClick: handleHomeClick },
           { text: "About Us", onClick: () => scrollToSection('about') },
           { text: "Services" },
           { text: "Contact", onClick: () => scrollToSection('contact') },
@@ -246,21 +234,18 @@ const Navbar = () => {
           item.text === "Services" ? (
             <Box
               key="Services"
-            onClick={() => setHoveredItem(!hoveredItem)}
+              onClick={() => setHoveredItem(!hoveredItem)}
               sx={{ position: "relative" }}
             >
               <Box
                 className="nav-item"
-               
                 sx={{
                   fontSize: "18px",
-                  fontWeight: 600,
+                  fontWeight: 800,
                   display: "flex",
                   alignItems: "center",
-                  // border:"1px solid red",
                   justifyContent: "center",
-                  fontFamily: "Gilroy, sans-serif",
-                  // color: scrolled ? "#000" : "#fff",
+                  fontFamily: "Nunito Sans, sans-serif",
                   color: "var(--blackButtton)",
                   cursor: "pointer",
                   transition: "color 0.3s ease",
@@ -288,8 +273,6 @@ const Navbar = () => {
                     display: "flex",
                     border:"0.5px solid var(--blackText)",
                     borderRadius: "0.5rem",
-                    // borderBottomRightRadius: "1rem",
-                    // borderBottomLeftRadius: "1rem",
                   }}
                 >
                   <Box sx={{ display: "flex", flexDirection: "column"}}>
@@ -302,22 +285,19 @@ const Navbar = () => {
                           cursor: "pointer",
                           paddingY:1,
                           fontSize: "18px",
-                          fontWeight: 600,
+                          fontWeight: 800,
                           borderBottom:"0.5px solid var(--blackText)",
-                          fontFamily: "Gilroy, sans-serif",
+                          fontFamily: "Nunito Sans, sans-serif",
                           "&:hover": {
                            borderBottom: "0.5px solid var(--logoRed)",
                             color: "var(--logoRed)",
-                           
                           },                    
-                            }}
+                        }}
                       >
                         {service.label}
                       </Box>
                     ))}
                   </Box>
-
-             
                 </Box>
               )}
             </Box>
@@ -328,9 +308,8 @@ const Navbar = () => {
               onClick={item.onClick}
               sx={{
                 fontSize: "18px",
-                fontWeight: 600,
-                fontFamily: "Gilroy, sans-serif",
-                // color: scrolled ? "#000" : "#fff",
+                fontWeight: 800,
+                fontFamily: "Nunito Sans, sans-serif",
                 color: "var(--blackButton)",
                 cursor: "pointer",
                 transition: "color 0.3s ease",

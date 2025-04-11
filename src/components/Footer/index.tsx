@@ -1,12 +1,45 @@
-import { Box, Typography, IconButton } from "@mui/material";
+import { Box, Typography, IconButton, Button } from "@mui/material";
 import { Facebook, Instagram, Pinterest, LinkedIn } from "@mui/icons-material";
 import XIcon from "@mui/icons-material/X";
 import logo from "../../assets/rostram_logo-removebg-preview.png";
 
 const Footer = () => {
   return (
-    <Box sx={{ backgroundColor: "var(--blackbackGround)", py: 4, mt: 4 }}>
-      <Box sx={{ width: "80%", margin: "auto" }}>
+    <Box
+      sx={{
+        backgroundColor: "var(--blackbackGround)",
+        border: "1px solid black",
+        mt: 4,
+      }}
+    >
+      <Box
+        sx={{
+          backgroundColor: "var(--logoRed)",
+          width: "100%",
+          height: "60px",
+          display: "flex",
+          justifyContent: "space-between",
+          alignItems: "center",
+          placeContent:"center",
+          gap:100
+        }}
+      >
+        <Typography
+          sx={{
+            color: "var(--whiteText)",
+            fontSize: "1.5rem",
+            fontWeight: 600,
+            fontFamily: "Gilroy, sans-serif",
+            textAlign: "center",
+       
+          }}
+        >
+         Need a successful project?
+        </Typography>
+        <Button variant="outlined" sx={{ color: "var(--whiteText)",
+              border: "1px solid var(--whiteText)",}}>Schedule A Meeting</Button>
+      </Box>
+      <Box sx={{ width: "80%", margin: "auto", marginTop: "2rem" }}>
         {/* Top Section */}
         <Box
           sx={{
