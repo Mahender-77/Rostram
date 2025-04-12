@@ -1,4 +1,4 @@
-import { Box, Typography, IconButton, Button } from "@mui/material";
+import { Box, Typography, IconButton, Button, Grid } from "@mui/material";
 import { Facebook, Instagram, Pinterest, LinkedIn } from "@mui/icons-material";
 import XIcon from "@mui/icons-material/X";
 import logo from "../../assets/rostram_logo-removebg-preview.png";
@@ -8,200 +8,220 @@ const Footer = () => {
     <Box
       sx={{
         backgroundColor: "var(--blackbackGround)",
-        border: "1px solid black",
+        borderTop: "1px solid black",
         mt: 4,
       }}
     >
+      {/* Top Call-to-Action Bar */}
       <Box
         sx={{
           backgroundColor: "var(--logoRed)",
-          width: "100%",
-          height: "60px",
+          width: screen,
+          height: "10vh",
           display: "flex",
-          justifyContent: "space-between",
+          flexDirection: { xs: "column", sm: "row" },
+          justifyContent: {
+            xs: "center",
+            sm: "space-between",
+            md: "space-between",
+            lg: "space-between",
+          },
           alignItems: "center",
-          placeContent:"center",
-          gap:100
+          px: 2,
+          py: 2,
+          textAlign: "center",
+          gap: { xs: 1, sm: 0 },
         }}
       >
         <Typography
           sx={{
             color: "var(--whiteText)",
-            fontSize: "1.5rem",
+            fontSize: "1.2rem",
             fontWeight: 600,
             fontFamily: "Gilroy, sans-serif",
-            textAlign: "center",
-       
           }}
         >
-         Need a successful project?
+          Need a successful project?
         </Typography>
-        <Button variant="outlined" sx={{ color: "var(--whiteText)",
-              border: "1px solid var(--whiteText)",}}>Schedule A Meeting</Button>
-      </Box>
-      <Box sx={{ width: "80%", margin: "auto", marginTop: "2rem" }}>
-        {/* Top Section */}
-        <Box
+        <Button
+          variant="outlined"
           sx={{
-            display: "flex",
-            flexWrap: "wrap",
-            justifyContent: "space-between",
-            mb: 4,
+            color: "var(--whiteText)",
+            border: "1px solid var(--whiteText)",
+            mt: { xs: 1, sm: 0 },
           }}
         >
-          {/* Logo and Copyright */}
-          <Box sx={{ flex: "1 1 200px", mb: 2 }}>
-            <img
-              src={logo}
-              alt="Image Not Found"
-              style={{
-                width: "11vw",
-                height: "20vh",
-              }}
-            />
-            <Typography
+          Schedule A Meeting
+        </Button>
+      </Box>
+
+      {/* Main Footer */}
+      <Box sx={{ width: "90%", mx: "auto", mt: 4, pb: 4 }}>
+        <Grid
+          container
+          spacing={4}
+          sx={{
+            flexWrap: "wrap",
+          }}
+        >
+          {/* Logo & Copyright */}
+          <Grid item xs={12} md={3}>
+            <Box
               sx={{
-                color: "var(--lightGray)",
-                fontSize: "1rem",
-                fontWeight: 400,
-                fontFamily: "Gilroy, sans-serif",
+                display: "flex",
+                flexDirection: "column",
+                alignItems: { xs: "center", md: "flex-start" },
+                textAlign: { xs: "center", md: "left" },
               }}
             >
-              © 2017 Rostram Tecknolabs
-            </Typography>
-          </Box>
-
-          {/* Sections */}
-          {[
-            {
-              title: "Support",
-              items: ["Design", "Development", "Marketing", "Support"],
-            },
-            {
-              title: "Resources",
-              items: ["Services", "About Us", "Contact"],
-            },
-            {
-              title: "Other Links",
-              items: ["Terms & Conditions", "Privacy Policy"],
-            },
-          ].map((section, index) => (
-            <Box key={index} sx={{ flex: "1 1 150px", mb: 2, my: 3 }}>
+              <img
+                src={logo}
+                alt="Logo"
+                style={{
+                  width: "150px",
+                  height: "auto",
+                  marginBottom: "0.5rem",
+                }}
+              />
               <Typography
                 sx={{
-                  fontSize: "1rem",
-                  fontWeight: 600,
+                  color: "var(--lightGray)",
+                  fontSize: "0.95rem",
+                  fontWeight: 400,
                   fontFamily: "Gilroy, sans-serif",
-                  mb: 1,
-                  color: "var(--whiteText)",
                 }}
               >
-                {section.title}
+                © 2017 Rostram Tecknolabs
               </Typography>
-              {section.items.map((item) => (
-                <Typography
-                  key={item}
-                  sx={{
-                    color: "#777",
-                    fontSize: "0.85rem",
-                    fontWeight: 500,
-                    fontFamily: "Gilroy, sans-serif",
-                    mb: 0.75,
-                    cursor: "pointer",
-                    ":hover": {
-                      textDecoration: "underline",
+            </Box>
+          </Grid>
+
+          {/* Support and Resources (side by side on mobile) */}
+          <Grid item xs={12} md={3}>
+            <Grid container spacing={2}>
+              {[
+                {
+                  title: "Support",
+                  items: ["Design", "Development", "Marketing", "Support"],
+                },
+                {
+                  title: "Resources",
+                  items: ["Services", "About Us", "Contact"],
+                },
+              ].map((section, index) => (
+                <Grid item xs={6} key={index}>
+                  <Typography
+                    sx={{
+                      fontSize: "1rem",
+                      fontWeight: 600,
+                      fontFamily: "Gilroy, sans-serif",
+                      mb: 1,
                       color: "var(--whiteText)",
-                    },
+                    }}
+                  >
+                    {section.title}
+                  </Typography>
+                  {section.items.map((item) => (
+                    <Typography
+                      key={item}
+                      sx={{
+                        color: "#777",
+                        fontSize: "0.85rem",
+                        fontWeight: 500,
+                        fontFamily: "Gilroy, sans-serif",
+                        mb: 0.75,
+                        cursor: "pointer",
+                        ":hover": {
+                          textDecoration: "underline",
+                          color: "var(--whiteText)",
+                        },
+                      }}
+                    >
+                      {item}
+                    </Typography>
+                  ))}
+                </Grid>
+              ))}
+            </Grid>
+          </Grid>
+
+          {/* Other Links and Social Links (side by side on mobile) */}
+          <Grid item xs={12} md={6}>
+            <Grid container spacing={2}>
+              {/* Other Links */}
+              <Grid item xs={6}>
+                <Typography
+                  sx={{
+                    fontSize: "1rem",
+                    fontWeight: 600,
+                    fontFamily: "Gilroy, sans-serif",
+                    mb: 1,
+                    color: "var(--whiteText)",
                   }}
                 >
-                  {item}
+                  Other Links
                 </Typography>
-              ))}
-            </Box>
-          ))}
+                {["Terms & Conditions", "Privacy Policy"].map((item) => (
+                  <Typography
+                    key={item}
+                    sx={{
+                      color: "#777",
+                      fontSize: "0.85rem",
+                      fontWeight: 500,
+                      fontFamily: "Gilroy, sans-serif",
+                      mb: 0.75,
+                      cursor: "pointer",
+                      ":hover": {
+                        textDecoration: "underline",
+                        color: "var(--whiteText)",
+                      },
+                    }}
+                  >
+                    {item}
+                  </Typography>
+                ))}
+              </Grid>
 
-          {/* Social Links */}
-          <Box sx={{ flex: "1 1 150px", mb: 2, mt: 1 }}>
-            <Typography sx={{ fontWeight: 600, mb: 1 }}>
-              Social Links
-            </Typography>
-            <Box sx={{ display: "flex", gap: 0.1 }}>
-              <IconButton
-                sx={{
-                  color: "var(--darkGray)",
-                  ":hover": {
-                    color: "var(--logoRed)",
-                    scale: 1.2,
-                    transition: "all 0.3s ease-in-out",
-                  },
-                }}
-                onClick={() =>
-                  window.open("https://www.linkedin.com/", "_blank")
-                }
-              >
-                <LinkedIn />
-              </IconButton>
-              <IconButton
-                sx={{
-                  color: "var(--darkGray)",
-                  ":hover": {
-                    color: "var(--logoRed)",
-                    scale: 1.2,
-                    transition: "all 0.3s ease-in-out",
-                  },
-                }}
-                onClick={() =>
-                  window.open("https://www.instagram.com/", "_blank")
-                }
-              >
-                <Instagram />
-              </IconButton>
-              <IconButton
-                sx={{
-                  color: "var(--darkGray)",
-                  ":hover": {
-                    color: "var(--logoRed)",
-                    scale: 1.2,
-                    transition: "all 0.3s ease-in-out",
-                  },
-                }}
-                onClick={() =>
-                  window.open("https://www.facebook.com/", "_blank")
-                }
-              >
-                <Facebook />
-              </IconButton>
-              <IconButton
-                sx={{
-                  color: "var(--darkGray)",
-                  ":hover": {
-                    color: "var(--logoRed)",
-                    scale: 1.2,
-                    transition: "all 0.3s ease-in-out",
-                  },
-                }}
-                onClick={() =>
-                  window.open("https://in.pinterest.com/", "_blank")
-                }
-              >
-                <Pinterest />
-              </IconButton>
-              <IconButton
-                sx={{
-                  color: "var(--darkGray)",
-                  ":hover": {
-                    color: "var(--logoRed)",
-                    scale: 1.2,
-                    transition: "all 0.3s ease-in-out",
-                  },
-                }}
-                onClick={() => window.open("https://x.com/", "_blank")}
-              >
-                <XIcon />
-              </IconButton>
-            </Box>
-          </Box>
-        </Box>
+              {/* Social Links */}
+              <Grid item xs={6}>
+                <Typography
+                  sx={{
+                    fontWeight: 600,
+                    mb: 1,
+                    fontFamily: "Gilroy, sans-serif",
+                    color: "var(--whiteText)",
+                  }}
+                >
+                  Social Links
+                </Typography>
+                <Box sx={{ display: "flex", gap: 1, flexWrap: "wrap" }}>
+                  {[
+                    { icon: <LinkedIn />, url: "https://www.linkedin.com/" },
+                    { icon: <Instagram />, url: "https://www.instagram.com/" },
+                    { icon: <Facebook />, url: "https://www.facebook.com/" },
+                    { icon: <Pinterest />, url: "https://in.pinterest.com/" },
+                    { icon: <XIcon />, url: "https://x.com/" },
+                  ].map((item, i) => (
+                    <IconButton
+                      key={i}
+                      sx={{
+                        color: "var(--darkGray)",
+                        ":hover": {
+                          color: "var(--logoRed)",
+                          transform: "scale(1.2)",
+                          transition: "all 0.3s ease-in-out",
+                        },
+                      }}
+                      onClick={() => window.open(item.url, "_blank")}
+                    >
+                      {item.icon}
+                    </IconButton>
+                  ))}
+                </Box>
+              </Grid>
+            </Grid>
+          </Grid>
+        </Grid>
       </Box>
     </Box>
   );

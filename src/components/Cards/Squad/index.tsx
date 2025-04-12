@@ -1,18 +1,18 @@
-import { Box, Typography } from "@mui/material";
+import { Box, Typography, IconButton } from "@mui/material";
+import { ArrowBackIos, ArrowForwardIos } from "@mui/icons-material";
 import women from "../../../assets/women.png";
 import Boy from "../../../assets/Boy.png";
 import Boy1 from "../../../assets/Boy1.png";
 import men from "../../../assets/men.png";
 import TeenBoy from "../../../assets/TeenBoy.png";
 import Men1 from "../../../assets/Men1.png";
+import React from "react";
 
 const cards = [
   {
     id: 1,
     name: "Raju Raju Raju Raju ",
     position: "CEO",
-    // description:
-    //   "Exceptional service! The team is professional, efficient, and incredibly friendly.They completed the work swiftly and exceeded my expectations. Highly recommended!",
     color: "var(--darkGray)",
     image: men,
   },
@@ -91,14 +91,24 @@ const cards = [
 ];
 
 const Squad = () => {
+  const scrollRef = React.useRef<HTMLDivElement>(null);
+
+  const handleScroll = (direction: "left" | "right") => {
+    if (scrollRef.current) {
+      scrollRef.current.scrollBy({
+        left: direction === "left" ? -300 : 300,
+        behavior: "smooth",
+      });
+    }
+  };
+
   return (
     <Box
       sx={{
-        marginY: "6rem",
+        marginY: "3rem",
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
-        justifyContent: "center",
         gap: 4,
       }}
     >
@@ -114,145 +124,176 @@ const Squad = () => {
           WebkitTextFillColor: "transparent",
           textAlign: "center",
           width: "70%",
-          display: "flex",
-          justifySelf: "center",
-          justifyContent: "center",
-          // padding: "1.5rem rem",
+          "@media (max-width: 600px)": {
+            fontSize: "2rem",
+            width: "90%",
+          },
         }}
       >
         Our Team
       </Typography>
+
       <Box
         sx={{
-          width: "80%",
-          height: "60vh",
+          width: "100%",
+          maxWidth: "1300px",
           margin: "auto",
           display: "flex",
-          flexDirection: "row",
-          overflow: "scroll",
-          scrollbarWidth: "none",
-          justifyContent: "space-between",
           alignItems: "center",
-          // backgroundColor: "var(--blackbackGround)",
-          gap: 5,
-          paddingX: "2rem",
+          position: "relative",
         }}
       >
-        {cards.map((card) => (
-          <Box
-            key={card.id}
-            sx={{
-              minWidth: "23%",
-              maxWidth: "23%",
-              height: "50vh",
-              display: "flex",
-              flexDirection: "column",
-              justifyContent: "flex-start",
-              alignItems: "flex-start",
-              padding: "0.5rem",
-              paddingX: "1rem",
-              // gap: 3,
-              // backgroundColor: "var(--blackText)",
-              borderRadius: "1rem",
-              border: `1px solid ${card.color}`,
-              // borderBottom: `10px solid #E82C2D`,
-              borderBottom: `10px solid ${card.color}`,
-              position: "relative",
-              // gap: 1,
-              ":hover": {
-                color: "var(--logoRed)",
-                scale: 1.02,
-                transition: "all 0.3s ease-in-out",
-              },
-            }}
-          >
-            <Typography
-              sx={{
-                fontSize: "2.75rem",
-                fontWeight: 600,
-                fontFamily: "Nunito Sans, sans-serif",
-                color: "var(--blackbackGround)",
-                width: "18vw",
-                // backgroundColor: "var(--blackbackGround)",
-                whiteSpace: "nowrap", // Prevent line breaks
-                overflow: "hidden", // Hide overflow text
-                textOverflow: "ellipsis", // Add "..." if text overflows
-              }}
-            >
-              {card.name}
-            </Typography>
+        <IconButton
+          sx={{
+            position: "absolute",
+            left: 0,
+            zIndex: 1,
+            backgroundColor: "rgba(0, 0, 0, 0.5)",
+            "&:hover": {
+              backgroundColor: "rgba(0, 0, 0, 0.7)",
+            },
+          }}
+          onClick={() => handleScroll("left")}
+        >
+          <ArrowBackIos sx={{ color: "#fff" }} />
+        </IconButton>
 
-            <Typography
-              sx={{
-                fontSize: "0.75rem",
-                fontWeight: 600,
-                fontFamily: "Nunito Sans, sans-serif",
-                // color: `${card.color}`,
-                color: "var(--whiteText)",
-                backgroundColor: "var(--logoRed)",
-                padding: "0.25rem 0.5rem",
-              }}
-            >
-              {card.position}
-            </Typography>
-
+        <Box
+          ref={scrollRef}
+          sx={{
+            display: "flex",
+            overflowX: "auto",
+            scrollBehavior: "smooth",
+            padding: "1rem 3rem", // Padding added for first/last card visibility
+            gap: 2,
+            scrollbarWidth: "none",
+            "&::-webkit-scrollbar": {
+              display: "none",
+            },
+          }}
+        >
+          {cards.map((card) => (
             <Box
+              key={card.id}
               sx={{
-                backgroundColor: "var(--lightGray)",
-                // backgroundColor: card.color,
-                position: "absolute",
-                bottom: { xs: 5, sm: 10 },
-                right: { xs: "5%", sm: "10%", md: "15%" }, // Adjust right positioning
-                padding: "0.5rem",
-                width: { xs: "30vw", sm: "20vw", md: "15vw" }, // Responsive width
-                height: { xs: "20vh", sm: "25vh", md: "27vh" }, // Responsive height
-                borderRadius: { xs: "50%", sm: "80%", md: "100%" }, // Adjust border-radius
-                zIndex: -1,
+                minWidth: "250px",
+                maxWidth: "250px",
+                height: { xs: "38vh", sm: "45vh", md: "45vh" },
                 display: "flex",
-                justifyContent: "center",
+                flexDirection: "column",
+                justifyContent: "flex-start",
                 alignItems: "center",
+                padding: "0.5rem 1rem",
+                borderRadius: "1rem",
+                border: `1px solid ${card.color}`,
+                borderBottom: `10px solid ${card.color}`,
+                position: "relative",
                 ":hover": {
                   color: "var(--logoRed)",
-                  transform: "scale(1)", // Use transform for scaling
-                  boxShadow: "0px 20px 60px rgba(255, 0, 0, 0.25)", // Shadow on hover
+                  transform: "scale(1.02)",
+                  transition: "all 0.3s ease-in-out",
                 },
               }}
             >
-              <img
-                src={card.image}
-                alt=""
-                style={{
+              <Box
+                sx={{
+                  backgroundColor: "var(--lightGray)",
                   position: "absolute",
-                  bottom: -10,
-                  // right: 10, // Use a single value for the right positioning
-                  objectFit: "contain",
-                  width: "100%", // Ensure it scales with the Box
-                  height: "auto", // Maintain aspect ratio
-                  maxWidth: "230px", // Prevent overflow
-                  maxHeight: "230px",
+                  bottom: { xs: 5, sm: 10 },
+                  right: { xs: "18%", sm: "15%", md: "20%", lg: "8%" },
+                  padding: "0.5rem",
+                  width: { xs: "40vw", sm: "20vw", md: "15vw", lg: "15vw" },
+                  height: { xs: "18vh", sm: "25vh", md: "27vh" },
+                  borderRadius: "50%",
+                  zIndex: -1,
+                  display: "flex",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  ":hover": {
+                    boxShadow: "0px 20px 60px rgba(255, 0, 0, 0.25)",
+                  },
                 }}
-              />
-            </Box>
+              >
+                <img
+                  src={card.image}
+                  alt={card.name}
+                  style={{
+                    position: "absolute",
+                    bottom: -10,
+                    objectFit: "contain",
+                    width: "100%",
+                    height: "auto",
+                    maxWidth: "230px",
+                    maxHeight: "230px",
+                  }}
+                />
+              </Box>
 
-            <Typography
-              sx={{
-                width: "100%",
-                fontSize: "1rem",
-                fontWeight: 500,
-                fontFamily: "Nunito Sans, sans-serif",
-                color: "var(--blackbackGround)",
-                mt: 1,
-                display: "-webkit-box",
-                WebkitLineClamp: 3, // 👈 limits to 4 lines
-                WebkitBoxOrient: "vertical",
-                overflow: "hidden",
-                textOverflow: "ellipsis",
-              }}
-            >
-              {card.description}
-            </Typography>
-          </Box>
-        ))}
+              <Box>
+                <Typography
+                  sx={{
+                    fontSize: "1.5rem",
+                    fontWeight: 600,
+                    fontFamily: "Nunito Sans, sans-serif",
+                    color: "var(--blackbackGround)",
+                    width: "100%",
+                    whiteSpace: "nowrap",
+                    overflow: "hidden",
+                    textOverflow: "ellipsis",
+                  }}
+                >
+                  {card.name}
+                </Typography>
+
+                <Typography
+                  sx={{
+                    fontSize: "0.85rem",
+                    fontWeight: 600,
+                    fontFamily: "Nunito Sans, sans-serif",
+                    color: "var(--whiteText)",
+                    backgroundColor: "var(--logoRed)",
+                    padding: "0.25rem 0.5rem",
+                  }}
+                >
+                  {card.position}
+                </Typography>
+
+                <Typography
+                  sx={{
+                    width: "100%",
+                    fontSize: "0.9rem",
+                    fontWeight: 500,
+                    fontFamily: "Nunito Sans, sans-serif",
+                    color: "var(--blackbackGround)",
+                    mt: 1,
+                    display: "-webkit-box",
+                    WebkitLineClamp: 3,
+                    WebkitBoxOrient: "vertical",
+                    overflow: "hidden",
+                    textOverflow: "ellipsis",
+                  }}
+                >
+                  {card.description}
+                </Typography>
+              </Box>
+            </Box>
+          ))}
+        </Box>
+
+        <IconButton
+          sx={{
+            position: "absolute",
+            right: 0,
+            zIndex: 1,
+            backgroundColor: "rgba(0, 0, 0, 0.5)",
+            "&:hover": {
+              backgroundColor: "rgba(0, 0, 0, 0.7)",
+            },
+          }}
+          onClick={() => handleScroll("right")}
+        >
+          <ArrowForwardIos sx={{ color: "#fff" }} />
+        </IconButton>
       </Box>
     </Box>
   );
