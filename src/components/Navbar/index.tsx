@@ -1,4 +1,5 @@
 import { useGSAP } from "@gsap/react";
+import logo from "../../assets/rostram_logo-removebg-preview.png";
 import gsap from "gsap";
 import {
   Box,
@@ -212,7 +213,7 @@ const Navbar = () => {
           >
             <img
               ref={imgRef}
-              src="/src/assets/rostram_logo-removebg-preview.png"
+              src={logo}
               alt="Logo"
               style={{
                 width: "100%",
@@ -242,7 +243,7 @@ const Navbar = () => {
           <img
             className="logo-container"
             height={isSmallScreen ? 50 : 80}
-            src="/src/assets/rostram_logo-removebg-preview.png"
+            src={logo}
             alt="Logo"
           />
         <Box>
