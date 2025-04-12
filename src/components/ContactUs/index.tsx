@@ -1,10 +1,7 @@
-import { Box, Button, TextField, Typography } from "@mui/material";
-import { useRef } from "react";
+import React, { useRef } from "react";
+import { Box, TextField, Typography, Button } from "@mui/material";
 import { gsap } from "gsap";
-import { MotionPathPlugin } from "gsap/MotionPathPlugin";
 import { useGSAP } from "@gsap/react";
-
-gsap.registerPlugin(MotionPathPlugin);
 
 const ContactUs = () => {
   const pathRef = useRef<SVGPathElement | null>(null);
@@ -17,7 +14,6 @@ const ContactUs = () => {
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          // Reset the dash before playing
           gsap.set(path, {
             strokeDasharray: pathLength,
             strokeDashoffset: pathLength,
@@ -30,7 +26,6 @@ const ContactUs = () => {
             delay: 0.5,
           });
         } else {
-          // Reset if user leaves the section
           gsap.set(path, {
             strokeDashoffset: pathLength,
           });
@@ -49,70 +44,74 @@ const ContactUs = () => {
       id="contact"
       sx={{
         backgroundColor: "var(--darkGray)",
-        flex: 1,
         display: "flex",
-        flexDirection: "row",
-        justifyContent: "space-between",
-        padding: { xs: "1rem", sm: "2rem", md: "3rem" },
-        paddingX: "5rem",
-        marginBottom: "-2rem",
+        flexWrap: "wrap",
+        justifyContent: "center",
+        padding: { xs: "2rem", sm: "3rem", md: "4rem", lg: "5rem" },
+        gap: "2rem",
       }}
     >
       {/* SVG Section */}
       <Box
         sx={{
-          width: "55%",
+          width: { xs: "100%", md: "50%", lg: "45%" },
+          minHeight: { xs: "50px", md: "180px", lg: "300px" },
           display: "flex",
-          flexDirection: "column",
+          justifyContent: "center",
           alignItems: "center",
           position: "relative",
         }}
       >
         <Typography
           sx={{
-            fontSize: { xs: "1.5rem", sm: "2rem" },
+            fontSize: { xs: "1.5rem", sm: "2rem", lg: "2.5rem" },
             fontFamily: "Gilroy, sans-serif",
             fontWeight: 600,
             color: "var(--logoRed)",
             backgroundColor: "var(--blackbackGround)",
             zIndex: 1,
             position: "absolute",
-            left: "-1%",
-            bottom: 0,
+            left: "5%",
+            bottom: "5%",
             padding: "0.5rem 1rem",
           }}
         >
           Connect With Us .
         </Typography>
 
-        <svg
-          width="100%"
-          height="auto"
-          viewBox="0 0 750 650"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-          style={{
-            position: "absolute",
-            top: "2%",
-            left: "-10%",
+        <Box
+          sx={{
+            display: { xs: "none", sm: "none", md: "block" },
           }}
         >
-          <path
-            ref={pathRef}
-            d="M0.5 595C156.5 525.5 131 210.5 251.5 149.5C372 88.5 533 242 379.5 357C226 472 -102.5 134 95 62.5C292.5 -9 742.5 34.5 742.5 34.5M742.5 34.5L643 1M742.5 34.5L643 49.5"
-            stroke="var(--logoRed)"
-            strokeWidth="8"
+          <svg
+            width="100%"
+            height="100%"
+            viewBox="0 0 750 650"
             fill="none"
-          />
-        </svg>
+            xmlns="http://www.w3.org/2000/svg"
+            style={{
+              maxWidth: "100%",
+              height: "auto",
+            }}
+          >
+            <path
+              ref={pathRef}
+              d="M0.5 595C156.5 525.5 131 210.5 251.5 149.5C372 88.5 533 242 379.5 357C226 472 -102.5 134 95 62.5C292.5 -9 742.5 34.5 742.5 34.5M742.5 34.5L643 1M742.5 34.5L643 49.5"
+              stroke="var(--logoRed)"
+              strokeWidth="8"
+              fill="none"
+            />
+          </svg>
+        </Box>
       </Box>
 
       {/* Form Section */}
       <Box
         sx={{
+          width: { xs: "100%", md: "45%", lg: "40%" },
           display: "flex",
           flexDirection: "column",
-          width: "70%",
           gap: "2rem",
         }}
       >
