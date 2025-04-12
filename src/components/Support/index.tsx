@@ -20,6 +20,11 @@ export const Support = () => {
         width: "100%",
         height: {
           xs: selectedIndex === 1 ? "210vh" : "",
+          sm: selectedIndex === 1 ? "200vh" : "",
+          md:selectedIndex === 1 ? "280vh" : "",
+          // md: selectedIndex === 1 ? "200vh" : "",
+          lg: selectedIndex === 1 ? "97vh" : "",
+
          
         },
         display: "flex",
