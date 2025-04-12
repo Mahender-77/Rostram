@@ -54,6 +54,11 @@ const Marquee: React.FC = () => {
           justifyContent: "center",
           // padding: "1.5rem rem",
           mb: 5,
+          "@media (max-width: 600px)": {
+            fontSize: "2rem",
+            fontFamily: "Gilroy, sans-serif",
+            width: "90%",
+          },
         }}
       >
         Our Partners
@@ -67,7 +72,7 @@ const Marquee: React.FC = () => {
           animation: "marquee 30s linear infinite",
           animationPlayState: isPaused ? "paused" : "running",
           flexShrink: 0,
-          gap: 10,
+          gap: { xs: 2, sm: 4, md: 6, lg: 8, xl: 10 },
         }}
       >
         {images.map((img) => (
@@ -78,9 +83,21 @@ const Marquee: React.FC = () => {
             alt={`Marquee ${img.id}`}
             sx={{
               mx: 1,
-              width: "100%",
-              height: 150,
-              objectFit: "cover",
+              width: {
+                xs: 150, // mobile
+                sm: 150, // tablets
+                md: 180, // desktops
+                lg: 200,
+                xl: 220,
+              },
+              height: {
+                xs: 100,
+                sm: 120,
+                md: 150,
+                lg: 160,
+                xl: 180,
+              },
+              objectFit: "contain",
               borderRadius: 2,
               cursor: "pointer",
             }}
