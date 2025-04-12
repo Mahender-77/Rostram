@@ -53,7 +53,7 @@ const AboutCard = () => {
   ];
 
   return (
-    <Box id="about" sx={{ py: { xs: 6, md: 10 } }}>
+    <Box id="about" sx={{ pb: { xs: 6, md: 10 } }}>
       <Typography
         sx={{
           fontSize: { xs: "2rem", md: "3rem" },

@@ -13,25 +13,45 @@ export const ITService = () => {
   return (
     <Box
       sx={{
-        marginTop: "50px",
+        marginTop: {
+          xs: "80px",
+          lg: "100px",
+        },
         width: "100%",
-        height: selectedIndex === 0 ? "125vh" : "90vh",
+        // height: selectedIndex === 0 ? "125vh" : "90vh",
         display: "flex",
         flexDirection: "column",
         gap: 4,
       }}
     >
       {/* Main Layout */}
-      <Box sx={{ display: "flex", width: "100%", gap: 4 }}>
+      <Box sx={{ display: {
+        xs:"column",
+        lg:"flex"
+      }, width: "100%", gap: {
+        xs: 0,
+        lg: 4,
+      } }}>
         {/* Left Side Navigation */}
         <Box
           sx={{
-            width: "30%",
+            width: {
+              xs: "99%",
+              lg: "30%",
+            },
+            p: 1,
             display: "flex",
             flexDirection: "column",
             gap: 1,
-            marginTop: 10,
-            marginLeft: 10,
+            marginTop: {
+              xs: 0,
+              lg: 4,
+            },
+            marginLeft: {
+
+              xs: 0,
+              lg: 4,
+            },
           }}
         >
           <Typography
@@ -50,16 +70,33 @@ export const ITService = () => {
               onClick={() => setSelectedIndex(index)}
               sx={{
                 // backgroundColor: "var(--grayFooter)",
+                width:{
+                  xs: "90%",
+                  lg: "100%",
+                },
                 color:
                   selectedIndex === index ? "var(--logoRed)" : "var(--white)",
-                padding: 2,
+                  padding: {
+                    xs: 1,
+                    sm: 1,
+                    md: 2,
+                    lg: 2,
+                    xl: 2,
+                  },
                 paddingY: 3,
-                fontSize: "1.2rem",
+                fontSize: {
+                  xs: "1rem",
+                  sm: "1.2rem",
+                  md: "1.2rem",
+                  lg: "1.2rem", 
+                  xl: "1.2rem",
+
+                },
                 fontFamily: "Nunito Sans, sans-serif",
                 fontWeight: selectedIndex === index ? 800 : 500,
                 borderRight:
                   selectedIndex === index
-                    ? "10px solid var(--logoRed)"
+                    ?{ xs:"2px solid var(--logoRed)",lg: "10px solid var(--logoRed)"}
                     : "none",
                 backgroundColor:
                   selectedIndex === index
@@ -78,9 +115,18 @@ export const ITService = () => {
         {/* Right Side Content */}
         <Box
           sx={{
-            marginTop: 10,
-            width: "75%",
-            padding: 4,
+            width: {
+              xs: "90%",
+              lg: "75%",
+            },
+            marginTop: 4,
+            padding: {
+              xs: 2,
+              sm: 2,
+              md: 3,
+              lg: 4,
+              xl: 4,
+            },
             backgroundColor: "rgba(255, 255, 255, 0.05)",
             borderRadius: 3,
             display: "flex",
@@ -92,7 +138,12 @@ export const ITService = () => {
           <Typography
             sx={{
               fontFamily: "Nunito Sans, sans-serif",
-              fontSize: "2rem",
+              fontSize: {
+                xs: "1.3rem",
+                sm: "2rem",
+                md: "2rem",
+                lg: "2rem",
+              },
               color: "var(--logoRed)",
               fontWeight: 900,
             }}
@@ -104,7 +155,6 @@ export const ITService = () => {
             sx={{
               fontFamily: "Nunito Sans, sans-serif",
               fontSize: "1.1rem",
-
               whiteSpace: "pre-line",
               fontWeight: 500,
             }}
