@@ -16,8 +16,11 @@ export const Main = () => {
         <Route  element={<MainLayout/>}>
            <Route path="/" element={<Home/>}/>
            <Route path="/VFX/:idx" element={<VFX/>}/>
+           <Route path="/VFX" element={<VFX/>}/>
            <Route path="/ITServices/:idx" element={<ITService/>} />
+           <Route path="/ITServices" element={<ITService/>} />
            <Route path="/Support/:idx" element={<Support/>} />
+           <Route path="/Support" element={<Support/>} />
          </Route>
       </Routes>
      
