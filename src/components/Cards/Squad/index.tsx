@@ -116,7 +116,7 @@ const Squad = () => {
         sx={{
           fontSize: "3rem",
           fontWeight: 600,
-          fontFamily: "Nunito Sans, sans-serif",
+          fontFamily: "Gilroy, sans-serif",
           backgroundImage:
             "linear-gradient(120deg,rgb(142, 14, 14),rgb(255, 0, 8),rgb(142, 14, 14))",
           backgroundClip: "text",
@@ -126,6 +126,7 @@ const Squad = () => {
           width: "70%",
           "@media (max-width: 600px)": {
             fontSize: "2rem",
+            fontFamily: "Gilroy, sans-serif",
             width: "90%",
           },
         }}
@@ -178,7 +179,7 @@ const Squad = () => {
               sx={{
                 minWidth: "250px",
                 maxWidth: "250px",
-                height: { xs: "38vh", sm: "45vh", md: "45vh" },
+                height: { xs: "45vh", sm: "45vh", md: "50vh" },
                 display: "flex",
                 flexDirection: "column",
                 justifyContent: "flex-start",
@@ -203,7 +204,7 @@ const Squad = () => {
                   right: { xs: "18%", sm: "15%", md: "20%", lg: "8%" },
                   padding: "0.5rem",
                   width: { xs: "40vw", sm: "20vw", md: "15vw", lg: "15vw" },
-                  height: { xs: "18vh", sm: "25vh", md: "27vh" },
+                  height: { xs: "22vh", sm: "25vh", md: "27vh" },
                   borderRadius: "50%",
                   zIndex: -1,
                   display: "flex",
