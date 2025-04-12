@@ -2,11 +2,14 @@ import Carousel from "react-material-ui-carousel";
 import IT_Service from "../../assets/IT_Service_.jpg";
 import VFX from "../../assets/VFX_Artist.jpg";
 // import Support_Team from "../../assets/Support_Team_.jpg";
-import { Box, Button, Typography } from "@mui/material";
+import { Box, Button, Typography, useMediaQuery,
+  useTheme, } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 
 export const ImageCarousel = () => {
   const navigate = useNavigate();
+  const theme = useTheme();
+  const isSmallScreen = useMediaQuery(theme.breakpoints.down("md"));
   // const items = [
   //     {
   //         img: IT_Service,
@@ -28,7 +31,7 @@ export const ImageCarousel = () => {
     <Carousel
       indicators={false}
       navButtonsAlwaysVisible={false}
-      interval={4000}
+      interval={400000}
       animation="slide"
       duration={500}
       navButtonsWrapperProps={{
@@ -63,45 +66,111 @@ export const ImageCarousel = () => {
       <Box
         sx={{
           width: "100%",
-          height: "100vh",
+          // marginTop:3,
+          height: {
+            xs: "40vh", // extra small screens
+            sm: "100vh", // small
+            md: "100vh", // medium
+            lg: "100vh", // large
+            xl: "100vh", // extra large
+          },
           display: "flex",
-          justifyContent: "center",
+          justifyContent:{
+            xs:"left",
+            sm:"center",
+            md:"center",
+            lg:"center",
+            xl:"center",
+
+          },
           alignItems: "center",
+          p:2,
+          // border: "2px solid red",
         }}
       >
-        <Box>
+        <Box
+          sx={{
+            width:{
+              xs: "100%", // extra small screens
+              sm: "50%", // small
+              md: "50%", // medium
+              lg: "50%", // large
+              xl: "50%", // extra large
+            },
+            
+        
+          
+          }}
+        >
           <Typography
             sx={{
               color: "#535353",
-              fontSize: "40px",
+              // border: "1px solid red",
               fontWeight: 800,
               fontFamily: "Gilroy",
+              fontSize: {
+                xs: "15px", // extra small screens
+                sm: "28px", // small
+                md: "32px", // medium
+                lg: "36px", // large
+                xl: "40px", // extra large
+              },
+             
             }}
           >
             Accelerate Post-Production.
           </Typography>
           <Typography
             sx={{
+              // border: "1px solid red",
               color: "var(--blackText)",
-              fontSize: "15px",
+              fontSize: {
+                xs: "10px", // extra small screens
+                sm: "28px", // small
+                md: "32px", // medium
+                lg: "15px", // large
+                xl: "15px", // extra large
+              },
               fontWeight: 800,
               fontFamily: "Gilroy",
+            
             }}
           >
             Less manual work, more creative output.
           </Typography>
           <Typography
-            sx={{ color: "#E82C2D", fontSize: "45px", fontWeight: 800 }}
+            sx={{
+              color: "#E82C2D",
+              widht: "100%",
+              // border: "1px solid red",
+              fontWeight: 800,
+              fontSize: {
+                xs: "18px", // Mobile
+                sm: "30px", // Small tablets
+                md: "36px", // Medium devices
+                lg: "42px", // Large screens
+                xl: "45px", // Extra-large screens
+              },
+           
+            }}
           >
             End-to-End VFX Pipeline Tools.
           </Typography>
           <Typography
-            sx={{
-              color: "var(--blackText)",
-              fontSize: "20px",
-              fontWeight: 800,
-              fontFamily: "Gilroy",
-            }}
+                sx={{
+                  color: "#535353",
+                  // border: "1px solid red",
+                  fontWeight: 800,
+                  fontFamily: "Gilroy",
+                  fontSize: {
+                    xs: "15px", // extra small screens
+                    sm: "20px", // small
+                    md: "20px", // medium
+                    lg: "20px", // large
+                    xl: "20px", // extra large
+                  },
+                 
+                }}
           >
             Reliable. Scalable. Efficient.
           </Typography>{" "}
@@ -109,8 +178,21 @@ export const ImageCarousel = () => {
             onClick={() => navigate("/VFX")}
             variant="outlined"
             sx={{
-              marginTop: 5,
-              fontSize: "1.1rem",
+              marginTop: {
+                xs: 2, // extra small screens
+                sm: 5, // small
+                md: 5, // medium
+                lg: 5, // large
+                xl: 5, // extra large
+              },
+              // fontSize: "1.1rem",
+              fontSize: {
+                xs: "0.5rem", // extra small screens
+                sm: "1.1rem", // small
+                md: "1.1rem", // medium
+                lg: "1.1rem", // large
+                xl: "1.1rem", // extra large
+              },
               fontWeight: 900,
               color: "var(--logoRed)",
               border: "1px solid var(--logoRed)",
@@ -123,78 +205,225 @@ export const ImageCarousel = () => {
         <Box
           sx={{
             position: "relative",
-            width: "40%",
+            width: { xs: "100%", sm: "80%", md: "60%", lg: "40%" },
             height: "80%",
             display: "flex",
-            justifyContent: "space-around",
+            justifyContent: "center",
             alignItems: "center",
           }}
         >
+          {/* Red Border Box */}
           <Box
             sx={{
-              width: "500px",
-              height: "550px",
+              width: {
+                xs: "70%", // Mobile
+                sm: "80%", // Small tablets
+                md: "90%", // Medium devices
+                lg: "90%", // Large screens
+                xl: "82%", // Extra-large screens
+              },
+              height: {
+                xs: "55%", // Mobile
+                sm: "90%", // Small tablets
+                md: "90%", // Medium devices
+                lg: "90%", // Large screens
+                xl: "80%", // Extra-large screens
+              },
               position: "absolute",
-              top: 80,
-              right: 20,
-              border: "5px solid #E82C2D",
+              top:  {
+                xs: "22%", // Mobile
+                sm: "10%", // Small tablets
+                md: "10%", // Medium devices
+                lg: "10%", // Large screens
+                xl: "10%", // Extra-large screens
+              },
+              right:{
+                xs: "22%", // Mobile
+                sm: "5%", // Small tablets
+                md: "5%", // Medium devices
+                lg: "5%", // Large screens
+                xl: "5%", // Extra-large screens
+              },
+              border: "0.4vw solid #E82C2D",
+              boxSizing: "border-box",
             }}
-          ></Box>
-          <Box sx={{ position: "absolute", top: 40, right: 10 }}>
+          />
+
+          {/* IT Service Image */}
+          <Box
+            sx={{
+              position: "absolute",
+              top: {
+                xs: "20%", // Mobile
+                sm: "5%", // Small tablets
+                md: "5%", // Medium devices
+                lg: "5%", // Large screens
+                xl: "5%",
+              },
+              right: {
+                xs: "10%", // Mobile
+                sm: "5%", // Small tablets
+                md: "5%", // Medium devices
+                lg: "5%", // Large screens
+                xl: "5%",
+              },
+              width: "60%",
+              maxWidth: "380px",
+            }}
+          >
             <img
-              style={{ width: "380px", height: "300px" }}
               src={IT_Service}
-              alt=""
+              alt="IT Service"
+              style={{
+                width: isSmallScreen ?"95%":"100%",
+                height: "auto",
+                objectFit: "contain",
+              }}
             />
           </Box>
-          <Box sx={{ position: "absolute", top: 200, right: 100 }}>
-            <img style={{ width: "500px", height: "400px" }} src={VFX} alt="" />
+
+          {/* VFX Image */}
+          <Box
+            sx={{
+              position: "absolute",
+              top: {
+                xs: "35%", // Mobile
+                sm: "30%", // Small tablets
+                md: "30%", // Medium devices
+                lg: "30%", // Large screens
+                xl: "30%",
+              },
+              right:  {
+                xs: "20%", // Mobile
+                sm: "10%", // Small tablets
+                md: "10%", // Medium devices
+                lg: "10%", // Large screens
+                xl: "10%",
+              },
+              width: "80%",
+              maxWidth: "500px",
+            }}
+          >
+            <img
+              src={VFX}
+              alt="VFX"
+              style={{
+                width: isSmallScreen ?"95%":"100%",
+                height: "auto",
+                objectFit: "contain",
+              }}
+            />
           </Box>
         </Box>
       </Box>
       <Box
-        sx={{
-          width: "100%",
-          height: "100vh",
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-          gap: "8rem",
-        }}
+          sx={{
+            width: "100%",
+            // marginTop:3,
+            height: {
+              xs: "40vh", // extra small screens
+              sm: "100vh", // small
+              md: "100vh", // medium
+              lg: "100vh", // large
+              xl: "100vh", // extra large
+            },
+            display: "flex",
+            justifyContent:{
+              xs:"left",
+              sm:"center",
+              md:"center",
+              lg:"center",
+              xl:"center",
+  
+            },
+            alignItems: "center",
+            p:2,
+            // border: "2px solid red",
+          }}
       >
-        <Box>
+        <Box
+        sx={{
+          width:{
+            xs: "100%", // extra small screens
+            sm: "50%", // small
+            md: "50%", // medium
+            lg: "50%", // large
+            xl: "50%", // extra large
+          },
+          
+      
+        
+        }}
+        >
           <Typography
-            sx={{
-              color: "#535353",
-              fontSize: "40px",
-              fontWeight: 800,
-              fontFamily: "Gilroy",
-            }}
+               sx={{
+                color: "#535353",
+                // border: "1px solid red",
+                fontWeight: 800,
+                fontFamily: "Gilroy",
+                fontSize: {
+                  xs: "15px", // extra small screens
+                  sm: "28px", // small
+                  md: "32px", // medium
+                  lg: "36px", // large
+                  xl: "40px", // extra large
+                },
+               
+              }}
           >
             Transform with technology.
           </Typography>
           <Typography
-            sx={{
-              color: "var(--blackText)",
-              fontSize: "15px",
-              fontWeight: 800,
-              fontFamily: "Gilroy",
-            }}
+           sx={{
+            // border: "1px solid red",
+            color: "var(--blackText)",
+            fontSize: {
+              xs: "10px", // extra small screens
+              sm: "28px", // small
+              md: "32px", // medium
+              lg: "15px", // large
+              xl: "15px", // extra large
+            },
+            fontWeight: 800,
+            fontFamily: "Gilroy",
+          
+          }}
           >
             Smart solutions for growing businesses.
           </Typography>
           <Typography
-            sx={{ color: "#E82C2D", fontSize: "45px", fontWeight: 800 }}
+            sx={{
+              color: "#E82C2D",
+              widht: "100%",
+              // border: "1px solid red",
+              fontWeight: 800,
+              fontSize: {
+                xs: "18px", // Mobile
+                sm: "30px", // Small tablets
+                md: "36px", // Medium devices
+                lg: "42px", // Large screens
+                xl: "45px", // Extra-large screens
+              },
+           
+            }}
           >
             Reliable IT Services.
           </Typography>
           <Typography
-            sx={{
-              color: "var(--blackText)",
-              fontSize: "20px",
-              fontWeight: 800,
-              fontFamily: "Gilroy",
-            }}
+          sx={{
+            color: "#535353",
+            // border: "1px solid red",
+            fontWeight: 800,
+            fontFamily: "Gilroy",
+            fontSize: {
+              xs: "15px", // extra small screens
+              sm: "20px", // small
+              md: "20px", // medium
+              lg: "20px", // large
+              xl: "20px", // extra large
+            },
+           
+          }}
           >
             24/7 Support. Scalable Solutions.
           </Typography>{" "}
@@ -202,8 +431,21 @@ export const ImageCarousel = () => {
             onClick={() => navigate("/ITServices")}
             variant="outlined"
             sx={{
-              marginTop: 5,
-              fontSize: "1.1rem",
+              marginTop: {
+                xs: 2, // extra small screens
+                sm: 5, // small
+                md: 5, // medium
+                lg: 5, // large
+                xl: 5, // extra large
+              },
+              // fontSize: "1.1rem",
+              fontSize: {
+                xs: "0.5rem", // extra small screens
+                sm: "1.1rem", // small
+                md: "1.1rem", // medium
+                lg: "1.1rem", // large
+                xl: "1.1rem", // extra large
+              },
               fontWeight: 900,
               color: "var(--logoRed)",
               border: "1px solid var(--logoRed)",
@@ -214,89 +456,249 @@ export const ImageCarousel = () => {
         </Box>
 
         <Box
-          sx={{
-            position: "relative",
-            width: "40%",
-            height: "80%",
-            display: "flex",
-            justifyContent: "space-around",
-            alignItems: "center",
-          }}
+      sx={{
+        position: "relative",
+        width: { xs: "100%", sm: "80%", md: "60%", lg: "40%" },
+        height: "80%",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+      }}
         >
+          {/* Red Border Box */}
           <Box
             sx={{
-              width: "500px",
-              height: "550px",
+              width: {
+                xs: "70%", // Mobile
+                sm: "80%", // Small tablets
+                md: "90%", // Medium devices
+                lg: "90%", // Large screens
+                xl: "82%", // Extra-large screens
+              },
+              height: {
+                xs: "55%", // Mobile
+                sm: "90%", // Small tablets
+                md: "90%", // Medium devices
+                lg: "90%", // Large screens
+                xl: "80%", // Extra-large screens
+              },
               position: "absolute",
-              top: 80,
-              right: 20,
-              border: "5px solid #E82C2D",
+              top:  {
+                xs: "22%", // Mobile
+                sm: "10%", // Small tablets
+                md: "10%", // Medium devices
+                lg: "10%", // Large screens
+                xl: "10%", // Extra-large screens
+              },
+              right:{
+                xs: "22%", // Mobile
+                sm: "5%", // Small tablets
+                md: "5%", // Medium devices
+                lg: "5%", // Large screens
+                xl: "5%", // Extra-large screens
+              },
+              border: "0.4vw solid #E82C2D",
+              boxSizing: "border-box",
             }}
-          ></Box>
-          <Box sx={{ position: "absolute", top: 40, right: 10 }}>
+          />
+
+          {/* IT Service Image */}
+          <Box
+         sx={{
+          position: "absolute",
+          top: {
+            xs: "20%", // Mobile
+            sm: "5%", // Small tablets
+            md: "5%", // Medium devices
+            lg: "5%", // Large screens
+            xl: "5%",
+          },
+          right: {
+            xs: "10%", // Mobile
+            sm: "5%", // Small tablets
+            md: "5%", // Medium devices
+            lg: "5%", // Large screens
+            xl: "5%",
+          },
+          width: "60%",
+          maxWidth: "380px",
+        }}
+          >
             <img
-              style={{ width: "380px", height: "300px" }}
-              src={IT_Service}
-              alt=""
+               src={IT_Service}
+               alt="IT Service"
+               style={{
+                 width: isSmallScreen ?"95%":"100%",
+                 height: "auto",
+                 objectFit: "contain",
+               }}
             />
           </Box>
-          <Box sx={{ position: "absolute", top: 200, right: 100 }}>
-            <img style={{ width: "500px", height: "400px" }} src={VFX} alt="" />
+
+          {/* VFX Image */}
+          <Box
+            sx={{
+              position: "absolute",
+              top: {
+                xs: "35%", // Mobile
+                sm: "30%", // Small tablets
+                md: "30%", // Medium devices
+                lg: "30%", // Large screens
+                xl: "30%",
+              },
+              right:  {
+                xs: "20%", // Mobile
+                sm: "10%", // Small tablets
+                md: "10%", // Medium devices
+                lg: "10%", // Large screens
+                xl: "10%",
+              },
+              width: "80%",
+              maxWidth: "500px",
+            }}
+          >
+            <img
+              src={VFX}
+              alt="VFX"
+              style={{
+                width: isSmallScreen ?"95%":"100%",
+                height: "auto",
+                objectFit: "contain",
+              }}
+            />
           </Box>
         </Box>
       </Box>
       <Box
-        sx={{
-          width: "100%",
-          height: "100vh",
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-          gap: "8rem",
-        }}
+          sx={{
+            width: "100%",
+            // marginTop:3,
+            height: {
+              xs: "40vh", // extra small screens
+              sm: "100vh", // small
+              md: "100vh", // medium
+              lg: "100vh", // large
+              xl: "100vh", // extra large
+            },
+            display: "flex",
+            justifyContent:{
+              xs:"left",
+              sm:"center",
+              md:"center",
+              lg:"center",
+              xl:"center",
+  
+            },
+            alignItems: "center",
+            p:2,
+            // border: "2px solid red",
+          }}
       >
-        <Box>
+        <Box
+        sx={{
+          width:{
+            xs: "100%", // extra small screens
+            sm: "50%", // small
+            md: "50%", // medium
+            lg: "50%", // large
+            xl: "50%", // extra large
+          },
+          
+      
+        
+        }}
+        >
           <Typography
-            sx={{
-              color: "#535353",
-              fontSize: "40px",
-              fontWeight: 800,
-              fontFamily: "Gilroy",
-            }}
+               sx={{
+                color: "#535353",
+                // border: "1px solid red",
+                fontWeight: 800,
+                fontFamily: "Gilroy",
+                fontSize: {
+                  xs: "15px", // extra small screens
+                  sm: "28px", // small
+                  md: "32px", // medium
+                  lg: "36px", // large
+                  xl: "40px", // extra large
+                },
+               
+              }}
           >
             Extend your support.
           </Typography>
           <Typography
-            sx={{
-              color: "var(--blackText)",
-              fontSize: "15px",
-              fontWeight: 800,
-              fontFamily: "Gilroy",
-            }}
+           sx={{
+            // border: "1px solid red",
+            color: "var(--blackText)",
+            fontSize: {
+              xs: "10px", // extra small screens
+              sm: "28px", // small
+              md: "32px", // medium
+              lg: "15px", // large
+              xl: "15px", // extra large
+            },
+            fontWeight: 800,
+            fontFamily: "Gilroy",
+          
+          }}
           >
-            Delight customers with faster resolutions.
+           Delight customers with faster resolutions.
           </Typography>
           <Typography
-            sx={{ color: "#E82C2D", fontSize: "45px", fontWeight: 800 }}
+            sx={{
+              color: "#E82C2D",
+              widht: "100%",
+              // border: "1px solid red",
+              fontWeight: 800,
+              fontSize: {
+                xs: "18px", // Mobile
+                sm: "30px", // Small tablets
+                md: "36px", // Medium devices
+                lg: "42px", // Large screens
+                xl: "45px", // Extra-large screens
+              },
+           
+            }}
           >
             Dedicated Support Teams.
           </Typography>
           <Typography
-            sx={{
-              color: "var(--blackText)",
-              fontSize: "20px",
-              fontWeight: 800,
-              fontFamily: "Gilroy",
-            }}
+          sx={{
+            color: "#535353",
+            // border: "1px solid red",
+            fontWeight: 800,
+            fontFamily: "Gilroy",
+            fontSize: {
+              xs: "15px", // extra small screens
+              sm: "20px", // small
+              md: "20px", // medium
+              lg: "20px", // large
+              xl: "20px", // extra large
+            },
+           
+          }}
           >
-            Skilled. Scalable. Always Available.
+             Skilled. Scalable. Always Available.
           </Typography>{" "}
           <Button
-            onClick={() => navigate("/Support")}
+            onClick={() => navigate("/ITServices")}
             variant="outlined"
             sx={{
-              marginTop: 5,
-              fontSize: "1.1rem",
+              marginTop: {
+                xs: 2, // extra small screens
+                sm: 5, // small
+                md: 5, // medium
+                lg: 5, // large
+                xl: 5, // extra large
+              },
+              // fontSize: "1.1rem",
+              fontSize: {
+                xs: "0.5rem", // extra small screens
+                sm: "1.1rem", // small
+                md: "1.1rem", // medium
+                lg: "1.1rem", // large
+                xl: "1.1rem", // extra large
+              },
               fontWeight: 900,
               color: "var(--logoRed)",
               border: "1px solid var(--logoRed)",
@@ -307,37 +709,124 @@ export const ImageCarousel = () => {
         </Box>
 
         <Box
-          sx={{
-            position: "relative",
-            width: "40%",
-            height: "80%",
-            display: "flex",
-            justifyContent: "space-around",
-            alignItems: "center",
-          }}
+      sx={{
+        position: "relative",
+        width: { xs: "100%", sm: "80%", md: "60%", lg: "40%" },
+        height: "80%",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+      }}
         >
+          {/* Red Border Box */}
           <Box
             sx={{
-              width: "500px",
-              height: "550px",
+              width: {
+                xs: "70%", // Mobile
+                sm: "80%", // Small tablets
+                md: "90%", // Medium devices
+                lg: "90%", // Large screens
+                xl: "82%", // Extra-large screens
+              },
+              height: {
+                xs: "55%", // Mobile
+                sm: "90%", // Small tablets
+                md: "90%", // Medium devices
+                lg: "90%", // Large screens
+                xl: "80%", // Extra-large screens
+              },
               position: "absolute",
-              top: 80,
-              right: 20,
-              border: "5px solid #E82C2D",
+              top:  {
+                xs: "22%", // Mobile
+                sm: "10%", // Small tablets
+                md: "10%", // Medium devices
+                lg: "10%", // Large screens
+                xl: "10%", // Extra-large screens
+              },
+              right:{
+                xs: "22%", // Mobile
+                sm: "5%", // Small tablets
+                md: "5%", // Medium devices
+                lg: "5%", // Large screens
+                xl: "5%", // Extra-large screens
+              },
+              border: "0.4vw solid #E82C2D",
+              boxSizing: "border-box",
             }}
-          ></Box>
-          <Box sx={{ position: "absolute", top: 40, right: 10 }}>
+          />
+
+          {/* IT Service Image */}
+          <Box
+         sx={{
+          position: "absolute",
+          top: {
+            xs: "20%", // Mobile
+            sm: "5%", // Small tablets
+            md: "5%", // Medium devices
+            lg: "5%", // Large screens
+            xl: "5%",
+          },
+          right: {
+            xs: "10%", // Mobile
+            sm: "5%", // Small tablets
+            md: "5%", // Medium devices
+            lg: "5%", // Large screens
+            xl: "5%",
+          },
+          width: "60%",
+          maxWidth: "380px",
+        }}
+          >
             <img
-              style={{ width: "380px", height: "300px" }}
-              src={IT_Service}
-              alt=""
+               src={IT_Service}
+               alt="IT Service"
+               style={{
+                 width: isSmallScreen ?"95%":"100%",
+                 height: "auto",
+                 objectFit: "contain",
+               }}
             />
           </Box>
-          <Box sx={{ position: "absolute", top: 200, right: 100 }}>
-            <img style={{ width: "500px", height: "400px" }} src={VFX} alt="" />
+
+          {/* VFX Image */}
+          <Box
+            sx={{
+              position: "absolute",
+              top: {
+                xs: "35%", // Mobile
+                sm: "30%", // Small tablets
+                md: "30%", // Medium devices
+                lg: "30%", // Large screens
+                xl: "30%",
+              },
+              right:  {
+                xs: "20%", // Mobile
+                sm: "10%", // Small tablets
+                md: "10%", // Medium devices
+                lg: "10%", // Large screens
+                xl: "10%",
+              },
+              width: "80%",
+              maxWidth: "500px",
+            }}
+          >
+            <img
+              src={VFX}
+              alt="VFX"
+              style={{
+                width: isSmallScreen ?"95%":"100%",
+                height: "auto",
+                objectFit: "contain",
+              }}
+            />
           </Box>
         </Box>
       </Box>
+   
     </Carousel>
   );
 };
+//  Extend your support.
+//   Delight customers with faster resolutions.
+//   Dedicated Support Teams.
+//  Skilled. Scalable. Always Available.
