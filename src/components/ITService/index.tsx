@@ -249,7 +249,7 @@ export const ITService = () => {
                     lg: 2,
                   },
                   width: "50%",
-                  border:"1px solid red",
+               
                   borderRadius: 2,
                 }}
               >
