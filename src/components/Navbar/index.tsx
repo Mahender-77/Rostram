@@ -315,9 +315,9 @@ const Navbar = () => {
               {/* Navigation Items */}
               {[
                 { text: "Home", onClick: handleHomeClick },
-                // { text: "About Us", onClick: () => scrollToSection("/") },
+                { text: "About Us", onClick: () => scrollToSection("/") },
                 { text: "Services" },
-                // { text: "Contact", onClick: () => navigate("/") },
+                { text: "Contact", onClick: () => navigate("/") },
               ].map((item) =>
                 item.text === "Services" ? (
                   <Box key="Services" sx={{ mt: 2 }}>
