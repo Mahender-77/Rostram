@@ -9,7 +9,7 @@ const Footer = () => {
       sx={{
         backgroundColor: "var(--blackbackGround)",
         borderTop: "1px solid black",
-        mt: 4,
+        // mt: 4,
       }}
     >
       {/* Top Call-to-Action Bar */}

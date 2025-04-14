@@ -21,7 +21,7 @@ export const Support = () => {
         height: {
           xs: selectedIndex === 1 ? "210vh" : "",
           sm: selectedIndex === 1 ? "200vh" : "",
-          md:selectedIndex === 1 ? "280vh" : "",
+          // md:selectedIndex === 1 ? "3000vh" : "",
           // md: selectedIndex === 1 ? "200vh" : "",
           lg: selectedIndex === 1 ? "97vh" : "",
 
@@ -234,13 +234,16 @@ export const Support = () => {
 
           {selectedIndex === 1 && supportData[selectedIndex].scope ? (
             <Box
-              sx={{ position: "absolute", width: {xs:"100%",lg:"80%"}, top:{
+              sx={{ position: "absolute", width: {xs:"100%",lg:"95%"}, top:{
                 xs: "120%",
-                lg:"75%"
+                sm:"130%",
+                lg:"70%"
               }, left: {
                 xs:0,
-                lg:90
-              } }}
+                lg:10
+              },
+              
+            }}
             >
               <Typography
                 sx={{
@@ -263,7 +266,14 @@ export const Support = () => {
                 sx={{
                   display:{
                     xs:"column",
+                    sm:"flex",
                     lg:"flex"
+                  },
+                  flexWrap: {
+                    sm:"wrap",
+                    // md:"",
+                    // lg:"none",
+                    // xl:"none"
                   },
                   gap: 5,
                   p:1
@@ -280,8 +290,8 @@ export const Support = () => {
                         xs: "85%",
                         sm: "25%",
                         md: "25%",
-                        lg: "25%",
-                        xl: "25%",
+                        lg: "20%",
+                        xl: "20%",
                       },
                       marginTop: 2,
                       backgroundColor: "rgba(255, 0, 0, 0.1)",
