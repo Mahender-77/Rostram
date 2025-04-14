@@ -215,7 +215,7 @@ export const ITService = () => {
             >
               <Box
                 sx={{
-                  width: "50%",
+                  width: "48%",
                   display: "flex",
                   justifyContent: "center",
                   alignItems: "center",
@@ -243,12 +243,13 @@ export const ITService = () => {
                   display: "flex",
                   flexDirection: "column",
                   gap: {
-                    xs: 1,
+                    xs: 0.5,
                     sm: 1,
                     md: 1,
                     lg: 2,
                   },
                   width: "50%",
+                  border:"1px solid red",
                   borderRadius: 2,
                 }}
               >
@@ -264,11 +265,16 @@ export const ITService = () => {
                         md: 2,
                         lg: 2,
                       },
-                      minWidth: "250px",
+                     
                     }}
                   >
                     <ArrowOutwardIcon
-                      sx={{ color: "var(--logoRed)", width: "2rem" }}
+                      sx={{ color: "var(--logoRed)", width: {
+                        xs: "1rem",
+                        sm: "1.5rem",
+                        md: "2rem",
+                        lg: "2rem",
+                      } }}
                     />{" "}
                     <Typography
                       sx={{
