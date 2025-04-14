@@ -7,6 +7,7 @@ import { Home } from "../pages/Home";
 import { VFX } from "../components/VFX";
 import { ITService } from "../components/ITService";
 import { Support } from "../components/Support";
+import ContactUs from "../components/ContactUs";
 
 export const Main = () => {
  
@@ -21,6 +22,7 @@ export const Main = () => {
            <Route path="/ITServices" element={<ITService/>} />
            <Route path="/Support/:idx" element={<Support/>} />
            <Route path="/Support" element={<Support/>} />
+           <Route path="/contact" element={<ContactUs/>}/>
          </Route>
       </Routes>
      
