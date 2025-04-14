@@ -225,7 +225,12 @@ export const ITService = () => {
                 <Typography
                   sx={{
                     fontFamily: "Nunito Sans, sans-serif",
-                    fontSize: "2rem",
+                    fontSize:{
+                      xs: "1rem",
+                      sm: "2rem",
+                      md: "2rem",
+                      lg: "2rem",
+                    },
                     color: "var(--logoRed)",
                     fontWeight: 900,
                   }}
@@ -237,7 +242,12 @@ export const ITService = () => {
                 sx={{
                   display: "flex",
                   flexDirection: "column",
-                  gap: 2,
+                  gap: {
+                    xs: 1,
+                    sm: 1,
+                    md: 1,
+                    lg: 2,
+                  },
                   width: "50%",
                   borderRadius: 2,
                 }}
@@ -248,7 +258,12 @@ export const ITService = () => {
                     sx={{
                       display: "flex",
                       alignItems: "center",
-                      gap: 2,
+                      gap: {
+                        xs: 0,
+                        sm: 1,
+                        md: 2,
+                        lg: 2,
+                      },
                       minWidth: "250px",
                     }}
                   >
@@ -258,7 +273,12 @@ export const ITService = () => {
                     <Typography
                       sx={{
                         fontFamily: "Nunito Sans, sans-serif",
-                        fontSize: "1rem",
+                        fontSize: {
+                          xs: "0.7rem",
+                          sm: "0.9rem",
+                          md: "1rem",
+                          lg: "1.2rem",
+                        },
                         fontWeight: 800,
                       }}
                     >
