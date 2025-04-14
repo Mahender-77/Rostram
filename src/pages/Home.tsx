@@ -7,6 +7,7 @@ import Marquee from "../components/Cards/Marquee";
 import Squad from "../components/Cards/Squad";
 import ContactUs from "../components/ContactUs";
 import { ImageCarousel } from "../components/ImageCarousel";
+import { TempleTown } from "../components/TempleTown";
 // import ImageCarousel from "../components/ImageCarousel";
 
 
@@ -20,6 +21,7 @@ export const Home = () => {
       {/* <DesignCard />
       <OurServices/> */}
       <AboutCard />
+      <TempleTown/>
       <Marquee />
       <Squad />
       <ContactUs/>

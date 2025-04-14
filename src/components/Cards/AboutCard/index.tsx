@@ -53,7 +53,17 @@ const AboutCard = () => {
   ];
 
   return (
-    <Box id="about" sx={{ pb: { xs: 6, md: 10 } }}>
+    <Box
+      id="about"
+      sx={{
+        pb: { xs: 6, sm: 8, md: 10 }, // Adjust padding for smaller screens
+        pt: { xs: 4, sm: 6, md: 8 }, // Add top padding to prevent overlap
+        px: { xs: 2, sm: 4, md: 6 },
+        py:{lg:30},
+         // Add horizontal padding
+        overflow: "hidden",
+      }}
+    >
       <Typography
         sx={{
           fontSize: { xs: "2rem", md: "3rem" },

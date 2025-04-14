@@ -44,7 +44,8 @@ export const ImageCarousel = () => {
         style: {
           opacity: 1,
           transition: "opacity 0.3s",
-          // border:"2px solid red",
+      
+      
           
         },
       }}

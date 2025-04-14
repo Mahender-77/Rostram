@@ -177,9 +177,19 @@ const Squad = () => {
             <Box
               key={card.id}
               sx={{
-                minWidth: "250px",
-                maxWidth: "250px",
-                height: { xs: "45vh", sm: "45vh", md: "50vh" },
+                minWidth: {
+                  xs: "150px",
+                  sm: "250px",
+                  md: "250px",
+                  lg: "200px",
+                },
+                maxWidth:{
+                  xs: "200px",
+                  sm: "250px",
+                  md: "300px",
+                  lg: "300px",
+                },
+                height: { xs: "20vh", sm: "45vh", md: "40vh",lg:"30vh" },
                 display: "flex",
                 flexDirection: "column",
                 justifyContent: "flex-start",
@@ -201,10 +211,10 @@ const Squad = () => {
                   backgroundColor: "var(--lightGray)",
                   position: "absolute",
                   bottom: { xs: 5, sm: 10 },
-                  right: { xs: "18%", sm: "15%", md: "20%", lg: "8%" },
+                  right: { xs: "18%", sm: "15%", md: "25%", lg: "15%" },
                   padding: "0.5rem",
-                  width: { xs: "40vw", sm: "20vw", md: "15vw", lg: "15vw" },
-                  height: { xs: "22vh", sm: "25vh", md: "27vh" },
+                  width: { xs: "20vw", sm: "20vw", md: "12vw", lg: "8vw" },
+                  height: { xs: "10vh", sm: "25vh", md: "15vh",lg: "8vw" },
                   borderRadius: "50%",
                   zIndex: -1,
                   display: "flex",
@@ -233,7 +243,12 @@ const Squad = () => {
               <Box>
                 <Typography
                   sx={{
-                    fontSize: "1.5rem",
+                    fontSize:{
+                      xs: "1rem",
+                      sm: "1.5rem",
+                      md: "1.5rem",
+                      lg: "1.5rem",
+                    },
                     fontWeight: 600,
                     fontFamily: "Nunito Sans, sans-serif",
                     color: "var(--blackbackGround)",
@@ -262,7 +277,12 @@ const Squad = () => {
                 <Typography
                   sx={{
                     width: "100%",
-                    fontSize: "0.9rem",
+                    fontSize:{
+                      xs: "0.5rem",
+                      sm: "0.9em",
+                      md: "0.9em",
+                      lg: "0.9em",
+                    },
                     fontWeight: 500,
                     fontFamily: "Nunito Sans, sans-serif",
                     color: "var(--blackbackGround)",
